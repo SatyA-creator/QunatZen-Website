@@ -32,7 +32,7 @@ const Navigation = () => {
           >
             <div className="relative">
               <img 
-                src="/src/assets/quantzen-logo.jpg" 
+                src="/quantzen-logo.jpg" 
                 alt="QuantZen Logo" 
                 className="w-10 h-10 rounded-full object-cover"
               />
