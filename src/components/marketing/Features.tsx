@@ -12,44 +12,38 @@ import {
 const features = [
   {
     icon: Code2,
-    title: "Developer-First SDK",
+    title: "Rising Exploits",
     description:
-      "Intuitive APIs and comprehensive documentation make integration seamless across all major blockchain platforms",
+      "Web3 is hemorrhaging assets daily from hacks, contract bugs, supply-chain attacks, and social exploits.",
     color: "text-primary",
   },
   {
     icon: Gauge,
-    title: "Real-Time Monitoring",
+    title: "Data Harvesting",
     description:
-      "Live dashboard with quantum threat metrics, security scores, and automated alerts for your entire infrastructure",
+      "Attackers already employ “store now, decrypt later” tactics, hoarding encrypted data now to crack once quantum power arrives.",
     color: "text-secondary",
   },
   {
     icon: Lock,
-    title: "Post-Quantum Cryptography",
+    title: "Quantum Acceleration",
     description:
-      "NIST-approved algorithms including CRYSTALS-Kyber, CRYSTALS-Dilithium, and FALCON for future-proof security",
+      "Quantum computing is accelerating: NIST predicts deprecating legacy algorithms by 2030 and fully phasing them out by 2035.",
     color: "text-accent",
   },
   {
     icon: Workflow,
-    title: "Seamless Migration",
+    title: "New Standards",
     description:
-      "Automated migration paths with zero downtime - no hard forks, no service interruption, no user impact",
+      "New post-quantum standards like CRYSTALS-Kyber, Dilithium, and HQC are being formalised now to replace RSA/ECC.",
     color: "text-quantum-secondary",
   },
-  {
-    icon: BarChart3,
-    title: "Security Analytics",
-    description:
-      "Advanced threat intelligence with vulnerability scoring, risk assessment, and compliance reporting",
-    color: "text-security-medium",
-  },
+ 
   {
     icon: GitBranch,
-    title: "Multi-Chain Support",
+    title: "Imminent Threat",
     description:
-      "Universal compatibility with Ethereum, Solana, Cosmos, Polkadot, and all EVM-compatible chains",
+      "The quantum threat may be closer than many expect, and Web3 must embed quantum resilience now or risk utter collapse.",
     color: "text-primary",
   },
 ];
@@ -66,12 +60,12 @@ const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Built for the <span className="text-gradient">quantum era</span>
+            The <span className="text-gradient">Situation</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          {/* <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Enterprise-grade features that keep your blockchain secure against
             quantum threats
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">

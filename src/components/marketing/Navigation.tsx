@@ -8,12 +8,12 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Home", href: "#" },
-    { name: "Why QuantZen", href: "#why" },
-    { name: "Product & Tech", href: "#product" },
-    { name: "POCs & Partners", href: "#partners" },
+    { name: "Why Us", href: "#why" },
+    { name: "Product", href: "#product" },
+    { name: "Partners", href: "#partners" },
     { name: "Roadmap", href: "#roadmap" },
-    { name: "News & Blog", href: "#news" },
-    { name: "About Us", href: "#about" },
+    { name: "News", href: "#news" },
+    { name: "About Documents", href: "#about" },
   ];
 
   return (

@@ -85,7 +85,7 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                , without waiting for a hard fork
+                , without waiting for a hard fork.
               </motion.span>
             </h1>
           </motion.div>
@@ -97,7 +97,7 @@ const Hero = () => {
             className="text-xl sm:text-2xl text-white/80 mb-12 max-w-3xl mx-auto"
           >
             QuantZen adds a post‑quantum signature to every transaction (alongside today’s ECDSA), so wallets, dApps, bridges, and custodians are secure now and future‑ready.
-Get the SDK · Book a 30‑min Migration Consult · Join the POC Program
+  Join the POC Program
 
           </motion.p>
 
@@ -112,7 +112,7 @@ Get the SDK · Book a 30‑min Migration Consult · Join the POC Program
               whileTap={{ scale: 0.95 }}
             >
               <Button variant="quantum" size="lg" className="group relative overflow-hidden">
-                <span className="relative z-10">Assess Your Quantum Risk</span>
+                <span className="relative z-10">Book a 30‑min Migration Consult</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-smooth relative z-10" />
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-quantum-accent to-quantum-secondary"
@@ -127,7 +127,7 @@ Get the SDK · Book a 30‑min Migration Consult · Join the POC Program
               whileTap={{ scale: 0.95 }}
             >
               <Button variant="hero" size="lg" className="hover-lift">
-                Explore SDK
+                Get the SDK
               </Button>
             </motion.div>
           </motion.div>
