@@ -26,8 +26,8 @@ const stats = [
 
 const Stats = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,10 +35,10 @@ const Stats = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Trusted by the <span className="text-gradient">ecosystem</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
             Industry-leading performance and security metrics
           </p>
         </motion.div>

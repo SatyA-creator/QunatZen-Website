@@ -52,8 +52,8 @@ const StandardsSection = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-secondary/5 to-quantum-primary/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-br from-secondary/5 to-quantum-primary/5 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,17 +61,17 @@ const StandardsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-gradient">Proof &</span> Standards
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Uses NIST-standardized post-quantum algorithms (e.g., CRYSTALS-Dilithium, Kyber for KEM).
 Built on liboqs and open standards.
           </p>
         </motion.div>
 
         {/* Standards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto mb-16">
           {standards.map((standard, index) => (
             <motion.div
               key={standard.title}
@@ -159,8 +159,8 @@ Stay informed — subscribe to get the latest in your inbox.
             </p>
 
             {!isSubscribed ? (
-              <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4">
+              <form onSubmit={handleSubscribe} className="max-w-md mx-auto px-4 sm:px-0">
+                <div className="flex flex-col gap-4">
                   <Input
                     type="email"
                     placeholder="Enter your email address"
@@ -171,7 +171,7 @@ Stay informed — subscribe to get the latest in your inbox.
                   />
                   <Button 
                     type="submit" 
-                    className="bg-quantum-primary hover:bg-quantum-primary/90 text-white px-8"
+                    className="bg-quantum-primary hover:bg-quantum-primary/90 text-white px-8 w-full"
                   >
                     Subscribe
                   </Button>

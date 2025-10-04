@@ -63,8 +63,8 @@ const audiences = [
 
 const AudienceCards = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary/5 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-br from-primary/5 to-background overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,16 +72,16 @@ const AudienceCards = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             Who<span className="text-gradient"> QuantZen Is </span>For
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Whether you're building wallets, dApps, bridges, or entire blockchain networks, 
             QuantZen provides quantum protection tailored to your specific use case.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {audiences.map((audience, index) => (
             <motion.div
               key={audience.title}
@@ -96,7 +96,7 @@ const AudienceCards = () => {
               className="group"
             >
               <Card className="gaming-card h-full overflow-hidden">
-                <div className={`bg-gradient-to-br ${audience.bgGradient} p-8 h-full`}>
+                <div className={`bg-gradient-to-br ${audience.bgGradient} p-6 sm:p-8 h-full`}>
                   {/* Header */}
                   <div className="flex items-start space-x-4 mb-6">
                     <motion.div
@@ -107,7 +107,7 @@ const AudienceCards = () => {
                       <audience.icon className={`w-8 h-8 ${audience.iconColor}`} />
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-1 group-hover:text-quantum-primary transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-1 group-hover:text-quantum-primary transition-colors">
                         {audience.title}
                       </h3>
                     </div>

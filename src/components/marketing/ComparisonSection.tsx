@@ -37,8 +37,8 @@ const advantages = [
 
 const ComparisonSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-secondary/5 to-primary/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-br from-secondary/5 to-primary/5 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,11 +46,11 @@ const ComparisonSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
            Compared to L1/L2 Migration, 
 <span className="text-gradient">QuantZen</span> Is the Clear Saviour
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             While traditional approaches require expensive L1/L2 migrations, QuantZen provides quantum protection without disrupting your existing infrastructure.
           </p>
         </motion.div>
@@ -92,14 +92,15 @@ const ComparisonSection = () => {
             </div>
           </motion.div>
 
-          <div className="overflow-x-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="min-w-full"
-            >
+          <div className="overflow-x-auto -mx-4 sm:mx-0">
+            <div className="min-w-[600px] sm:min-w-full px-4 sm:px-0">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="min-w-full"
+              >
               <Card className="gaming-card">
                 <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border">
                   <div className="p-6">
@@ -145,6 +146,7 @@ const ComparisonSection = () => {
                 ))}
               </Card>
             </motion.div>
+            </div>
           </div>
 
           <motion.div

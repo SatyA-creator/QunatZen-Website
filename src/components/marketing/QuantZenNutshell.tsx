@@ -34,8 +34,8 @@ const howItWorksSteps = [
 
 const QuantZenNutshell = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-background to-secondary/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-br from-background to-secondary/10 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         {/* Intro */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,10 +44,10 @@ const QuantZenNutshell = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             QuantZen <span className="text-gradient">In A Nutshell</span>
           </h2>
-          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
+          <div className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-muted-foreground px-4 sm:px-0">
             <p>
               QuantZen leverages a{" "}
               <span className="text-quantum-primary font-semibold">
@@ -62,7 +62,7 @@ const QuantZenNutshell = () => {
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}

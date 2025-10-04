@@ -56,8 +56,8 @@ const threats = [
 
 const ThreatMitigationTable = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-background to-destructive/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-br from-background to-destructive/5 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,12 +67,12 @@ const ThreatMitigationTable = () => {
         >
           <div className="flex items-center justify-center mb-6">
             <AlertTriangle className="w-12 h-12 text-destructive mr-4" />
-            <h2 className="text-4xl sm:text-5xl font-bold">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               What QuantZen Stops - 
  <span className="text-destructive">Today & Tomorrow</span>
             </h2>
           </div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             The quantum threat to Web3 is real and immediate. Here's how QuantZen protects against specific attack vectors.
           </p>
         </motion.div>
@@ -87,9 +87,9 @@ const ThreatMitigationTable = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="gaming-card overflow-hidden">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 overflow-hidden">
                   {/* Threat Description */}
-                  <div className="p-8 bg-gradient-to-br from-destructive/10 to-destructive/5 border-r border-border">
+                  <div className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/10 to-destructive/5 border-r border-border">
                     <div className="flex items-start space-x-3 mb-4">
                       <AlertTriangle className="w-6 h-6 text-destructive mt-1 flex-shrink-0" />
                       <div>
@@ -109,7 +109,7 @@ const ThreatMitigationTable = () => {
                   </div>
 
                   {/* QuantZen Solution */}
-                  <div className="p-8 bg-gradient-to-br from-quantum-primary/10 to-quantum-primary/5 lg:col-span-2">
+                  <div className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-quantum-primary/10 to-quantum-primary/5 lg:col-span-2">
                     <div className="flex items-start space-x-3">
                       <motion.div
                         initial={{ scale: 0 }}

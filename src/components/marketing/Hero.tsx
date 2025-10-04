@@ -5,9 +5,9 @@ import heroImage from "@/assets/hero-quantum.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 w-full">
         <img
           src={heroImage}
           alt="Quantum cryptography visualization"
@@ -18,7 +18,7 @@ const Hero = () => {
       </div>
 
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden w-full">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
@@ -57,14 +57,14 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="max-w-5xl mx-auto text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 w-full max-w-full">
+        <div className="max-w-5xl mx-auto text-center w-full px-4 sm:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight text-white">
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl sm:text-2xl text-white/80 mb-12 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl lg:text-2xl text-white/80 mb-8 sm:mb-12 max-w-3xl mx-auto px-4 sm:px-0"
           >
             QuantZen adds a post‑quantum signature to every transaction (alongside today’s ECDSA), so wallets, dApps, bridges, and custodians are secure now and future‑ready.
   Join the POC Program
@@ -105,13 +105,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 px-4 sm:px-0"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="quantum" size="lg" className="group relative overflow-hidden">
+              <Button variant="quantum" size="lg" className="group relative overflow-hidden w-full sm:w-auto">
                 <span className="relative z-10">Book a 30‑min Migration Consult</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-smooth relative z-10" />
                 <motion.div
@@ -126,7 +126,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="hero" size="lg" className="hover-lift">
+              <Button variant="hero" size="lg" className="hover-lift w-full sm:w-auto">
                 Get the SDK
               </Button>
             </motion.div>
@@ -137,7 +137,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground"
+            className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm text-muted-foreground px-4 sm:px-0"
           >
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-security-high" />

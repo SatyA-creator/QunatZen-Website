@@ -18,12 +18,12 @@ const Navigation = () => {
 
   return (
     <motion.nav 
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-quantum-primary/20"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-quantum-primary/20 w-full max-w-full overflow-x-hidden"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, type: "spring" }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.div 
@@ -38,7 +38,7 @@ const Navigation = () => {
               />
               <div className="absolute inset-0 blur-lg bg-primary/50 animate-pulse-glow rounded-full" />
             </div>
-            <span className="text-xl font-bold">
+            <span className="text-lg sm:text-xl font-bold">
               <span className="text-gradient">QuantZen</span>
             </span>
           </motion.div>

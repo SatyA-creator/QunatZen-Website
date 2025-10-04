@@ -23,9 +23,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-card border-t border-quantum-primary/20 overflow-hidden">
+    <footer className="relative bg-card border-t border-quantum-primary/20 overflow-hidden w-full">
       <div className="absolute inset-0 bg-gradient-quantum opacity-5" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 max-w-full">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Logo and Description */}
           <div className="col-span-2 md:col-span-1">

@@ -27,12 +27,12 @@ const ValueProposition = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+    <section className="py-24 bg-muted/30 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-full">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
           From <span className="text-gradient">Q</span> to <span className="text-gradient">Z</span>
         </h2>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 px-4 sm:px-0">
           Everything you need for quantum-safe blockchain infrastructure
         </p>
 
@@ -41,7 +41,7 @@ const ValueProposition = () => {
           {letters.map((item, index) => (
             <button
               key={item.letter}
-              className={`w-14 h-14 rounded-lg flex items-center justify-center font-bold text-white text-lg transition-all duration-300
+              className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center font-bold text-white text-base sm:text-lg transition-all duration-300
                 ${hoveredIndex === index ? "scale-110 shadow-lg" : "shadow-md"}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
