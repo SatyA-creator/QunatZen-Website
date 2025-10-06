@@ -36,8 +36,8 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Product & Tech", href: "/product-tech" },
-    { name: "Call for POCs", href: "/call-for-pocs" },
+    { name: "Why Us", href: "/product-tech" },
+    { name: "Partners", href: "/call-for-pocs" },
     { name: "Roadmap", href: "/roadmap" },
     { name: "About", href: "/about" },
     { name: "News", href: "/news" },
@@ -121,9 +121,9 @@ const Navigation = () => {
             <Button variant="ghost" size="sm">
               Documentation
             </Button>
-            <Button variant="quantum" size="sm">
+            {/* <Button variant="quantum" size="sm">
               Get Started
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Menu Button */}

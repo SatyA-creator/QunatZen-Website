@@ -18,7 +18,7 @@ const Footer = () => {
       { name: "Terms of Use", href: "#" },
     ],
     Connect: [
-      { name: "Newsletter: The Q2Z Newsletter", href: "#" },
+      { name: "Newsletter:  Q2Z Newsletter", href: "#" },
     ],
   };
 
@@ -38,7 +38,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-gradient">QuantZen</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Quantum-proofing the future of Web3 with post-quantum cryptography
+              Post-quantum cryptography. Pre-quantum peace of mind.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
