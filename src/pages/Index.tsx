@@ -8,7 +8,6 @@ import ComparisonSection from "@/components/marketing/ComparisonSection";
 import ThreatMitigationTable from "@/components/marketing/ThreatMitigationTable";
 import AudienceCards from "@/components/marketing/AudienceCards";
 import StandardsSection from "@/components/marketing/StandardsSection";
-import DeveloperCTA from "@/components/marketing/DeveloperCTA";
 import Footer from "@/components/marketing/Footer";
 
 const Index = () => {
@@ -24,7 +23,6 @@ const Index = () => {
       <ThreatMitigationTable />
       <AudienceCards />
       <StandardsSection />
-      <DeveloperCTA />
       <Footer />
     </div>
   );
