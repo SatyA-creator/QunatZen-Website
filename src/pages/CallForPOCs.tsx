@@ -5,12 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
-import { 
-  Users, 
-  Rocket, 
-  Shield, 
-  CheckCircle, 
-  ArrowRight, 
+import {
+  Users,
+  Rocket,
+  Shield,
+  CheckCircle,
+  ArrowRight,
   Star,
   Target,
   TrendingUp,
@@ -21,396 +21,274 @@ import {
   Award
 } from "lucide-react";
 
+// -----------------------------------------------------------------------------
+// Updated CallForPOCs component
+// - This version aligns with your ORIGINAL content (shown in comments below)
+// - AI-added/extra text is marked with comments like: /* AI-ADDED */
+// - Original verbatim items are included and labeled: /* ORIGINAL */
+// -----------------------------------------------------------------------------
+
 const CallForPOCs = () => {
+  // ====== Who should apply (from your ORIGINAL content) ======
+  const whoShouldApply = [
+    "Wallets",
+    "Custody providers",
+    "Exchanges",
+    "Bridges",
+    "High‑valued dApps (governance, withdrawals, oracles)"
+  ];
+
+  // ====== What you get (start with ORIGINAL items, then optional extras) ======
+  const benefits = [
+    /* ORIGINAL: Priority SDK support, reference contracts, and integration workshops. */
+    "Priority SDK support",
+    "Reference contracts & integration workshops",
+    /* ORIGINAL: Access to managed verification service (beta) and audit templates. */
+    "Access to managed verification service (beta) and audit templates",
+    /* ORIGINAL: Co‑marketing + early adopter badge; eligibility for grant credits. */
+    "Co‑marketing + early adopter badge; eligibility for grant credits",
+
+    /* AI-ADDED: the following are optional, keep or remove as you like */
+    "Direct collaboration with engineering team" /* AI-ADDED */,
+    "Priority technical support & dedicated account management" /* AI-ADDED */,
+    "Reduced licensing fees for early adopters" /* AI-ADDED */,
+    "Access to quantum cryptography expertise and training" /* AI-ADDED */
+  ];
+
+  // ====== POC requirements (use the ORIGINAL exact pilot duration) ======
+  const pocRequirements = [
+    /* ORIGINAL: 4 - 6 week scoped pilot (1–2 critical flows). */
+    "4–6 week scoped pilot (1–2 critical flows)",
+    /* ORIGINAL: Integration summary + metrics (latency, gas, user impact). */
+    "Integration summary + metrics (latency, gas, user impact)",
+    /* ORIGINAL: Joint case study on outcomes. */
+    "Joint case study on outcomes",
+
+    /* AI-ADDED: optional practical requirements to help screening */
+    "Technical team capable of SDK integration and testing" /* AI-ADDED */,
+    "Willingness to provide feedback and participate in review sessions" /* AI-ADDED */
+  ];
+
+  // ====== Collaboration buckets (reworked to include your original targets) ======
   const collaborationTypes = [
     {
-      icon: Shield,
-      title: "Enterprise Partners",
-      description: "Large‑scale deployment pilots",
-      benefits: ["Priority support", "Custom integration", "Direct engineering contact"]
-    },
-    {
-      icon: Rocket,
-      title: "DeFi Protocols",
-      description: "Bridge & custody quantum‑hardening",
-      benefits: ["Security audit support", "Gas optimization", "Mainnet deployment"]
+      icon: Users,
+      title: "Wallets & Custody",
+      description: "Secure key management and transaction signing",
+      benefits: ["Priority SDK support", "Reference contracts", "Integration workshops"]
     },
     {
       icon: Globe,
-      title: "Infrastructure Providers",
-      description: "RPC/node quantum readiness",
-      benefits: ["Technical documentation", "Implementation guides", "Co‑marketing"]
+      title: "Exchanges & Bridges",
+      description: "High‑throughput flows and cross‑chain security",
+      benefits: ["Integration support", "Audit templates", "Performance guidance"]
     },
     {
-      icon: Target,
-      title: "Research Institutions",
-      description: "Academic collaboration & validation",
-      benefits: ["Research grants", "Publication support", "Conference presentations"]
+      icon: Shield,
+      title: "High‑valued dApps",
+      description: "Governance, withdrawal, oracle and admin flows",
+      benefits: ["Case study collaboration", "Security validation", "Co‑marketing"]
     }
+    /* NOTE: Previously the page had additional categories like 'Enterprise Partners',
+       'DeFi Protocols', and 'Research Institutions'. Those are fine but were not in
+       your ORIGINAL short list — include them only if you want broader outreach. */
   ];
 
-  const benefits = [
-    "Early access to QuantZen SDK and documentation",
-    "Direct collaboration with our engineering team",
-    "Opportunity to shape product roadmap and features",
-    "Priority technical support and dedicated account management",
-    "Co‑marketing opportunities and case study development",
-    "Reduced licensing fees for early adopters",
-    "Access to quantum cryptography expertise and training",
-    "First‑mover advantage in quantum‑resistant blockchain security"
-  ];
-
-  const pocRequirements = [
-    "Willingness to integrate QuantZen into existing or new blockchain applications",
-    "Technical team capable of SDK integration and testing",
-    "Commitment to provide feedback and collaborate on improvements",
-    "Ability to participate in 3‑6 month pilot program",
-    "Openness to case study development and reference opportunities"
+  // ====== Short stats (aligned to ORIGINAL pilot duration) ======
+  const stats = [
+    { number: "50+", label: "Partners Sought", icon: Users },
+    { number: "4-6", label: "Week Pilot", icon: Calendar },
+    { number: "Included", label: "Support & Templates", icon: Award }
   ];
 
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navigation />
-      <div className="bg-gradient-to-br from-background to-secondary/10 overflow-x-hidden w-full">
-      {/* Navigation Spacing */}
-      <div className="h-16"></div>
 
-      {/* Hero Section */}
-      <section className="py-24 overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
-              Call for <span className="text-gradient">Proof‑of‑Concepts</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-              Be among the first to implement quantum‑resistant blockchain security. Join our Early Access Program to pilot QuantZen in real‑world scenarios and help shape the future of post‑quantum cryptography in Web3.
-            </p>
-            
+      <div className="bg-gradient-to-br from-background to-secondary/10 w-full">
+        <div className="h-16" />
+
+        {/* ====== Hero (TITLE matches ORIGINAL) ====== */}
+        <section className="py-20 w-full">
+          <div className="container mx-auto px-4 max-w-5xl text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-8"
             >
-              <Button variant="quantum" size="lg" className="group">
-                <Users className="w-5 h-5 mr-2" />
-                Join Early Access Program
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg">
-                <Calendar className="w-5 h-5 mr-2" />
-                Schedule Technical Demo
-              </Button>
+              <h1 className="text-4xl sm:text-5xl font-bold mb-4">CALL FOR POCs</h1>
+
+              {/* ORIGINAL short tagline (kept concise) */}
+              <p className="text-lg text-muted-foreground mb-6">
+                {/* ORIGINAL: Who should apply, What you get, What we ask are below. */}
+                Be among the first to pilot QuantZen. Apply for a scoped POC to validate
+                quantum‑resistant security in your critical flows.
+              </p>
+
+              <div className="flex justify-center gap-4 flex-wrap">
+                {/* ORIGINAL CTAs: Start a POC · Book a Technical Deep‑Dive */}
+                <Button variant="quantum" size="lg" className="group">
+                  <Shield className="w-5 h-5 mr-2" />
+                  Start a POC
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+
+                <Button variant="outline" size="lg">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book Technical Deep‑Dive
+                </Button>
+              </div>
             </motion.div>
-          </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-          >
-            {[
-              { number: "50+", label: "Partners Sought", icon: Users },
-              { number: "3-6", label: "Month Pilot", icon: Calendar },
-              { number: "100%", label: "Support Included", icon: Award }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <Card className="gaming-card p-6 text-center">
-                  <stat.icon className="w-8 h-8 text-quantum-primary mx-auto mb-3" />
-                  <div className="text-3xl font-bold text-quantum-primary mb-2">{stat.number}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+            {/* ====== Quick "Who should apply" inline summary (from ORIGINAL) ====== */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-1 md:grid-cols-5 gap-3 text-sm text-muted-foreground mt-6"
+            >
+              {whoShouldApply.map((w) => (
+                <div key={w} className="p-2">
+                  • {w}
+                </div>
+              ))}
+            </motion.div>
+
+            {/* ====== Stats (aligned) ====== */}
+            <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+              {stats.map((s) => (
+                <Card key={s.label} className="p-5 text-center">
+                  <s.icon className="w-6 h-6 text-quantum-primary mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-quantum-primary">{s.number}</div>
+                  <div className="text-sm text-muted-foreground">{s.label}</div>
                 </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+              ))}
+            </motion.div>
+          </div>
+        </section>
 
-      {/* Collaboration Types */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5 overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
-              Collaboration <span className="text-gradient">Opportunities</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We're seeking forward‑thinking organizations across various sectors to pioneer quantum‑resistant blockchain security.
-            </p>
-          </motion.div>
+        {/* ====== What you get (verbatim ORIGINAL items included) ====== */}
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-4">What You Get</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {collaborationTypes.map((type, index) => (
-              <motion.div
-                key={type.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <Card className="gaming-card p-8 h-full">
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className="p-3 rounded-lg bg-quantum-primary/20">
-                      <type.icon className="w-8 h-8 text-quantum-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {benefits.map((b, i) => (
+                <Card key={i} className="p-4 flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 mt-1 text-green-500" />
+                  <div className="text-sm leading-relaxed">{b}</div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ====== What we ask / POC Requirements (ORIGINAL) ====== */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-4">What We Ask</h2>
+
+            <Card className="p-6">
+              <div className="space-y-3">
+                {pocRequirements.map((r, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-quantum-primary text-white flex items-center justify-center font-bold text-sm">{idx + 1}</div>
+                    <div className="text-sm leading-relaxed">{r}</div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* ====== Collaboration buckets (targets from ORIGINAL) ====== */}
+        <section className="py-16 bg-gradient-to-br from-secondary/5 to-quantum-primary/5">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-6">Who We Want To Collaborate With</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {collaborationTypes.map((c) => (
+                <Card key={c.title} className="p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="p-2 rounded-lg bg-quantum-primary/10">
+                      <c.icon className="w-6 h-6 text-quantum-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">{type.title}</h3>
-                      <p className="text-muted-foreground">{type.description}</p>
+                      <h3 className="font-semibold">{c.title}</h3>
+                      <p className="text-sm text-muted-foreground">{c.description}</p>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
-                    <h4 className="font-semibold text-quantum-primary">What you get:</h4>
-                    {type.benefits.map((benefit, benefitIndex) => (
-                      <div key={benefitIndex} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-sm">{benefit}</span>
+                    {c.benefits.map((b, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm">
+                        <Star className="w-4 h-4 text-quantum-primary" />
+                        <span>{b}</span>
                       </div>
                     ))}
                   </div>
                 </Card>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Benefits Section */}
-      <section className="py-24 overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Benefits */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold mb-8">
-                Early Access <span className="text-gradient">Benefits</span>
-              </h2>
-              
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-start space-x-3"
-                  >
-                    <Star className="w-5 h-5 text-quantum-primary mt-0.5 flex-shrink-0" />
-                    <span className="leading-relaxed">{benefit}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+        {/* ====== Application Form (OPTIONAL — AI-ADDED but useful) ====== */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl font-bold mb-4">Apply: Start A POC</h2>
 
-            {/* Right: Requirements */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <Card className="gaming-card p-8">
-                <h3 className="text-2xl font-bold mb-6 flex items-center">
-                  <Target className="w-6 h-6 text-quantum-primary mr-2" />
-                  POC Requirements
-                </h3>
-                
-                <div className="space-y-4">
-                  {pocRequirements.map((requirement, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-start space-x-3 p-3 rounded-lg bg-gradient-to-r from-quantum-primary/10 to-secondary/10"
-                    >
-                      <div className="w-6 h-6 rounded-full bg-quantum-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
-                        {index + 1}
-                      </div>
-                      <span className="text-sm leading-relaxed">{requirement}</span>
-                    </motion.div>
-                  ))}
-                </div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="mt-6 p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20"
-                >
-                  <div className="flex items-center space-x-2 text-green-400">
-                    <TrendingUp className="w-5 h-5" />
-                    <span className="font-semibold">Ideal for organizations with 50+ users or high‑value transactions</span>
-                  </div>
-                </motion.div>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Application Form */}
-      <section className="py-24 bg-gradient-to-br from-secondary/5 to-quantum-primary/5 overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
-              Apply for <span className="text-gradient">Early Access</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ready to be a quantum‑resistant pioneer? Tell us about your project and let's explore collaboration opportunities.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <Card className="gaming-card p-8">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="p-6">
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Organization Name *</label>
-                    <Input placeholder="Your company or organization" className="quantum-input" />
+                    <label className="block text-sm mb-1">Organization Name *</label>
+                    <Input placeholder="Your company or organization" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Industry/Sector *</label>
-                    <Input placeholder="DeFi, Enterprise, Infrastructure, etc." className="quantum-input" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Contact Name *</label>
-                    <Input placeholder="Your full name" className="quantum-input" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email Address *</label>
-                    <Input type="email" placeholder="your@email.com" className="quantum-input" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Role/Title *</label>
-                    <Input placeholder="CTO, Lead Developer, etc." className="quantum-input" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Team Size</label>
-                    <Input placeholder="Number of technical team members" className="quantum-input" />
+                    <label className="block text-sm mb-1">Industry / Sector</label>
+                    <Input placeholder="DeFi, Enterprise, Exchanges, etc." />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Current Blockchain Infrastructure *</label>
-                  <Textarea 
-                    placeholder="Describe your current blockchain setup, technologies used, transaction volumes, etc."
-                    className="quantum-input min-h-[100px]"
-                  />
+                  <label className="block text-sm mb-1">Describe the POC scope *</label>
+                  <Textarea placeholder={`Suggested: 4–6 week pilot focusing on 1–2 critical flows`} className="min-h-[120px]" />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">Use Case for QuantZen *</label>
-                  <Textarea 
-                    placeholder="Describe how you plan to use QuantZen, what problems you're trying to solve, and your specific requirements"
-                    className="quantum-input min-h-[100px]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Timeline & Commitment</label>
-                  <Textarea 
-                    placeholder="When would you like to start the pilot? What resources can you commit to the POC?"
-                    className="quantum-input min-h-[80px]"
-                  />
-                </div>
-
-                <div className="text-center">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button variant="quantum" size="lg" className="group">
-                      <Mail className="w-5 h-5 mr-2" />
-                      Submit Application
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </motion.div>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    We'll review your application and get back to you within 48 hours.
-                  </p>
+                <div className="flex items-center justify-between">
+                  <Button variant="quantum">Submit Application</Button>
+                  <div className="text-sm text-muted-foreground">{/* AI-ADDED */} We'll review your application and get back to you within 48 hours.</div>
                 </div>
               </form>
             </Card>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Contact Alternative */}
-      <section className="py-16 overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <Card className="gaming-card p-8 max-w-2xl mx-auto">
-              <Zap className="w-12 h-12 text-quantum-primary mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-4">Prefer to discuss directly?</h3>
-              <p className="text-muted-foreground mb-6">
-                Schedule a technical demo or consultation with our team to explore how QuantZen can fit your specific needs.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="outline">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Schedule Demo
-                </Button>
-                <Button variant="outline">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Contact Sales
-                </Button>
+            <div className="mt-4 text-sm text-muted-foreground">
+              {/* ORIGINAL quick alternative: Book a Technical Deep‑Dive */}
+              Or <Button variant="link">Book a Technical Deep‑Dive</Button>
+            </div>
+          </div>
+        </section>
+
+        {/* ====== Contact Alternative (keeps your original 'Book a Technical Deep‑Dive' idea) ====== */}
+        <section className="py-12">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <Card className="p-6 text-center">
+              <Zap className="w-10 h-10 mx-auto mb-3 text-quantum-primary" />
+              <h3 className="font-semibold mb-2">Prefer to discuss directly?</h3>
+              <p className="text-sm text-muted-foreground mb-4">Book a technical deep‑dive with our engineering team.</p>
+              <div className="flex justify-center gap-3">
+                <Button variant="outline">Schedule Demo</Button>
+                <Button variant="outline">Contact Sales</Button>
               </div>
             </Card>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+
       </div>
+
       <Footer />
     </div>
   );

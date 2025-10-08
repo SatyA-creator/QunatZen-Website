@@ -46,6 +46,13 @@ const features = [
       "The quantum threat may be closer than many expect, and Web3 must embed quantum resilience now or risk utter collapse.",
     color: "text-primary",
   },
+  {
+    icon: Workflow,
+    title: "Massive Costs",
+    description:
+      "Web3 has already lost over $30B+ to hacks in the past few years. Without quantum-secure infrastructure, those losses will multiply, eroding trust, adoption, and innovation.",
+    color: "text-primary",
+  },
 ];
 
 const Features = () => {

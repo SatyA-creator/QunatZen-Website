@@ -22,85 +22,80 @@ import {
 const Roadmap = () => {
   const roadmapData = [
     {
-      quarter: "Q1 2025",
-      title: "Foundation & Core SDK",
+      quarter: "0–6 months",
+      // title: "Foundation & Core SDK",
       status: "current",
       icon: Code2,
       color: "from-quantum-primary to-quantum-secondary",
       milestones: [
-        "Core SDK release (TypeScript/WASM, Rust)",
-        "Basic Ethereum/EVM integration",
-        "Dilithium + Falcon algorithm support",
-        "Local key management & hardware wallet integration",
-        "Developer documentation & getting started guides"
+        "MVP SDK (Javascript + Node JS) + verification service (beta).",
+        "Independent cryptography review; first production pilots.",
+        "EVM adapters; Cosmos module; Solana client adapter."
       ]
     },
     {
-      quarter: "Q2 2025", 
-      title: "Multi‑Chain Expansion",
+      quarter: "6–12 months", 
+      // title: "Multi‑Chain Expansion",
       status: "upcoming",
       icon: Globe,
       color: "from-blue-500 to-cyan-500",
       milestones: [
-        "Cosmos SDK integration (Tendermint consensus)",
-        "Solana adapter development",
-        "SPHINCS+ algorithm integration",
-        "Enhanced key registry with cross‑chain support",
-        "First enterprise pilot partnerships"
+        "Managed verification GA; SOC2 readiness; 10+ production integrations.",
+        "Kyber KEM flows for custody; Rust/Go SDKs.",
+        // "SPHINCS+ algorithm integration",
+        "Grants for ecosystem plugins."
       ]
     },
     {
-      quarter: "Q3 2025",
-      title: "Enterprise & Compliance",
+      quarter: "12–18 months",
+      // title: "Enterprise & Compliance",
       status: "planned",
       icon: Building,
       color: "from-purple-500 to-pink-500",
       milestones: [
-        "Enterprise security features (HSM, audit logs)",
-        "Compliance frameworks (SOC2, ISO27001)",
-        "Advanced verification infrastructure",
-        "IPFS proof anchoring for regulatory compliance",
-        "White‑label solutions for institutions"
+        "Non‑EVM chain adapters; enterprise on‑prem verifier.",
+        "Governance tooling for mass migration and emergency fallback.",
+        "Expanded audit/compliance reporting."
       ]
-    },
-    {
-      quarter: "Q4 2025",
-      title: "Ecosystem & Scale",
-      status: "future",
-      icon: Rocket,
-      color: "from-green-500 to-emerald-500",
-      milestones: [
-        "Full production deployments",
-        "Advanced analytics & monitoring dashboard",
-        "Plugin ecosystem for major wallets",
-        "Go SDK release",
-        "Global partner network expansion"
-      ]
-    }
+    }    // },
+    // {
+    //   quarter: "Q4 2025",
+    //   title: "Ecosystem & Scale",
+    //   status: "future",
+    //   icon: Rocket,
+    //   color: "from-green-500 to-emerald-500",
+    //   milestones: [
+    //     "Full production deployments",
+    //     "Advanced analytics & monitoring dashboard",
+    //     "Plugin ecosystem for major wallets",
+    //     "Go SDK release",
+    //     "Global partner network expansion"
+    //   ]
+    // }
   ];
 
-  const keyAchievements = [
-    {
-      achievement: "Algorithm Implementation",
-      description: "All NIST‑approved PQC algorithms integrated",
-      timeline: "Q1‑Q2 2025"
-    },
-    {
-      achievement: "Chain Coverage",
-      description: "Support for 5+ major blockchain networks",
-      timeline: "Q2‑Q3 2025"
-    },
-    {
-      achievement: "Enterprise Ready", 
-      description: "Full compliance & enterprise security features",
-      timeline: "Q3 2025"
-    },
-    {
-      achievement: "Production Scale",
-      description: "1M+ transactions processed with PQC",
-      timeline: "Q4 2025"
-    }
-  ];
+  // const keyAchievements = [
+  //   {
+  //     achievement: "Algorithm Implementation",
+  //     description: "All NIST‑approved PQC algorithms integrated",
+  //     timeline: "Q1‑Q2 2025"
+  //   },
+  //   {
+  //     achievement: "Chain Coverage",
+  //     description: "Support for 5+ major blockchain networks",
+  //     timeline: "Q2‑Q3 2025"
+  //   },
+  //   {
+  //     achievement: "Enterprise Ready", 
+  //     description: "Full compliance & enterprise security features",
+  //     timeline: "Q3 2025"
+  //   },
+  //   {
+  //     achievement: "Production Scale",
+  //     description: "1M+ transactions processed with PQC",
+  //     timeline: "Q4 2025"
+  //   }
+  // ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -272,16 +267,16 @@ const Roadmap = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
+            {/* <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
               Key <span className="text-gradient">Achievements</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Critical milestones that mark our progress toward quantum‑resistant blockchain security adoption.
-            </p>
+            </p> */}
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {keyAchievements.map((item, index) => (
+            {/* {keyAchievements.map((item, index) => (
               <motion.div
                 key={item.achievement}
                 initial={{ opacity: 0, y: 30 }}
@@ -305,7 +300,7 @@ const Roadmap = () => {
                   </div>
                 </Card>
               </motion.div>
-            ))}
+            ))} */}
           </div>
         </div>
       </section>
@@ -410,24 +405,24 @@ const Roadmap = () => {
               <h2 className="text-3xl font-bold mb-6">
                 Be Part of the <span className="text-gradient">Journey</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              {/* <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Join our early access program and help shape the future of quantum‑resistant blockchain security. Your feedback drives our roadmap.
-              </p>
+              </p> */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
+                {/* <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 bg-gradient-to-r from-quantum-primary to-quantum-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Join Early Access
-                </motion.button>
-                <motion.button
+                </motion.button> */}
+                {/* <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 border border-quantum-primary text-quantum-primary rounded-lg font-semibold hover:bg-quantum-primary/10 transition-all duration-300"
                 >
                   View Technical Docs
-                </motion.button>
+                </motion.button> */}
               </div>
             </Card>
           </motion.div>

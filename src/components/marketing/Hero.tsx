@@ -193,9 +193,9 @@ const Hero = () => {
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="hero" size="lg">
+              {/* <Button variant="hero" size="lg">
                 Get the SDK
-              </Button>
+              </Button> */}
             </motion.div>
           </motion.div>
 

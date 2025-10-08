@@ -3,42 +3,19 @@ import { Card } from "@/components/ui/card";
 import { CheckCircle, XCircle, ArrowRight } from "lucide-react";
 
 const advantages = [
-  {
-    advantage: "Zero Migration Required",
-    quantzen: "✓ Works with existing blockchains",
-    traditional: "✗ Requires complete blockchain rebuild"
-  },
-  {
-    advantage: "Backward Compatibility",
-    quantzen: "✓ Supports all current applications",
-    traditional: "✗ Breaks existing smart contracts"
-  },
-  {
-    advantage: "Implementation Speed",
-    quantzen: "✓ Deploy in days, not years",
-    traditional: "✗ Multi-year migration timeline"
-  },
-  {
-    advantage: "Network Effects",
-    quantzen: "✓ Preserves existing ecosystem",
-    traditional: "✗ Loses network effects"
-  },
-  {
-    advantage: "User Experience",
-    quantzen: "✓ Seamless transition",
-    traditional: "✗ User re-onboarding required"
-  },
-  {
-    advantage: "Cost Efficiency",
-    quantzen: "✓ Minimal integration costs",
-    traditional: "✗ Expensive full migration"
-  }
+  { advantage: "Zero Migration Required", quantzen: "✓ Works with existing blockchains", traditional: "✗ Requires complete blockchain rebuild" },
+  { advantage: "Backward Compatibility", quantzen: "✓ Supports all current applications", traditional: "✗ Breaks existing smart contracts" },
+  { advantage: "Implementation Speed", quantzen: "✓ Deploy in days, not years", traditional: "✗ Multi-year migration timeline" },
+  { advantage: "Network Effects", quantzen: "✓ Preserves existing ecosystem", traditional: "✗ Loses network effects" },
+  { advantage: "User Experience", quantzen: "✓ Seamless transition", traditional: "✗ User re-onboarding required" },
+  { advantage: "Cost Efficiency", quantzen: "✓ Minimal integration costs", traditional: "✗ Expensive full migration" }
 ];
 
 const ComparisonSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-secondary/5 to-primary/5 overflow-x-hidden w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+    <section className="py-20 bg-gradient-to-br from-secondary/5 to-primary/5 w-full overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,126 +23,105 @@ const ComparisonSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Compared to L1/L2 Migration, 
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Compared to L1/L2 Migration,{" "}
             <span className="text-gradient">QuantZen</span> Is the Clear Saviour
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
-            While traditional approaches require expensive L1/L2 migrations, 
-            <span className="text-gradient">QuantZen</span> provides quantum protection without disrupting your existing infrastructure.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Traditional migrations are costly and slow —{" "}
+            <span className="text-gradient">QuantZen</span> integrates seamlessly
+            with your current blockchain.
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-quantum-primary/5 to-secondary/5 rounded-2xl p-8 mb-12 border border-quantum-primary/20"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-              <div className="text-center lg:text-left">
-                <h3 className="text-2xl font-bold mb-4">Current Approach</h3>
-                <p className="text-muted-foreground">
-                  Traditional L1/L2 migration requires rebuilding entire blockchain infrastructure
-                </p>
-              </div>
-              
-              <div className="flex justify-center">
-                <motion.div
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="flex items-center space-x-2"
-                >
-                  <ArrowRight className="w-8 h-8 text-green-600" />
-                  <span className="text-lg font-semibold text-green-600">vs</span>
-                  <ArrowRight className="w-8 h-8 text-green-600" />
-                </motion.div>
-              </div>
-              
-              <div className="text-center lg:text-right">
-                <h3 className="text-2xl font-bold mb-4">QuantZen Way</h3>
-                <p className="text-muted-foreground">
-                  Layer on top of existing blockchains with zero migration required
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="overflow-x-auto -mx-4 sm:mx-0">
-            <div className="min-w-[600px] sm:min-w-full px-4 sm:px-0">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="min-w-full"
-              >
-                <Card className="gaming-card">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border">
-                    <div className="p-6">
-                      <h4 className="text-xl font-bold mb-4 text-center">Advantage</h4>
-                    </div>
-                    <div className="p-6 bg-gradient-to-br from-quantum-primary/10 to-quantum-primary/5">
-                      <h4 className="text-xl font-bold mb-4 text-center text-green-600">QuantZen</h4>
-                    </div>
-                    <div className="p-6 bg-gradient-to-br from-destructive/10 to-destructive/5">
-                      <h4 className="text-xl font-bold mb-4 text-center text-destructive">L1/L2 Migration</h4>
-                    </div>
-                  </div>
-
-                  {advantages.map((item, index) => (
-                    <motion.div
-                      key={item.advantage}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border border-t border-border hover:bg-muted/30 transition-colors"
-                    >
-                      <div className="p-6">
-                        <div className="font-semibold">{item.advantage}</div>
-                      </div>
-                      <div className="p-6 bg-gradient-to-br from-quantum-primary/5 to-transparent">
-                        <div className="flex items-center space-x-2">
-                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                          <span className="text-green-600 font-medium">
-                            {item.quantzen.replace('✓ ', '')}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="p-6 bg-gradient-to-br from-destructive/5 to-transparent">
-                        <div className="flex items-center space-x-2">
-                          <XCircle className="w-5 h-5 text-destructive flex-shrink-0" />
-                          <span className="text-destructive font-medium">
-                            {item.traditional.replace('✗ ', '')}
-                          </span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </Card>
-              </motion.div>
-            </div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 text-center"
-          >
-            <div className="bg-gradient-to-r from-quantum-primary/10 to-secondary/10 rounded-2xl p-8 max-w-4xl mx-auto border border-quantum-primary/20">
-              <h3 className="text-2xl font-bold mb-4">The Bottom Line</h3>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                QuantZen's infrastructure approach delivers quantum protection <span className="text-gradient font-semibold">today</span> without 
-                the massive costs, risks, and timeline delays of blockchain migration. Protect your ecosystem while preserving everything you've built.
+        {/* Comparison Intro */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-r from-quantum-primary/5 to-secondary/5 rounded-2xl p-6 sm:p-10 mb-12 border border-quantum-primary/20"
+        >
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Current Approach</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                L1/L2 migrations rebuild the entire blockchain infrastructure.
               </p>
             </div>
-          </motion.div>
+
+            <div className="flex items-center justify-center">
+              <motion.div
+                animate={{ x: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="flex items-center space-x-2"
+              >
+                <ArrowRight className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+                <span className="text-green-600 font-semibold text-lg sm:text-xl">vs</span>
+                <ArrowRight className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+              </motion.div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold mb-2">QuantZen Way</h3>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                Adds a secure quantum layer — zero rebuild required.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Advantage Table */}
+        <div className="flex flex-col gap-6">
+          {advantages.map((item, index) => (
+            <motion.div
+              key={item.advantage}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="border border-border hover:border-quantum-primary/30 rounded-2xl p-6 sm:p-8 transition-all bg-gradient-to-br from-background/60 to-muted/20 backdrop-blur-md">
+                <h4 className="text-xl font-bold text-center mb-4">
+                  {item.advantage}
+                </h4>
+
+                <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-8 text-center sm:text-left">
+                  <div className="flex-1 bg-gradient-to-br from-green-600/10 to-secondary/10 p-4 rounded-xl flex items-center justify-center sm:justify-start space-x-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <span className="text-green-600 font-medium">
+                      {item.quantzen.replace("✓ ", "")}
+                    </span>
+                  </div>
+
+                  <div className="flex-1 bg-gradient-to-br from-destructive/10 to-transparent p-4 rounded-xl flex items-center justify-center sm:justify-start space-x-2">
+                    <XCircle className="w-5 h-5 text-destructive flex-shrink-0" />
+                    <span className="text-destructive font-medium">
+                      {item.traditional.replace("✗ ", "")}
+                    </span>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Bottom Line */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16"
+        >
+          <div className="bg-gradient-to-r from-quantum-primary/10 to-secondary/10 rounded-2xl p-6 sm:p-10 border border-quantum-primary/20 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">The Bottom Line</h3>
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+              QuantZen provides <span className="text-gradient font-semibold">quantum protection today</span> —
+              no migration, no downtime, no loss of ecosystem integrity.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
