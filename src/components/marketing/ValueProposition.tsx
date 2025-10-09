@@ -99,20 +99,27 @@ const ValueProposition = () => {
     setActiveIndex((prev) => (prev + 1) % letters.length);
   };
 
+  // Highlight only the first letter of the title
+  const title = letters[activeIndex].title;
+  const firstLetter = title.charAt(0);
+  const restOfTitle = title.slice(1);
+
   return (
     <section className="py-24 bg-muted/30 overflow-x-hidden w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-full">
-       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-  From <span className="text-gradient">Q</span> to{" "}
-  <span className="text-gradient">Z</span>
-</h2>
+        {/* Heading */}
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          From{" "}
+          <span className="text-gradient font-logo tracking-wide">Q</span> to{" "}
+          <span className="text-gradient font-logo tracking-wide">Z</span>
+        </h2>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 px-4 sm:px-0">
           Everything you need for quantum-safe blockchain infrastructure
         </p>
 
         {/* Alphabet Buttons */}
-        <div className="flex gap-4 justify-center flex-wrap mb-10">
+        <div className="flex gap-3 sm:gap-4 justify-center flex-wrap mb-10">
           {letters.map((item, index) => (
             <button
               key={item.letter}
@@ -132,19 +139,27 @@ const ValueProposition = () => {
           ))}
         </div>
 
-        {/* Content Box spanning Q to Z width */}
+        {/* Content Box */}
         <motion.div
           key={activeIndex}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="w-[90%] sm:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto p-6 sm:p-8 rounded-2xl shadow-lg bg-white flex flex-col items-center justify-between"
+          className="w-[90%] sm:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto p-6 sm:p-8 rounded-2xl shadow-lg bg-white flex flex-col items-center justify-between relative overflow-hidden"
         >
-          <div className="flex flex-col items-center text-center">
+          {/* Floating Lines */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-0 w-[200%] h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent animate-[floatline_5s_linear_infinite]" />
+            <div className="absolute bottom-0 right-0 w-[200%] h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent animate-[floatline_8s_linear_infinite_reverse]" />
+          </div>
+
+          {/* Content */}
+          <div className="flex flex-col items-center text-center z-10">
             <div className="flex items-center justify-center gap-3 mb-3">
               <ActiveIcon className="w-6 h-6 text-primary flex-shrink-0" />
               <h3 className="font-semibold text-lg sm:text-xl">
-                {letters[activeIndex].title}
+                <span className="text-gradient font-extrabold">{firstLetter}</span>
+                {restOfTitle}
               </h3>
             </div>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -155,12 +170,21 @@ const ValueProposition = () => {
           {/* Next Arrow Button */}
           <button
             onClick={handleNext}
-            className="mt-6 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
+            className="mt-6 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-2 rounded-full shadow-md hover:scale-105 transition-transform duration-300 z-10"
           >
             Next <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>
       </div>
+
+      {/* Floating Line Animation Keyframes */}
+      <style>{`
+        @keyframes floatline {
+          0% { transform: translateX(-50%); opacity: 0.4; }
+          50% { transform: translateX(0); opacity: 0.8; }
+          100% { transform: translateX(50%); opacity: 0.4; }
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backend Connection Test</title>
+</head>
+<body>
+    <h1>Backend Connection Test</h1>
+    <button onclick="testHealth()">Test Health Endpoint</button>
+    <button onclick="testSubscription()">Test Subscription</button>
+    <div id="result"></div>
+
+    <script>
+        async function testHealth() {
+            const resultDiv = document.getElementById('result');
+            try {
+                const response = await fetch('http://localhost:3000/health');
+                const data = await response.json();
+                resultDiv.innerHTML = '<p style="color: green;">✅ Health Check Success: ' + JSON.stringify(data) + '</p>';
+            } catch (error) {
+                resultDiv.innerHTML = '<p style="color: red;">❌ Health Check Failed: ' + error.message + '</p>';
+            }
+        }
+
+        async function testSubscription() {
+            const resultDiv = document.getElementById('result');
+            try {
+                const response = await fetch('http://localhost:3000/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: 'test@example.com' })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    resultDiv.innerHTML = '<p style="color: green;">✅ Subscription Test Success: ' + JSON.stringify(data) + '</p>';
+                } else {
+                    resultDiv.innerHTML = '<p style="color: orange;">⚠️ Subscription Test (Expected Error): ' + JSON.stringify(data) + '</p>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<p style="color: red;">❌ Subscription Test Failed: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Award, CheckCircle, Mail, FileText, Shield } from "lucide-react";
+import { Award, CheckCircle, Mail, FileText, Shield, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { sendSubscriptionEmail } from "@/lib/emailService";
+import { useToast } from "@/hooks/use-toast";
 
 const standards = [
   {
@@ -42,12 +44,50 @@ const certifications = [
 const StandardsSection = () => {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setIsSubscribed(true);
-      setEmail("");
+    
+    if (!email.trim()) {
+      toast({
+        title: "Email required",
+        description: "Please enter your email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const result = await sendSubscriptionEmail(email);
+      
+      if (result.success) {
+        setIsSubscribed(true);
+        setEmail("");
+        toast({
+          title: "Successfully subscribed!",
+          description: result.message,
+          variant: "default",
+        });
+      } else {
+        toast({
+          title: "Subscription failed",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      toast({
+        title: "Subscription failed",
+        description: "An unexpected error occurred. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -172,8 +212,16 @@ Stay informed — subscribe to get the latest in your inbox.
                   <Button 
                     type="submit" 
                     className="bg-quantum-primary hover:bg-quantum-primary/90 text-white px-8 w-full"
+                    disabled={isLoading}
                   >
-                    Subscribe
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Subscribing...
+                      </>
+                    ) : (
+                      'Subscribe'
+                    )}
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-3">

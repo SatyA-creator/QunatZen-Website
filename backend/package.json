@@ -1,0 +1,25 @@
+{
+  "name": "zenith-studio-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Zenith Studio subscription functionality",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "nodemailer": "^6.9.7",
+    "dotenv": "^16.3.1",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["express", "email", "api", "subscription"],
+  "author": "Zenith Studio",
+  "license": "MIT"
+}

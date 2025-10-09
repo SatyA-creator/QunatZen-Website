@@ -458,158 +458,144 @@
 
 
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Send, 
-  MessageSquare,
-  Globe,
+import {
+  Mail,
   Linkedin,
   Twitter,
   Github,
-  Users,
-  Calendar,
+  Globe,
   HelpCircle,
   Building,
+  Users,
   Zap,
-  Shield
+  Shield,
 } from "lucide-react";
 
 const Contact = () => {
+  const [copied, setCopied] = useState<string | null>(null);
+
   const contactMethods = [
     {
       icon: Mail,
       title: "Partnerships & POCs",
       description: "Collaborate and explore integration opportunities",
       contact: "founders@quantzen.org",
-      subtext: "We respond within 24 hours"
+      subtext: "We respond within 24 hours",
     },
     {
       icon: Mail,
       title: "Security",
       description: "Report security issues or vulnerabilities",
       contact: "security@quantzen.org",
-      subtext: "24/7 support for critical issues"
+      subtext: "24/7 support for critical issues",
     },
     {
       icon: Mail,
       title: "Careers",
       description: "Explore job opportunities with us",
       contact: "jobs@quantzen.org",
-      subtext: "Join our growing team"
+      subtext: "Join our growing team",
     },
     {
       icon: Mail,
       title: "Media",
       description: "Press inquiries and media relations",
       contact: "press@quantzen.org",
-      subtext: "Official press contact"
-    }
-  ];
-
-  const officeLocations = [
-    {
-      city: "San Francisco",
-      address: "123 Quantum Street, Suite 400",
-      fullAddress: "San Francisco, CA 94105",
-      type: "Headquarters",
-      features: ["Main Office", "R&D Center", "Customer Success"]
+      subtext: "Official press contact",
     },
-    {
-      city: "New York",
-      address: "456 Blockchain Avenue, Floor 12",
-      fullAddress: "New York, NY 10001",
-      type: "East Coast Office",
-      features: ["Sales Team", "Enterprise Support", "Partnerships"]
-    },
-    {
-      city: "London",
-      address: "789 Crypto Lane, Level 8",
-      fullAddress: "London EC2A 4BX, UK",
-      type: "European Operations",
-      features: ["EU Sales", "Technical Support", "Compliance"]
-    }
   ];
 
-  const socialLinks = [
-    { icon: Linkedin, name: "LinkedIn", url: "linkedin.com/company/quantzen" },
-    { icon: Twitter, name: "Twitter", url: "@quantzen_io" },
-    { icon: Github, name: "GitHub", url: "github.com/quantzen" },
-    { icon: Globe, name: "Medium", url: "medium.com/@quantzen" }
-  ];
-
-  const supportCategories = [
-    { icon: HelpCircle, title: "General Inquiry", description: "Questions about our platform and services" },
-    { icon: Building, title: "Enterprise Sales", description: "Discuss enterprise solutions and partnerships" },
-    { icon: Users, title: "Technical Support", description: "SDK integration and technical assistance" },
-    { icon: Globe, title: "Media & Press", description: "Press inquiries and media relations" },
-    { icon: Shield, title: "Security", description: "Report security issues or vulnerabilities" },
-    { icon: Zap, title: "Partnerships", description: "Collaboration and integration opportunities" }
-  ];
+  const handleCopy = (email: string) => {
+    navigator.clipboard.writeText(email);
+    setCopied(email);
+    setTimeout(() => setCopied(null), 2000);
+  };
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <Navigation logo="/quantzen-logo.png" /> {/* Update logo path here */}
+      <Navigation logo="/quantzen-logo.png" />
       <div className="bg-gradient-to-br from-background to-secondary/10 overflow-x-hidden w-full">
-      {/* Navigation Spacing */}
-      <div className="h-16"></div>
+        {/* Spacing */}
+        <div className="h-16"></div>
 
-      {/* Hero Section */}
-      <section className="py-24 overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
-              Get in <span className="text-gradient">Touch</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-              Ready to secure your blockchain infrastructure against quantum threats? Our team is here to help you understand how QuantZen can protect your organization's digital assets.
-            </p>
-          </motion.div>
+        {/* Hero Section */}
+        <section className="py-24 w-full">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
+                Get in <span className="text-gradient">Touch</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+                Ready to secure your blockchain infrastructure against quantum
+                threats? Our team is here to help you understand how QuantZen can
+                protect your organization's digital assets.
+              </p>
+            </motion.div>
 
-          {/* Contact Methods */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-          >
-            {contactMethods.map((method, index) => (
-              <motion.div
-                key={method.title}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <Card className="gaming-card p-6 text-center h-full">
-                  <method.icon className="w-8 h-8 text-quantum-primary mx-auto mb-4" />
-                  <h3 className="text-lg font-bold mb-2">{method.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{method.description}</p>
-                  <p className="text-quantum-primary font-medium mb-1">{method.contact}</p>
-                  <p className="text-xs text-muted-foreground">{method.subtext}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* The rest of your code remains the same */}
+            {/* Contact Methods */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+            >
+              {contactMethods.map((method, index) => (
+                <motion.div
+                  key={method.title}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <Card
+                    className="gaming-card p-6 text-center h-full cursor-pointer transition-shadow hover:shadow-lg"
+                    onClick={() => handleCopy(method.contact)}
+                  >
+                    <method.icon className="w-8 h-8 text-quantum-primary mx-auto mb-4" />
+                    <h3 className="text-lg font-bold mb-2">{method.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {method.description}
+                    </p>
+                    <p className="text-quantum-primary font-medium mb-1">
+                      {method.contact}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {method.subtext}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
       </div>
+
+      {/* Toast Message */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            key="toast"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-quantum-primary text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium"
+          >
+            📋 {copied} copied to clipboard!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Footer />
     </div>
   );
