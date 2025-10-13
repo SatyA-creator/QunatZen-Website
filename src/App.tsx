@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 
 import Product from "./pages/Product";
+import WhyUs from "./pages/WhyUs";
 import CallForPOCs from "./pages/CallForPOCs";
 import Roadmap from "./pages/Roadmap";
 import About from "./pages/About";
@@ -24,7 +25,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-         
+          <Route path="/why-us" element={<WhyUs />} />
           <Route path="/product" element={<Product />} />
           <Route path="/call-for-pocs" element={<CallForPOCs />} />
           <Route path="/roadmap" element={<Roadmap />} />

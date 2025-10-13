@@ -82,7 +82,7 @@ const ThreatMitigationTable = () => {
           </div>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             The quantum threat to Web3 is real and immediate. Here's how
-            QuantZen protects against specific attack vectors.
+            QuantZen™ protects against specific attack vectors.
           </p>
         </motion.div>
 
@@ -131,7 +131,7 @@ const ThreatMitigationTable = () => {
                       <div>
                         <h4 className="text-lg font-bold text-green-600 mb-2 flex items-center">
                           <CheckCircle className="w-5 h-5 mr-2 text-green-600" />
-                          QuantZen Protection
+                          QuantZen™ Protection
                         </h4>
                         <p className="text-muted-foreground">
                           {threat.quantzenSolution}
@@ -174,7 +174,7 @@ const ThreatMitigationTable = () => {
               </h3>
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              QuantZen's multi-layered security approach addresses every known
+              QuantZen™'s multi-layered security approach addresses every known
               quantum attack vector against Web3 infrastructure. Our protection
               is proactive, not reactive — securing your assets before quantum
               computers pose an existential threat.

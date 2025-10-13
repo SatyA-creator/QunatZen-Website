@@ -41,7 +41,7 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Why Us", href: "/product-tech" },
+    { name: "Why Us", href: "/why-us" },
     { name: "Product", href: "/product" },
     { name: "Partners", href: "/call-for-pocs" },
     { name: "Roadmap", href: "/roadmap" },
@@ -99,7 +99,7 @@ const Navigation = () => {
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
             />
             <span className="text-xl sm:text-2xl font-bold text-gradient">
-              QuantZen
+              QuantZen™
             </span>
           </div>
 

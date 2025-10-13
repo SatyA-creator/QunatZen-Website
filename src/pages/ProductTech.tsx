@@ -1,343 +1,930 @@
-import { motion } from "framer-motion";import { motion } from "framer-motion";import { motion } from "framer-motion";import { motion } from "framer-motion";
+import { motion } from "framer-motion";import { motion } from "framer-motion";import { motion } from "framer-motion";
 
 import { Card } from "@/components/ui/card";
 
-import { Button } from "@/components/ui/button";import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";import { Card } from "@/components/ui/card";import { Card } from "@/components/ui/card";
 
 import Navigation from "@/components/marketing/Navigation";
 
-import Footer from "@/components/marketing/Footer";import { Button } from "@/components/ui/button";import { Card } from "@/components/ui/card";import { Card } from "@/components/ui/card";
+import Footer from "@/components/marketing/Footer";import { Button } from "@/components/ui/button";import { Button } from "@/components/ui/button";
 
-import { 
+import { useNavigate } from "react-router-dom";
 
-  Shield, import Navigation from "@/components/marketing/Navigation";
+import { import Navigation from "@/components/marketing/Navigation";import Navigation from "@/components/marketing/Navigation";
 
-  Key, 
+  Shield, 
 
-  CheckCircle, import Footer from "@/components/marketing/Footer";import { Button } from "@/components/ui/button";import { Button } from "@/components/ui/button";
+  Clock,import Footer from "@/components/marketing/Footer";import Footer from "@/components/marketing/Footer";
 
-  Code2, 
+  Target,
 
-  ArrowRight, import { 
+  CheckCircle,import { useNavigate } from "react-router-dom";import { useNavigate } from "react-router-dom";
 
-  Download,
+  AlertTriangle,
 
-  Layers,  Shield, import Navigation from "@/components/marketing/Navigation";import Navigation from "@/components/marketing/Navigation";
-
-  Database,
-
-  Zap,  Target,
-
-  Lock,
-
-  FileText,  Clock,import Footer from "@/components/marketing/Footer";import Footer from "@/components/marketing/Footer";
+  Zap,import { import { 
 
   Globe,
 
-  Settings  Users,
+  ArrowRight,  Shield,   Shield, 
+
+  Users,
+
+  Lock  Clock,  Clock,
 
 } from "lucide-react";
 
-  ArrowRight,import { import { 
+  Target,  Target,
 
 const ProductTech = () => {
 
-  const coreComponents = [  CheckCircle,
+  const navigate = useNavigate();  CheckCircle,  CheckCircle,
 
-    {
 
-      icon: Layers,  AlertTriangle  Shield,   Shield, 
 
-      title: "Dual‑Signature Layer™",
+  return (  AlertTriangle,  AlertTriangle,
 
-      description: "hybrid ECDSA/EdDSA + PQC (Dilithium, Falcon, SPHINCS+)."} from "lucide-react";
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
 
-    },
-
-    {  Target,  Target,
-
-      icon: Database,
-
-      title: "Key Registry (on‑chain)",const ProductTech = () => {
-
-      description: "map accounts to PQ public keys or commitments."
-
-    },  const whyChooseUs = [  Clock,  Clock,
-
-    {
-
-      icon: CheckCircle,    {
-
-      title: "Verification",
-
-      description: "on‑chain (contracts/precompiles) + off‑chain (managed verifier, audit log)."      icon: Target,  Users,  Users,
-
-    },
-
-    {      title: "Pragmatic Solution",
-
-      icon: Code2,
-
-      title: "SDKs",      description: "No need to wait for chain-wide hard forks or governance battles. Add quantum security today."  ArrowRight,  ArrowRight,
-
-      description: "TypeScript (WASM), Rust, Go (roadmap), with simple APIs: signPQC, verifyPQC, registerKey."
-
-    }    },
-
-  ];
-
-    {  CheckCircle,  CheckCircle,
-
-  const developerSteps = [
-
-    "Import the SDK",      icon: Clock,
-
-    "Register a PQ key", 
-
-    "Hybrid‑sign",      title: "Future-Proof Now",  AlertTriangle,  AlertTriangle,
-
-    "Verify"
-
-  ];      description: "Protect your users' transaction history against harvest-now-decrypt-later attacks."
-
-
-
-  const apis = [    },  Zap  Zap
-
-    "generatePQKeypair(algo)",
-
-    "registerKey(account, pqKeyCommitment)",    {
-
-    "signPQC(message, algo, metadata)",
-
-    "verifyPQC(signature, account, metadata)"      icon: Shield,} from "lucide-react";} from "lucide-react";
-
-  ];
-
-      title: "Battle-Tested Standards",
-
-  const supportedChains = [
-
-    "Ethereum / BNB / Polygon",      description: "Built on NIST-approved post-quantum cryptography (Dilithium, Falcon, SPHINCS+, Kyber)."
-
-    "Cosmos SDK / Tendermint",
-
-    "Solana (adapter)",    },
-
-    "Others on request"
-
-  ];    {const ProductTech = () => {const ProductTech = () => {
-
-
-
-  const securityWins = [      icon: Users,
-
-    {
-
-      title: "Non‑repudiation & user‑intent proofs",      title: "Drop-In Integration",  const whyChooseUs = [  const whyChooseUs = [
-
-      description: "for regulated and enterprise flows."
-
-    },      description: "No forks. No governance deadlocks. No migrations. Just drop in, sign, and you're quantum-safe."
-
-    {
-
-      title: "Replay‑proof across chains",    }    {    {
-
-      description: "via chain‑scoped metadata binding."
-
-    },  ];
-
-    {
-
-      title: "Bridge/custody workflows",      icon: Target,      icon: Target,
-
-      description: "become tamper‑evident."
-
-    },  const problems = [
-
-    {
-
-      title: "Safer prompts",    {      title: "Pragmatic Solution",      title: "Pragmatic Solution",
-
-      description: "reduce blind‑signing risk."
-
-    }      title: "Current Web3 Security Crisis",
-
-  ];
-
-      stats: "$2.093 billion stolen in H1 2025",      description: "No need to wait for chain-wide hard forks or governance battles. Add quantum security today."      description: "No need to wait for chain-wide hard forks or governance battles. Add quantum security today."
-
-  const architectureSteps = [
-
-    "Client calls signTransaction → QuantZen SDK also calls signPQC",      description: "90 major incidents, with six exchange attacks alone accounting for $1.591 billion in losses."
-
-    "Call‑data includes PQ signature (algoID + signature bytes)",
-
-    "The contract checks ECDSA as usual and verifies PQC via registry/precompile",    },    },    },
-
-    "Verifier optionally stores proofs off‑chain and returns attestations"
-
-  ];    {
-
-
-
-  return (      title: "Escalating Threats",    {    {
-
-    <div className="min-h-screen overflow-x-hidden">
-
-      <Navigation />      stats: "96% increase in Q1 2025",
+      <Navigation />  Zap,  Zap,
 
       
 
-      {/* Hero Section */}      description: "Over $2 billion vanished in just three months, driven by operational failures and access control exploits."      icon: Clock,      icon: Clock,
+      <div className="pt-20">  Globe,  Globe,
 
-      <section className="pt-32 pb-20 bg-gradient-to-br from-background via-quantum-dark/20 to-background">
+        {/* Hero Section */}
 
-        <div className="container mx-auto px-4 sm:px-6">    },
+        <section className="py-24 overflow-x-hidden w-full">  ArrowRight,  ArrowRight
 
-          <motion.div
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
 
-            initial={{ opacity: 0, y: 20 }}    {      title: "Future-Proof Now",      title: "Future-Proof Now",
+            <motion.div  Users,} from "lucide-react";
 
-            animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
 
-            transition={{ duration: 0.6 }}      title: "Quantum Threat Timeline", 
+              animate={{ opacity: 1, y: 0 }}  Building,
 
-            className="text-center mb-16"
+              transition={{ duration: 0.8 }}
 
-          >      stats: "2030-2035 estimated",      description: "Protect your users' transaction history against harvest-now-decrypt-later attacks."      description: "Protect your users' transaction history against harvest-now-decrypt-later attacks."
+              className="text-center mb-16"  Lockconst ProductTech = () => {
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gradient">
+            >
 
-              Why Choose QuantZen?      description: "Research suggests quantum computers capable of breaking RSA-2048 may emerge within this timeframe."
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">} from "lucide-react";  const navigate = useNavigate(); 
 
-            </h1>
+                Why <span className="text-gradient">QuantZen™</span>?
 
-            <p className="text-xl text-foreground/80 max-w-4xl mx-auto">    }    },    },
+              </h1>
 
-              The chain‑agnostic solution for quantum-safe blockchain security
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
 
-            </p>  ];
+                The quantum threat is real, but waiting for protocol-level changes isn't an option. const ProductTech = () => {      title: "Dual‑Signature Layer™",
 
-          </motion.div>
+                Here's why QuantZen™ is the quantum protection your users need today.
 
-        </div>    {    {
+              </p>  const navigate = useNavigate();
 
-      </section>
+            </motion.div>
+
+          </div>      description: "hybrid ECDSA/EdDSA + PQC (Dilithium, Falcon, SPHINCS+)."} from "lucide-react";
+
+        </section>
 
   return (
 
-      {/* Frame 1: What Is QuantZen */}
+        {/* The Problem Section */}
 
-      <section className="py-20 bg-card/30">    <div className="min-h-screen overflow-x-hidden">      icon: Shield,      icon: Shield,
+        <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">    },
 
-        <div className="container mx-auto px-4 sm:px-6">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
 
-          <motion.div      <Navigation />
+            <motion.div      <Navigation />
 
-            initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
 
-            whileInView={{ opacity: 1, y: 0 }}            title: "Battle-Tested Standards",      title: "Battle-Tested Standards",
+              whileInView={{ opacity: 1, y: 0 }}          {  Target,  Target,
 
-            viewport={{ once: true }}
+              viewport={{ once: true }}
 
-            transition={{ duration: 0.6 }}      {/* Hero Section */}
+              transition={{ duration: 0.8 }}      <div className="pt-20">
 
-            className="max-w-6xl mx-auto"
+              className="mb-16"
 
-          >      <section className="pt-32 pb-20 bg-gradient-to-br from-background via-quantum-dark/20 to-background">      description: "Built on NIST-approved post-quantum cryptography (Dilithium, Falcon, SPHINCS+, Kyber)."      description: "Built on NIST-approved post-quantum cryptography (Dilithium, Falcon, SPHINCS+, Kyber)."
+            >        {/* Hero Section */}      icon: Database,
 
-            <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
+              <Card className="gaming-card p-8">
 
-              What Is <span className="text-gradient">QuantZen</span>?        <div className="container mx-auto px-4 sm:px-6">
+                <div className="flex items-center mb-6">        <section className="py-24 overflow-x-hidden w-full">
 
-            </h2>
+                  <AlertTriangle className="w-12 h-12 text-yellow-500 mr-4" />
 
-            <p className="text-lg text-foreground/80 mb-12 text-center max-w-4xl mx-auto">          <motion.div    },    },
+                  <h2 className="text-3xl font-bold">The Current Challenge</h2>          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">      title: "Key Registry (on‑chain)",const ProductTech = () => {
 
-              A chain‑agnostic middleware layer that adds PQC signing and verification to blockchain transactions, 
+                </div>
 
-              independent of the underlying chain. It intercepts or augments normal transaction flows to add a PQ             initial={{ opacity: 0, y: 20 }}
+                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">            <motion.div
 
-              layer without forking the blockchain.
+                  <p>
 
-            </p>            animate={{ opacity: 1, y: 0 }}    {    {
+                    ETH/SOL are working on PQC but this will take <strong className="text-foreground">years to achieve and cost billions</strong>.               initial={{ opacity: 0, y: 30 }}      description: "map accounts to PQ public keys or commitments."
+
+                    Apart from that migration requires new key distribution, validator updates, smart contract re-engineered 
+
+                    and break backward compatibility.              animate={{ opacity: 1, y: 0 }}
+
+                  </p>
+
+                  <p>              transition={{ duration: 0.8 }}    },  const whyChooseUs = [  Clock,  Clock,
+
+                    Even if they do the changes lets say after 5 years what if new Quantum algorithms come by NIST, 
+
+                    in that case will they re-work again and spend time and money again - that was a               className="text-center mb-16"
+
+                    <strong className="text-foreground">$100M+ engineering effort + years of coordination</strong>.
+
+                  </p>            >    {
+
+                  <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 p-6 rounded-lg border border-red-500/20">
+
+                    <p className="text-red-400 font-semibold">              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+
+                      Meanwhile, community assets remain exposed. Security will not appear overnight, 
+
+                      and someone must protect users during this transition.                Why <span className="text-gradient">QuantZen™</span>?      icon: CheckCircle,    {
+
+                    </p>
+
+                  </div>              </h1>
+
+                </div>
+
+              </Card>              <p className="text-xl text-muted-foreground max-w-4xl mx-auto">      title: "Verification",
+
+            </motion.div>
+
+          </div>                The quantum threat is real, but waiting for protocol-level changes isn't an option. 
+
+        </section>
+
+                Here's why QuantZen™ is the quantum protection your users need today.      description: "on‑chain (contracts/precompiles) + off‑chain (managed verifier, audit log)."      icon: Target,  Users,  Users,
+
+        {/* Our Solution Section */}
+
+        <section className="py-20">              </p>
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+
+            <motion.div            </motion.div>    },
+
+              initial={{ opacity: 0, y: 30 }}
+
+              whileInView={{ opacity: 1, y: 0 }}          </div>
+
+              viewport={{ once: true }}
+
+              transition={{ duration: 0.8 }}        </section>    {      title: "Pragmatic Solution",
+
+              className="text-center mb-16"
+
+            >
+
+              <h2 className="text-4xl font-bold mb-6">
+
+                That's Why <span className="text-gradient">Zenith Studio</span> Built QuantZen™        {/* The Problem Section */}      icon: Code2,
+
+              </h2>
+
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">        <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+
+                QuantZen™ doesn't compete with ETH and SOL rather it complements it.
+
+              </p>          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">      title: "SDKs",      description: "No need to wait for chain-wide hard forks or governance battles. Add quantum security today."  ArrowRight,  ArrowRight,
+
+            </motion.div>
+
+            <motion.div
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+
+              <motion.div              initial={{ opacity: 0, y: 30 }}      description: "TypeScript (WASM), Rust, Go (roadmap), with simple APIs: signPQC, verifyPQC, registerKey."
+
+                initial={{ opacity: 0, x: -30 }}
+
+                whileInView={{ opacity: 1, x: 0 }}              whileInView={{ opacity: 1, y: 0 }}
+
+                viewport={{ once: true }}
+
+                transition={{ duration: 0.6 }}              viewport={{ once: true }}    }    },
+
+              >
+
+                <Card className="gaming-card p-8 h-full">              transition={{ duration: 0.8 }}
+
+                  <Shield className="w-12 h-12 text-quantum-primary mb-6" />
+
+                  <h3 className="text-2xl font-bold mb-4">Plug-in Solution</h3>              className="mb-16"  ];
+
+                  <p className="text-muted-foreground mb-4">
+
+                    The plug-in solution layer SDK ensures forward compatibility if ever NIST evolve the PQC libraries             >
+
+                    we will just swap them in our SDK <strong className="text-foreground">massive fast</strong> then the ETH/SOL PQC solution.
+
+                  </p>              <Card className="gaming-card p-8">    {  CheckCircle,  CheckCircle,
+
+                  <p className="text-quantum-primary font-semibold">
+
+                    Our layer works on every EVM and NON-EVM chains regardless of whether the chain has PQC integrated or not.                <div className="flex items-center mb-6">
+
+                  </p>
+
+                </Card>                  <AlertTriangle className="w-12 h-12 text-yellow-500 mr-4" />  const developerSteps = [
+
+              </motion.div>
+
+                  <h2 className="text-3xl font-bold">The Current Challenge</h2>
+
+              <motion.div
+
+                initial={{ opacity: 0, x: 30 }}                </div>    "Import the SDK",      icon: Clock,
+
+                whileInView={{ opacity: 1, x: 0 }}
+
+                viewport={{ once: true }}                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+
+                transition={{ duration: 0.6, delay: 0.2 }}
+
+              >                  <p>    "Register a PQ key", 
+
+                <Card className="gaming-card p-8 h-full">
+
+                  <Lock className="w-12 h-12 text-quantum-primary mb-6" />                    ETH/SOL are working on PQC but this will take <strong className="text-foreground">years to achieve and cost billions</strong>. 
+
+                  <h3 className="text-2xl font-bold mb-4">Quantum-Proof Evidence</h3>
+
+                  <p className="text-muted-foreground mb-4">                    Apart from that migration requires new key distribution, validator updates, smart contract re-engineered     "Hybrid‑sign",      title: "Future-Proof Now",  AlertTriangle,  AlertTriangle,
+
+                    Let's say Quantum Proof Layer has been integrated by ETH/SOL and one day Quantum hack happens 
+
+                    then how court/enterprises trace and find evidence that the hacked transaction was really from "XYZ" user                     and break backward compatibility.
+
+                    since after the hack everything will be tampered.
+
+                  </p>                  </p>    "Verify"
+
+                  <p className="text-quantum-primary font-semibold">
+
+                    QuantZen™ has built such a system that Enterprises, regulators, and courts can later verify                   <p>
+
+                    who was the original creator of that particular hacked transaction cos it's impossible to alter 
+
+                    our QuantZen™ system after Quantum hack happens.                    Even if they do the changes lets say after 5 years what if new Quantum algorithms come by NIST,   ];      description: "Protect your users' transaction history against harvest-now-decrypt-later attacks."
+
+                  </p>
+
+                </Card>                    in that case will they re-work again and spend time and money again - that was a 
+
+              </motion.div>
+
+            </div>                    <strong className="text-foreground">$100M+ engineering effort + years of coordination</strong>.
 
 
 
-            <h3 className="text-2xl font-bold mb-8 text-center">Core Components</h3>            transition={{ duration: 0.6 }}
+            <motion.div                  </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              initial={{ opacity: 0, y: 30 }}
 
-              {coreComponents.map((component, index) => (            className="text-center mb-16"      icon: Users,      icon: Users,
+              whileInView={{ opacity: 1, y: 0 }}                  <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 p-6 rounded-lg border border-red-500/20">  const apis = [    },  Zap  Zap
 
-                <motion.div
+              viewport={{ once: true }}
 
-                  key={index}          >
+              transition={{ duration: 0.8 }}                    <p className="text-red-400 font-semibold">
 
-                  initial={{ opacity: 0, y: 20 }}
+            >
 
-                  whileInView={{ opacity: 1, y: 0 }}            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gradient">      title: "Drop-In Integration",      title: "Drop-In Integration",
+              <Card className="gaming-card p-8 text-center">                      Meanwhile, community assets remain exposed. Security will not appear overnight,     "generatePQKeypair(algo)",
 
-                  viewport={{ once: true }}
+                <Globe className="w-16 h-16 text-quantum-primary mx-auto mb-6" />
 
-                  transition={{ duration: 0.6, delay: index * 0.1 }}              Why Choose QuantZen?
+                <h3 className="text-2xl font-bold mb-4 text-gradient">                      and someone must protect users during this transition.
 
-                >
+                  We are the first one in the planet to provide this solution.
 
-                  <Card className="p-6 h-full bg-gradient-to-br from-card to-card/50 border-quantum-primary/20 hover:border-quantum-primary/40 transition-all duration-300">            </h1>      description: "No forks. No governance deadlocks. No migrations. Just drop in, sign, and you're quantum-safe."      description: "No forks. No governance deadlocks. No migrations. Just drop in, sign, and you're quantum-safe."
+                </h3>                    </p>    "registerKey(account, pqKeyCommitment)",    {
 
-                    <div className="flex items-start gap-4">
+              </Card>
 
-                      <div className="p-3 rounded-lg bg-quantum-primary/20">            <p className="text-xl text-foreground/80 max-w-4xl mx-auto">
+            </motion.div>                  </div>
 
-                        <component.icon className="w-6 h-6 text-quantum-primary" />
+          </div>
 
-                      </div>              The shortest route from "at risk" to quantum-ready, without waiting for protocol surgery    }    }
+        </section>                </div>    "signPQC(message, algo, metadata)",
 
-                      <div className="flex-1">
 
-                        <h4 className="text-lg font-semibold mb-2">{component.title}</h4>            </p>
 
-                        <p className="text-foreground/70">{component.description}</p>
+        {/* Collaboration Section */}              </Card>
 
-                      </div>          </motion.div>  ];  ];
+        <section className="py-20 bg-gradient-to-br from-quantum-primary/10 to-secondary/10">
 
-                    </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">            </motion.div>    "verifyPQC(signature, account, metadata)"      icon: Shield,} from "lucide-react";} from "lucide-react";
 
-                  </Card>        </div>
+            <motion.div
 
-                </motion.div>
+              initial={{ opacity: 0, y: 30 }}          </div>
 
-              ))}      </section>
+              whileInView={{ opacity: 1, y: 0 }}
+
+              viewport={{ once: true }}        </section>  ];
+
+              transition={{ duration: 0.8 }}
+
+              className="text-center mb-16"
+
+            >
+
+              <h2 className="text-4xl font-bold mb-6">        {/* Our Solution Section */}      title: "Battle-Tested Standards",
+
+                Let's Turn This Into <span className="text-gradient">Collaboration</span> Rather Than Competing
+
+              </h2>        <section className="py-20">
+
+            </motion.div>
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">  const supportedChains = [
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+
+              <motion.div            <motion.div
+
+                initial={{ opacity: 0, x: -30 }}
+
+                whileInView={{ opacity: 1, x: 0 }}              initial={{ opacity: 0, y: 30 }}    "Ethereum / BNB / Polygon",      description: "Built on NIST-approved post-quantum cryptography (Dilithium, Falcon, SPHINCS+, Kyber)."
+
+                viewport={{ once: true }}
+
+                transition={{ duration: 0.6 }}              whileInView={{ opacity: 1, y: 0 }}
+
+              >
+
+                <Card className="gaming-card p-8 h-full">              viewport={{ once: true }}    "Cosmos SDK / Tendermint",
+
+                  <Clock className="w-12 h-12 text-blue-500 mb-6" />
+
+                  <h3 className="text-2xl font-bold mb-4">Your Protocol-Level PQC</h3>              transition={{ duration: 0.8 }}
+
+                  <ul className="space-y-3 text-muted-foreground">
+
+                    <li className="flex items-start">              className="text-center mb-16"    "Solana (adapter)",    },
+
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+
+                      Critical for the long term            >
+
+                    </li>
+
+                    <li className="flex items-start">              <h2 className="text-4xl font-bold mb-6">    "Others on request"
+
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+
+                      Takes years and massive resources                That's Why <span className="text-gradient">Zenith Studio</span> Built QuantZen™
+
+                    </li>
+
+                    <li className="flex items-start">              </h2>  ];    {const ProductTech = () => {const ProductTech = () => {
+
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+
+                      Chain-level upgrades for the future              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+
+                    </li>
+
+                  </ul>                QuantZen™ doesn't compete with ETH and SOL rather it complements it.
+
+                </Card>
+
+              </motion.div>              </p>
+
+
+
+              <motion.div            </motion.div>  const securityWins = [      icon: Users,
+
+                initial={{ opacity: 0, x: 30 }}
+
+                whileInView={{ opacity: 1, x: 0 }}
+
+                viewport={{ once: true }}
+
+                transition={{ duration: 0.6, delay: 0.2 }}            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">    {
+
+              >
+
+                <Card className="gaming-card p-8 h-full">              <motion.div
+
+                  <Zap className="w-12 h-12 text-quantum-primary mb-6" />
+
+                  <h3 className="text-2xl font-bold mb-4">QuantZen™ Bridge Solution</h3>                initial={{ opacity: 0, x: -30 }}      title: "Non‑repudiation & user‑intent proofs",      title: "Drop-In Integration",  const whyChooseUs = [  const whyChooseUs = [
+
+                  <ul className="space-y-3 text-muted-foreground">
+
+                    <li className="flex items-start">                whileInView={{ opacity: 1, x: 0 }}
+
+                      <CheckCircle className="w-5 h-5 text-quantum-primary mr-2 mt-1 flex-shrink-0" />
+
+                      Plug-in solution that gives protection today                viewport={{ once: true }}      description: "for regulated and enterprise flows."
+
+                    </li>
+
+                    <li className="flex items-start">                transition={{ duration: 0.6 }}
+
+                      <CheckCircle className="w-5 h-5 text-quantum-primary mr-2 mt-1 flex-shrink-0" />
+
+                      Creates a bridge until base-layer migrations are live              >    },      description: "No forks. No governance deadlocks. No migrations. Just drop in, sign, and you're quantum-safe."
+
+                    </li>
+
+                    <li className="flex items-start">                <Card className="gaming-card p-8 h-full">
+
+                      <CheckCircle className="w-5 h-5 text-quantum-primary mr-2 mt-1 flex-shrink-0" />
+
+                      Secures users immediately                  <Shield className="w-12 h-12 text-quantum-primary mb-6" />    {
+
+                    </li>
+
+                  </ul>                  <h3 className="text-2xl font-bold mb-4">Plug-in Solution</h3>
+
+                </Card>
+
+              </motion.div>                  <p className="text-muted-foreground mb-4">      title: "Replay‑proof across chains",    }    {    {
 
             </div>
 
-          </motion.div>
+                    The plug-in solution layer SDK ensures forward compatibility if ever NIST evolve the PQC libraries 
 
-        </div>
+            <motion.div
 
-      </section>      {/* Problem Statement */}  const problems = [  const problems = [
+              initial={{ opacity: 0, y: 30 }}                    we will just swap them in our SDK <strong className="text-foreground">massive fast</strong> then the ETH/SOL PQC solution.      description: "via chain‑scoped metadata binding."
+
+              whileInView={{ opacity: 1, y: 0 }}
+
+              viewport={{ once: true }}                  </p>
+
+              transition={{ duration: 0.8 }}
+
+            >                  <p className="text-quantum-primary font-semibold">    },  ];
+
+              <Card className="gaming-card p-8 text-center">
+
+                <Users className="w-16 h-16 text-quantum-primary mx-auto mb-6" />                    Our layer works on every EVM and NON-EVM chains regardless of whether the chain has PQC integrated or not.
+
+                <h3 className="text-3xl font-bold mb-6">
+
+                  Together, We Can <span className="text-gradient">Secure Your Users Now</span>                  </p>    {
+
+                </h3>
+
+                <p className="text-xl text-muted-foreground mb-6">                </Card>
+
+                  While you prepare the chain-level upgrades for the future. Together, we make every public address 
+
+                  on Earth quantum-proof by default securing users immediately and keeping Ethereum/Solana ahead               </motion.div>      title: "Bridge/custody workflows",      icon: Target,      icon: Target,
+
+                  as leaders in Web3 security.
+
+                </p>
+
+              </Card>
+
+            </motion.div>              <motion.div      description: "become tamper‑evident."
+
+          </div>
+
+        </section>                initial={{ opacity: 0, x: 30 }}
 
 
 
-      {/* Frame 2: Developer Experience */}      <section className="py-20 bg-card/30">
+        {/* Final Call to Action */}                whileInView={{ opacity: 1, x: 0 }}    },  const problems = [
 
-      <section className="py-20">
+        <section className="py-24">
 
-        <div className="container mx-auto px-4 sm:px-6">        <div className="container mx-auto px-4 sm:px-6">    {    {
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">                viewport={{ once: true }}
 
-          <motion.div
+            <motion.div
 
-            initial={{ opacity: 0, y: 20 }}          <motion.div
+              initial={{ opacity: 0, y: 30 }}                transition={{ duration: 0.6, delay: 0.2 }}    {
 
-            whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
 
-            viewport={{ once: true }}            initial={{ opacity: 0, y: 20 }}      title: "Current Web3 Security Crisis",      title: "Current Web3 Security Crisis",
+              viewport={{ once: true }}              >
+
+              transition={{ duration: 0.8 }}
+
+              className="text-center"                <Card className="gaming-card p-8 h-full">      title: "Safer prompts",    {      title: "Pragmatic Solution",      title: "Pragmatic Solution",
+
+            >
+
+              <Card className="gaming-card p-12">                  <Lock className="w-12 h-12 text-quantum-primary mb-6" />
+
+                <Target className="w-20 h-20 text-quantum-primary mx-auto mb-8" />
+
+                <h2 className="text-4xl font-bold mb-8">                  <h3 className="text-2xl font-bold mb-4">Quantum-Proof Evidence</h3>      description: "reduce blind‑signing risk."
+
+                  One Last <span className="text-gradient">Question</span>?
+
+                </h2>                  <p className="text-muted-foreground mb-4">
+
+                <div className="bg-gradient-to-r from-quantum-primary/20 to-secondary/20 p-8 rounded-lg mb-8">
+
+                  <p className="text-2xl font-bold text-quantum-primary mb-4">                    Let's say Quantum Proof Layer has been integrated by ETH/SOL and one day Quantum hack happens     }      title: "Current Web3 Security Crisis",
+
+                    "Do you want to wait 5+ years for quantum safety, or do you want your users to be protected starting this quarter 2025?"
+
+                  </p>                    then how court/enterprises trace and find evidence that the hacked transaction was really from "XYZ" user 
+
+                </div>
+
+                <p className="text-xl text-muted-foreground mb-8">                    since after the hack everything will be tampered.  ];
+
+                  We're not waiting for Ethereum 3.0 - <strong className="text-foreground">we're securing Web3 today.</strong>
+
+                </p>                  </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>                  <p className="text-quantum-primary font-semibold">      stats: "$2.093 billion stolen in H1 2025",      description: "No need to wait for chain-wide hard forks or governance battles. Add quantum security today."      description: "No need to wait for chain-wide hard forks or governance battles. Add quantum security today."
+
+                    <Button 
+
+                      size="lg"                    QuantZen™ has built such a system that Enterprises, regulators, and courts can later verify 
+
+                      onClick={() => navigate('/contact')}
+
+                      className="bg-gradient-to-r from-quantum-primary to-quantum-secondary text-white px-8 py-4 text-lg font-semibold hover:shadow-lg hover:shadow-quantum-primary/50 transition-all duration-300"                    who was the original creator of that particular hacked transaction cos it's impossible to alter   const architectureSteps = [
+
+                    >
+
+                      Start Protecting Users Today                    our QuantZen™ system after Quantum hack happens.
+
+                      <ArrowRight className="ml-2 w-5 h-5" />
+
+                    </Button>                  </p>    "Client calls signTransaction → QuantZen SDK also calls signPQC",      description: "90 major incidents, with six exchange attacks alone accounting for $1.591 billion in losses."
+
+                  </motion.div>
+
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>                </Card>
+
+                    <Button 
+
+                      variant="outline"              </motion.div>    "Call‑data includes PQ signature (algoID + signature bytes)",
+
+                      size="lg"
+
+                      onClick={() => navigate('/product')}            </div>
+
+                      className="border-quantum-primary text-quantum-primary hover:bg-quantum-primary/10 px-8 py-4 text-lg font-semibold transition-all duration-300"
+
+                    >    "The contract checks ECDSA as usual and verifies PQC via registry/precompile",    },    },    },
+
+                      Learn More About Our Solution
+
+                    </Button>            <motion.div
+
+                  </motion.div>
+
+                </div>              initial={{ opacity: 0, y: 30 }}    "Verifier optionally stores proofs off‑chain and returns attestations"
+
+              </Card>
+
+            </motion.div>              whileInView={{ opacity: 1, y: 0 }}
+
+          </div>
+
+        </section>              viewport={{ once: true }}  ];    {
+
+      </div>
+
+                    transition={{ duration: 0.8 }}
+
+      <Footer />
+
+    </div>            >
+
+  );
+
+};              <Card className="gaming-card p-8 text-center">
+
+
+
+export default ProductTech;                <Globe className="w-16 h-16 text-quantum-primary mx-auto mb-6" />  return (      title: "Escalating Threats",    {    {
+
+                <h3 className="text-2xl font-bold mb-4 text-gradient">
+
+                  We are the first one in the planet to provide this solution.    <div className="min-h-screen overflow-x-hidden">
+
+                </h3>
+
+              </Card>      <Navigation />      stats: "96% increase in Q1 2025",
+
+            </motion.div>
+
+          </div>      
+
+        </section>
+
+      {/* Hero Section */}      description: "Over $2 billion vanished in just three months, driven by operational failures and access control exploits."      icon: Clock,      icon: Clock,
+
+        {/* Collaboration Section */}
+
+        <section className="py-20 bg-gradient-to-br from-quantum-primary/10 to-secondary/10">      <section className="pt-32 pb-20 bg-gradient-to-br from-background via-quantum-dark/20 to-background">
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+
+            <motion.div        <div className="container mx-auto px-4 sm:px-6">    },
+
+              initial={{ opacity: 0, y: 30 }}
+
+              whileInView={{ opacity: 1, y: 0 }}          <motion.div
+
+              viewport={{ once: true }}
+
+              transition={{ duration: 0.8 }}            initial={{ opacity: 0, y: 20 }}    {      title: "Future-Proof Now",      title: "Future-Proof Now",
+
+              className="text-center mb-16"
+
+            >            animate={{ opacity: 1, y: 0 }}
+
+              <h2 className="text-4xl font-bold mb-6">
+
+                Let's Turn This Into <span className="text-gradient">Collaboration</span> Rather Than Competing            transition={{ duration: 0.6 }}      title: "Quantum Threat Timeline", 
+
+              </h2>
+
+            </motion.div>            className="text-center mb-16"
+
+
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">          >      stats: "2030-2035 estimated",      description: "Protect your users' transaction history against harvest-now-decrypt-later attacks."      description: "Protect your users' transaction history against harvest-now-decrypt-later attacks."
+
+              <motion.div
+
+                initial={{ opacity: 0, x: -30 }}            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gradient">
+
+                whileInView={{ opacity: 1, x: 0 }}
+
+                viewport={{ once: true }}              Why Choose QuantZen?      description: "Research suggests quantum computers capable of breaking RSA-2048 may emerge within this timeframe."
+
+                transition={{ duration: 0.6 }}
+
+              >            </h1>
+
+                <Card className="gaming-card p-8 h-full">
+
+                  <Clock className="w-12 h-12 text-blue-500 mb-6" />            <p className="text-xl text-foreground/80 max-w-4xl mx-auto">    }    },    },
+
+                  <h3 className="text-2xl font-bold mb-4">Your Protocol-Level PQC</h3>
+
+                  <ul className="space-y-3 text-muted-foreground">              The chain‑agnostic solution for quantum-safe blockchain security
+
+                    <li className="flex items-start">
+
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />            </p>  ];
+
+                      Critical for the long term
+
+                    </li>          </motion.div>
+
+                    <li className="flex items-start">
+
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />        </div>    {    {
+
+                      Takes years and massive resources
+
+                    </li>      </section>
+
+                    <li className="flex items-start">
+
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />  return (
+
+                      Chain-level upgrades for the future
+
+                    </li>      {/* Frame 1: What Is QuantZen */}
+
+                  </ul>
+
+                </Card>      <section className="py-20 bg-card/30">    <div className="min-h-screen overflow-x-hidden">      icon: Shield,      icon: Shield,
+
+              </motion.div>
+
+        <div className="container mx-auto px-4 sm:px-6">
+
+              <motion.div
+
+                initial={{ opacity: 0, x: 30 }}          <motion.div      <Navigation />
+
+                whileInView={{ opacity: 1, x: 0 }}
+
+                viewport={{ once: true }}            initial={{ opacity: 0, y: 20 }}
+
+                transition={{ duration: 0.6, delay: 0.2 }}
+
+              >            whileInView={{ opacity: 1, y: 0 }}            title: "Battle-Tested Standards",      title: "Battle-Tested Standards",
+
+                <Card className="gaming-card p-8 h-full">
+
+                  <Zap className="w-12 h-12 text-quantum-primary mb-6" />            viewport={{ once: true }}
+
+                  <h3 className="text-2xl font-bold mb-4">QuantZen™ Bridge Solution</h3>
+
+                  <ul className="space-y-3 text-muted-foreground">            transition={{ duration: 0.6 }}      {/* Hero Section */}
+
+                    <li className="flex items-start">
+
+                      <CheckCircle className="w-5 h-5 text-quantum-primary mr-2 mt-1 flex-shrink-0" />            className="max-w-6xl mx-auto"
+
+                      Plug-in solution that gives protection today
+
+                    </li>          >      <section className="pt-32 pb-20 bg-gradient-to-br from-background via-quantum-dark/20 to-background">      description: "Built on NIST-approved post-quantum cryptography (Dilithium, Falcon, SPHINCS+, Kyber)."      description: "Built on NIST-approved post-quantum cryptography (Dilithium, Falcon, SPHINCS+, Kyber)."
+
+                    <li className="flex items-start">
+
+                      <CheckCircle className="w-5 h-5 text-quantum-primary mr-2 mt-1 flex-shrink-0" />            <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
+
+                      Creates a bridge until base-layer migrations are live
+
+                    </li>              What Is <span className="text-gradient">QuantZen</span>?        <div className="container mx-auto px-4 sm:px-6">
+
+                    <li className="flex items-start">
+
+                      <CheckCircle className="w-5 h-5 text-quantum-primary mr-2 mt-1 flex-shrink-0" />            </h2>
+
+                      Secures users immediately
+
+                    </li>            <p className="text-lg text-foreground/80 mb-12 text-center max-w-4xl mx-auto">          <motion.div    },    },
+
+                  </ul>
+
+                </Card>              A chain‑agnostic middleware layer that adds PQC signing and verification to blockchain transactions, 
+
+              </motion.div>
+
+            </div>              independent of the underlying chain. It intercepts or augments normal transaction flows to add a PQ             initial={{ opacity: 0, y: 20 }}
+
+
+
+            <motion.div              layer without forking the blockchain.
+
+              initial={{ opacity: 0, y: 30 }}
+
+              whileInView={{ opacity: 1, y: 0 }}            </p>            animate={{ opacity: 1, y: 0 }}    {    {
+
+              viewport={{ once: true }}
+
+              transition={{ duration: 0.8 }}
+
+            >
+
+              <Card className="gaming-card p-8 text-center">            <h3 className="text-2xl font-bold mb-8 text-center">Core Components</h3>            transition={{ duration: 0.6 }}
+
+                <Users className="w-16 h-16 text-quantum-primary mx-auto mb-6" />
+
+                <h3 className="text-3xl font-bold mb-6">            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                  Together, We Can <span className="text-gradient">Secure Your Users Now</span>
+
+                </h3>              {coreComponents.map((component, index) => (            className="text-center mb-16"      icon: Users,      icon: Users,
+
+                <p className="text-xl text-muted-foreground mb-6">
+
+                  While you prepare the chain-level upgrades for the future. Together, we make every public address                 <motion.div
+
+                  on Earth quantum-proof by default securing users immediately and keeping Ethereum/Solana ahead 
+
+                  as leaders in Web3 security.                  key={index}          >
+
+                </p>
+
+              </Card>                  initial={{ opacity: 0, y: 20 }}
+
+            </motion.div>
+
+          </div>                  whileInView={{ opacity: 1, y: 0 }}            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gradient">      title: "Drop-In Integration",      title: "Drop-In Integration",
+
+        </section>
+
+                  viewport={{ once: true }}
+
+        {/* Final Call to Action */}
+
+        <section className="py-24">                  transition={{ duration: 0.6, delay: index * 0.1 }}              Why Choose QuantZen?
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+
+            <motion.div                >
+
+              initial={{ opacity: 0, y: 30 }}
+
+              whileInView={{ opacity: 1, y: 0 }}                  <Card className="p-6 h-full bg-gradient-to-br from-card to-card/50 border-quantum-primary/20 hover:border-quantum-primary/40 transition-all duration-300">            </h1>      description: "No forks. No governance deadlocks. No migrations. Just drop in, sign, and you're quantum-safe."      description: "No forks. No governance deadlocks. No migrations. Just drop in, sign, and you're quantum-safe."
+
+              viewport={{ once: true }}
+
+              transition={{ duration: 0.8 }}                    <div className="flex items-start gap-4">
+
+              className="text-center"
+
+            >                      <div className="p-3 rounded-lg bg-quantum-primary/20">            <p className="text-xl text-foreground/80 max-w-4xl mx-auto">
+
+              <Card className="gaming-card p-12">
+
+                <Target className="w-20 h-20 text-quantum-primary mx-auto mb-8" />                        <component.icon className="w-6 h-6 text-quantum-primary" />
+
+                <h2 className="text-4xl font-bold mb-8">
+
+                  One Last <span className="text-gradient">Question</span>?                      </div>              The shortest route from "at risk" to quantum-ready, without waiting for protocol surgery    }    }
+
+                </h2>
+
+                <div className="bg-gradient-to-r from-quantum-primary/20 to-secondary/20 p-8 rounded-lg mb-8">                      <div className="flex-1">
+
+                  <p className="text-2xl font-bold text-quantum-primary mb-4">
+
+                    "Do you want to wait 5+ years for quantum safety, or do you want your users to be protected starting this quarter 2025?"                        <h4 className="text-lg font-semibold mb-2">{component.title}</h4>            </p>
+
+                  </p>
+
+                </div>                        <p className="text-foreground/70">{component.description}</p>
+
+                <p className="text-xl text-muted-foreground mb-8">
+
+                  We're not waiting for Ethereum 3.0 - <strong className="text-foreground">we're securing Web3 today.</strong>                      </div>          </motion.div>  ];  ];
+
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">                    </div>
+
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+
+                    <Button                   </Card>        </div>
+
+                      size="lg"
+
+                      onClick={() => navigate('/contact')}                </motion.div>
+
+                      className="bg-gradient-to-r from-quantum-primary to-quantum-secondary text-white px-8 py-4 text-lg font-semibold hover:shadow-lg hover:shadow-quantum-primary/50 transition-all duration-300"
+
+                    >              ))}      </section>
+
+                      Start Protecting Users Today
+
+                      <ArrowRight className="ml-2 w-5 h-5" />            </div>
+
+                    </Button>
+
+                  </motion.div>          </motion.div>
+
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={ 0.95 }}>
+
+                    <Button         </div>
+
+                      variant="outline"
+
+                      size="lg"      </section>      {/* Problem Statement */}  const problems = [  const problems = [
+
+                      onClick={() => navigate('/product')}
+
+                      className="border-quantum-primary text-quantum-primary hover:bg-quantum-primary/10 px-8 py-4 text-lg font-semibold transition-all duration-300"
+
+                    >
+
+                      Learn More About Our Solution      {/* Frame 2: Developer Experience */}      <section className="py-20 bg-card/30">
+
+                    </Button>
+
+                  </motion.div>      <section className="py-20">
+
+                </div>
+
+              </Card>        <div className="container mx-auto px-4 sm:px-6">        <div className="container mx-auto px-4 sm:px-6">    {    {
+
+            </motion.div>
+
+          </div>          <motion.div
+
+        </section>
+
+      </div>            initial={{ opacity: 0, y: 20 }}          <motion.div
+
+      
+
+      <Footer />            whileInView={{ opacity: 1, y: 0 }}
+
+    </div>
+
+  );            viewport={{ once: true }}            initial={{ opacity: 0, y: 20 }}      title: "Current Web3 Security Crisis",      title: "Current Web3 Security Crisis",
+
+};
 
             transition={{ duration: 0.6 }}
 
+export default ProductTech;
             className="max-w-6xl mx-auto"            whileInView={{ opacity: 1, y: 0 }}
 
           >

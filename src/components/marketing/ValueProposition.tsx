@@ -65,7 +65,7 @@ const letters: LetterCard[] = [
     letter: "W",
     title: "Without UX Friction",
     description:
-      "Users keep the same signing flow; QuantZen just adds a second, invisible signature lock.",
+      "Users keep the same signing flow; QuantZen™ just adds a second, invisible signature lock.",
     icon: Sparkles,
   },
   {

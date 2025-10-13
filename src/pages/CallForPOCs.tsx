@@ -122,7 +122,7 @@ const CallForPOCs = () => {
               {/* ORIGINAL short tagline (kept concise) */}
               <p className="text-lg text-muted-foreground mb-6">
                 {/* ORIGINAL: Who should apply, What you get, What we ask are below. */}
-                Be among the first to pilot QuantZen. Apply for a scoped POC to validate
+                Be among the first to pilot QuantZen™. Apply for a scoped POC to validate
                 quantum‑resistant security in your critical flows.
               </p>
 

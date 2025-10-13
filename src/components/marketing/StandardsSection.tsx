@@ -240,7 +240,7 @@ Stay informed — subscribe to get the latest in your inbox.
                   Successfully Subscribed!
                 </h4>
                 <p className="text-muted-foreground">
-                  You'll receive the latest quantum security updates and QuantZen news.
+                  You'll receive the latest quantum security updates and QuantZen™ news.
                 </p>
               </motion.div>
             )}
@@ -261,7 +261,7 @@ Stay informed — subscribe to get the latest in your inbox.
               <h3 className="text-2xl font-bold">Enterprise-Grade Compliance</h3>
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              QuantZen meets the most stringent security requirements for government, financial, and enterprise use. 
+              QuantZen™ meets the most stringent security requirements for government, financial, and enterprise use. 
               Our quantum-safe infrastructure is audited, certified, and ready for mission-critical applications.
             </p>
           </div> */}

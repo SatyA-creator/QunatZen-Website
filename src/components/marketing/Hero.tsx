@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"; 
 import { useState, useEffect } from "react";
 import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Button = ({ children, variant, size, className = "", ...props }) => {
   const baseStyles =
@@ -23,6 +24,7 @@ const Button = ({ children, variant, size, className = "", ...props }) => {
 };
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -171,7 +173,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl lg:text-2xl text-blue-100/80 mb-10 max-w-3xl leading-relaxed"
           >
-            QuantZen adds a post-quantum signature to every transaction
+            QuantZen™ adds a post-quantum signature to every transaction
             (alongside today's ECDSA), so wallets, dApps, bridges, and custodians
             are secure now and future-ready. Join the POC Program.
           </motion.p>
@@ -184,7 +186,12 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-start gap-4 mb-12"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="quantum" className="group relative overflow-hidden">
+              <Button 
+                variant="quantum" 
+                size="default"
+                className="group relative overflow-hidden cursor-pointer"
+                onClick={() => navigate('/contact')}
+              >
                 <span className="relative z-10">Book a 30-min Migration Consult</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
               </Button>

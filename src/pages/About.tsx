@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { TeamMemberImage } from "@/components/ui/team-member-image";
 import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
+import { useNavigate } from "react-router-dom";
+
 import { 
   Building, 
   Users, 
@@ -22,48 +25,56 @@ import {
 } from "lucide-react";
 
 const About = () => {
+  const navigate = useNavigate();
+
   const teamMembers = [
     {
-      name: "Dr. Sarah Chen",
-      role: "CEO & Co‑Founder",
-      expertise: "Quantum Cryptography, Blockchain Security",
-      background: "Former Principal Cryptographer at Microsoft, PhD in Quantum Computing from MIT",
-      image: "/api/placeholder/300/300"
+      name: "Steve V.",
+      role: "Director Of Consulting",
+      expertise: "Quantum Security Defense",
+      // background: "",
+      image: "/pic1.jpg",
+      fallbackImage: "/pic1.jpg"
     },
     {
-      name: "Marcus Rodriguez",
-      role: "CTO & Co‑Founder", 
-      expertise: "Distributed Systems, Cryptographic Protocols",
-      background: "Ex‑Coinbase Head of Security, 15+ years in enterprise blockchain",
-      image: "/api/placeholder/300/300"
+      name: "Anna Beata Kalisz Hedegaard",
+      role: "CEO",
+      expertise: "Quantum Security Defense and QuantumPrime",
+      // background: "Top 10 Women in Engineering PL'2025",
+      image: "/pic2.jpg",
+      fallbackImage: "/pic2.jpg"
     },
     {
-      name: "Dr. Yuki Tanaka",
+      name: "xyz",
       role: "Head of Research",
       expertise: "Post‑Quantum Cryptography, Algorithm Design",
-      background: "Former NIST PQC Standardization Committee, PhD from Tokyo Institute of Technology",
-      image: "/api/placeholder/300/300"
+      // background: "Former NIST PQC Standardization Committee, PhD from Tokyo Institute of Technology",
+      image: "/pic3.jpg",
+      fallbackImage: "/pic3.jpg"
     },
     {
-      name: "Elena Petrov",
+      name: "xyz",
       role: "VP of Engineering",
       expertise: "SDK Development, Developer Experience",
-      background: "Former Engineering Lead at ConsenSys, Solidity & Rust expert",
-      image: "/api/placeholder/300/300"
+      // background: "Former Engineering Lead at ConsenSys, Solidity & Rust expert",
+      image: "/pic4.jpg",
+      fallbackImage: "/pic4.jpg"
     },
     {
-      name: "James Park",
+      name: "xyz",
       role: "Head of Business Development",
       expertise: "Enterprise Partnerships, Go‑to‑Market",
-      background: "Former Director at Chainanalysis, MBA from Wharton",
-      image: "/api/placeholder/300/300"
+      // background: "Former Director at Chainanalysis, MBA from Wharton",
+      image: "/pic5.jpg",
+      fallbackImage: "/pic5.jpg"
     },
     {
-      name: "Dr. Amira Hassan",
-      role: "Security Architect",
-      expertise: "Cryptanalysis, Formal Verification",
-      background: "Former Senior Researcher at IBM Research, PhD in Applied Cryptography",
-      image: "/api/placeholder/300/300"
+      name: "Ashish Janghel",
+      role: "Founder Zenith Studio",
+      expertise: "Certified Quantum Security Engineer",
+      // background: "Former Senior Researcher at IBM Research, PhD in Applied Cryptography",
+      image: "/pic6.jpg",
+      fallbackImage: "/pic6.jpg"
     }
   ];
 
@@ -117,7 +128,7 @@ const About = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
-            About <span className="text-gradient">QuantZen</span>
+            About <span className="text-gradient">QuantZen™</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
             We saw two broken paths: either wait for each chain to do multi‑year protocol surgery, or ask users to trade UX for security. We chose a third way . A pragmatic, Chain‑Agnostic layer developers can drop in today. It’s the shortest route from “at risk” to quantum‑ready.
@@ -393,7 +404,7 @@ const About = () => {
             That’s Where We Come In
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            QuantZen offers a third path: let applications - wallets, dApps, bridges . Adopt quantum-safe security now, without waiting for chain upgrades or risking community splits. This is not about replacing blockchains but augmenting them: you remain on your chosen chain, with the same UX, while gaining a future-proof dual-signature layer that defends against both today’s and tomorrow’s threats.
+            QuantZen™ offers a third path: let applications - wallets, dApps, bridges . Adopt quantum-safe security now, without waiting for chain upgrades or risking community splits. This is not about replacing blockchains but augmenting them: you remain on your chosen chain, with the same UX, while gaining a future-proof dual-signature layer that defends against both today’s and tomorrow’s threats.
           </p>
         </motion.div>
 
@@ -407,7 +418,7 @@ const About = () => {
             <h3 className="text-2xl font-bold mb-4">How We Do It</h3>
             
             <p className="text-muted-foreground leading-relaxed">
-              QuantZen is the Dual‑Signature Layer™ for Web3. With a drop‑in SDK, it adds NIST‑standard post‑quantum signatures (e.g., Dilithium) alongside ECDSA, creating a metadata‑bound audit trail that blocks replays, signature tampering, and HNDLV, without forking any chain. QuantZen gives wallets, dApps, bridges, and L1/L2 teams a pragmatic path to quantum‑resilient security today.
+              QuantZen™ is the Dual‑Signature Layer™ for Web3. With a drop‑in SDK, it adds NIST‑standard post‑quantum signatures (e.g., Dilithium) alongside ECDSA, creating a metadata‑bound audit trail that blocks replays, signature tampering, and HNDLV, without forking any chain. QuantZen™ gives wallets, dApps, bridges, and L1/L2 teams a pragmatic path to quantum‑resilient security today.
             </p>
           </Card>
         </motion.div>
@@ -415,89 +426,97 @@ const About = () => {
     </section>
 
     {/* Frame 5: Team */}
-    <section className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5 overflow-x-hidden w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+   {/* Frame 5: Team */}
+<section className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5 overflow-x-hidden w-full">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
+        Meet Our <span className="text-gradient">Team</span>
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+        Our team combines deep expertise in quantum cryptography, blockchain technology, and enterprise security to deliver world-class solutions.
+      </p>
+    </motion.div>
+
+    {/* Team Member Cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+      {teamMembers.map((member, index) => (
         <motion.div
+          key={member.name}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          whileHover={{ y: -6, transition: { duration: 0.2 } }}
+          className="w-full flex justify-center"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
-            Meet Our <span className="text-gradient">Team</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our team combines deep expertise in quantum cryptography, blockchain technology, and enterprise security to deliver world‑class solutions.
-          </p>
-        </motion.div>
+          <Card className="gaming-card p-6 h-full w-full hover:shadow-xl transition-all duration-300">
+            {/* Image First */}
+            <div className="w-32 h-32 sm:w-36 sm:h-36 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gradient-to-r from-quantum-primary to-quantum-secondary shadow-md">
+              <TeamMemberImage
+                name={member.name}
+                image={member.image}
+                fallbackImage={member.fallbackImage}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-            >
-              <Card className="gaming-card p-6 h-full">
-                {/* Profile Image */}
-                <div className="relative mb-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-quantum-primary to-quantum-secondary mx-auto mb-4 flex items-center justify-center">
-                    <Users className="w-12 h-12 text-white" />
-                  </div>
-                  <Badge className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 bg-quantum-primary">
-                    {member.expertise.split(',')}
-                  </Badge>
-                </div>
-
-                {/* Member Info */}
-                <div className="text-center">
-                  <h3 className="text-lg font-bold mb-1">{member.name}</h3>
-                  <p className="text-quantum-primary font-medium mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                    {member.background}
-                  </p>
-                  
-                  {/* Social Links */}
-                  <div className="flex justify-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <Linkedin className="w-4 h-4" />
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <Twitter className="w-4 h-4" />
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center cursor-pointer hover:bg-primary/30 transition-colors">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Team Culture */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16"
-        >
-          <Card className="gaming-card p-8 max-w-4xl mx-auto">
+            {/* Text Below Image */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">Our Culture</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We foster an environment of continuous learning, open collaboration, and shared ownership. Our team members are encouraged to contribute to open‑source projects, publish research, and speak at conferences. We believe that the best solutions emerge from diverse perspectives and rigorous peer review.
-              </p>
+              <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
+              <p className="text-sm text-quantum-primary font-medium mb-2">{member.role}</p>
+              <Badge className="bg-quantum-primary/20 text-quantum-primary font-medium text-xs px-2 py-1 mb-3">
+                {member.expertise.split(',')[0].trim()}
+              </Badge>
+              {/* <p className="text-sm text-muted-foreground mb-4 leading-relaxed px-2">
+                {member.background}
+              </p> */}
+
+              {/* Social Links */}
+              <div className="flex justify-center space-x-3">
+                {[Linkedin, Twitter, Mail].map((Icon, i) => (
+                  <div
+                    key={i}
+                    className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center cursor-pointer hover:bg-primary/20 hover:scale-110 transition-all duration-200"
+                  >
+                    <Icon className="w-4 h-4 text-foreground" />
+                  </div>
+                ))}
+              </div>
             </div>
           </Card>
         </motion.div>
-      </div>
-    </section>
+      ))}
+    </div>
+
+    {/* Team Culture */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.5 }}
+      className="mt-16"
+    >
+      <Card className="gaming-card p-8 max-w-4xl mx-auto">
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4">Our Culture</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            We foster an environment of continuous learning, open collaboration, and shared ownership.
+            Our team members are encouraged to contribute to open-source projects, publish research, and
+            speak at conferences. We believe that the best solutions emerge from diverse perspectives and rigorous peer review.
+          </p>
+        </div>
+      </Card>
+    </motion.div>
+  </div>
+</section>
+
 
     {/* Join Us CTA */}
     <section className="py-24 bg-gradient-to-br from-quantum-primary/10 to-secondary/10 overflow-x-hidden w-full">
@@ -528,7 +547,8 @@ const About = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border border-quantum-primary text-quantum-primary rounded-lg font-semibold hover:bg-quantum-primary/10 transition-all duration-300"
+                onClick={() => navigate('/contact')}
+                className="px-8 py-3 border border-quantum-primary text-quantum-primary rounded-lg font-semibold hover:bg-quantum-primary/10 transition-all duration-300 cursor-pointer"
               >
                 Contact Us
               </motion.button>

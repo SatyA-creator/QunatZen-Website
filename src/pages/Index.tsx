@@ -2,7 +2,6 @@ import Navigation from "@/components/marketing/Navigation";
 import Hero from "@/components/marketing/Hero";
 import ValueProposition from "@/components/marketing/ValueProposition";
 import Features from "@/components/marketing/Features";
-import Stats from "@/components/marketing/Stats";
 import QuantZenNutshell from "@/components/marketing/QuantZenNutshell";
 import ComparisonSection from "@/components/marketing/ComparisonSection";
 import ThreatMitigationTable from "@/components/marketing/ThreatMitigationTable";
@@ -17,7 +16,6 @@ const Index = () => {
       <Hero />
       <ValueProposition />
       <Features />
-      <Stats />
       <QuantZenNutshell />
       <ComparisonSection />
       <ThreatMitigationTable />

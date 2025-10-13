@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -75,6 +76,17 @@ const Product = () => {
       description: "reduce blind-signing risk."
     }
   ];
+
+const handleDownload = () => {
+    // Replace this with your actual file path (inside public folder)
+     const fileUrl = "/pdf-test.pdf"; 
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = "QuantZen_Whitepaper.pdf"; // Optional: custom filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -166,7 +178,7 @@ const Product = () => {
             className="max-w-6xl mx-auto"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
-              What Is <span className="text-gradient">QuantZen</span>?
+              What Is <span className="text-gradient">QuantZen™</span>?
             </h2>
             <p className="text-lg text-foreground/80 mb-12 text-center max-w-4xl mx-auto">
               A chain-agnostic middleware layer that adds PQC signing and verification to blockchain transactions, 
@@ -285,7 +297,7 @@ const Product = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {[
-                "Client calls signTransaction → QuantZen SDK also calls signPQC.",
+                "Client calls signTransaction → QuantZen™ SDK also calls signPQC.",
                 "Call-data includes PQ signature (algoID + signature bytes).",
                 "The contract checks ECDSA as usual and verifies PQC via registry/precompile.",
                 "Verifier optionally stores proofs off-chain and returns attestations."
@@ -337,17 +349,26 @@ const Product = () => {
               ))}
             </div>
 
-            <div className="text-center bg-gradient-to-r from-quantum-primary/10 to-quantum-secondary/10 rounded-2xl p-8 border border-quantum-primary/20">
+
+           <div className="text-center bg-gradient-to-r from-quantum-primary/10 to-quantum-secondary/10 rounded-2xl p-8 border border-quantum-primary/20">
               <p className="text-lg text-foreground/80 mb-8">
-                Even if you believe quantum is “years away,” QuantZen pays for itself by reducing today’s 
+                Even if you believe quantum is “years away,” QuantZen™ pays for itself by reducing today’s 
                 losses and by future-proofing your users’ history against HNDL.
               </p>
-              <Button variant="quantum" size="lg" className="group">
+
+              {/* 🟢 Download button with functionality */}
+              <Button 
+                variant="quantum" 
+                size="lg" 
+                className="group"
+                onClick={handleDownload}
+              >
                 <FileText className="w-5 h-5 mr-2" />
                 DOWNLOAD WHITEPAPER / TECHNICAL DOCUMENTS
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
+
           </motion.div>
         </div>
       </section>

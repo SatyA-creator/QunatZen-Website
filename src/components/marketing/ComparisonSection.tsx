@@ -25,11 +25,11 @@ const ComparisonSection = () => {
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             Compared to L1/L2 Migration,{" "}
-            <span className="text-gradient">QuantZen</span> Is the Clear Saviour
+            <span className="text-gradient">QuantZen™</span> Is the Clear Saviour
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Traditional migrations are costly and slow —{" "}
-            <span className="text-gradient">QuantZen</span> integrates seamlessly
+            Traditional migrations are costly and slow {" "}
+            <span className="text-gradient">QuantZen™</span> integrates seamlessly
             with your current blockchain.
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ const ComparisonSection = () => {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-2">QuantZen Way</h3>
+              <h3 className="text-2xl font-bold mb-2">QuantZen™ Way</h3>
               <p className="text-muted-foreground text-sm sm:text-base">
                 Adds a secure quantum layer — zero rebuild required.
               </p>
@@ -117,7 +117,7 @@ const ComparisonSection = () => {
           <div className="bg-gradient-to-r from-quantum-primary/10 to-secondary/10 rounded-2xl p-6 sm:p-10 border border-quantum-primary/20 text-center">
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">The Bottom Line</h3>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-              QuantZen provides <span className="text-gradient font-semibold">quantum protection today</span> —
+              QuantZen™ provides <span className="text-gradient font-semibold">quantum protection today </span> 
               no migration, no downtime, no loss of ecosystem integrity.
             </p>
           </div>

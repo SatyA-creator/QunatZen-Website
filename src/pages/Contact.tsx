@@ -457,7 +457,6 @@
 // export default Contact;
 
 
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
@@ -465,15 +464,6 @@ import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
 import {
   Mail,
-  Linkedin,
-  Twitter,
-  Github,
-  Globe,
-  HelpCircle,
-  Building,
-  Users,
-  Zap,
-  Shield,
 } from "lucide-react";
 
 const Contact = () => {
@@ -520,7 +510,6 @@ const Contact = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navigation logo="/quantzen-logo.png" />
       <div className="bg-gradient-to-br from-background to-secondary/10 overflow-x-hidden w-full">
-        {/* Spacing */}
         <div className="h-16"></div>
 
         {/* Hero Section */}
@@ -537,12 +526,12 @@ const Contact = () => {
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
                 Ready to secure your blockchain infrastructure against quantum
-                threats? Our team is here to help you understand how QuantZen can
+                threats? Our team is here to help you understand how QuantZen™ can
                 protect your organization's digital assets.
               </p>
             </motion.div>
 
-            {/* Contact Methods */}
+            {/* Contact Cards */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -558,7 +547,11 @@ const Contact = () => {
                   whileHover={{ y: -5 }}
                 >
                   <Card
-                    className="gaming-card p-6 text-center h-full cursor-pointer transition-shadow hover:shadow-lg"
+                    className={`gaming-card p-6 text-center h-full cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                      copied === method.contact
+                        ? "border-quantum-primary/60 shadow-[0_0_15px_rgba(80,200,255,0.6)]"
+                        : ""
+                    }`}
                     onClick={() => handleCopy(method.contact)}
                   >
                     <method.icon className="w-8 h-8 text-quantum-primary mx-auto mb-4" />
@@ -580,7 +573,7 @@ const Contact = () => {
         </section>
       </div>
 
-      {/* Toast Message */}
+      {/* 📋 Copy Notification Toast */}
       <AnimatePresence>
         {copied && (
           <motion.div
@@ -589,9 +582,11 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-quantum-primary text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium"
+            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 
+                       bg-text-gradient text-black px-6 py-3 rounded-full 
+                       shadow-lg text-sm font-medium backdrop-blur-md z-50"
           >
-            📋 {copied} copied to clipboard!
+            ✅ {copied} copied to clipboard!
           </motion.div>
         )}
       </AnimatePresence>

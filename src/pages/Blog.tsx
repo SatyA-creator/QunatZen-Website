@@ -79,7 +79,7 @@ const Blog = () => {
       comments: 12
     },
     {
-      title: "Developer Guide: Integrating QuantZen SDK in 10 Minutes",
+      title: "Developer Guide: Integrating QuantZen™ SDK in 10 Minutes",
       excerpt: "Step‑by‑step tutorial for adding quantum‑resistant signatures to your Web3 application using our TypeScript SDK.",
       author: "Elena Petrov",
       role: "VP of Engineering", 
@@ -152,7 +152,7 @@ const Blog = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
-              QuantZen <span className="text-gradient">Blog</span>
+              QuantZen™ <span className="text-gradient">Blog</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
               Insights, tutorials, and deep dives into quantum‑resistant blockchain security. Stay informed about the latest developments in post‑quantum cryptography and Web3 security.

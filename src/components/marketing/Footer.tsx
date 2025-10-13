@@ -35,7 +35,7 @@ const Footer = () => {
                 alt="QuantZen Logo" 
                 className="w-8 h-8 rounded-full object-cover"
               />
-              <span className="text-xl font-bold text-gradient">QuantZen</span>
+              <span className="text-xl font-bold text-gradient">QuantZen™</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
               Post-quantum cryptography. Pre-quantum peace of mind.
@@ -85,7 +85,7 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-sm text-muted-foreground">
-            © 2025 QuantZen. All rights reserved.
+            © 2025 QuantZen™. All rights reserved.
           </p>
           <div className="flex gap-4">
             <motion.a 

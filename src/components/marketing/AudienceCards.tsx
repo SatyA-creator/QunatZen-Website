@@ -73,11 +73,11 @@ const AudienceCards = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Who<span className="text-gradient"> QuantZen Is </span>For
+            Who<span className="text-gradient"> QuantZen™ Is </span>For
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Whether you're building wallets, dApps, bridges, or entire blockchain networks, 
-            QuantZen provides quantum protection tailored to your specific use case.
+            QuantZen™ provides quantum protection tailored to your specific use case.
           </p>
         </motion.div>
 
@@ -174,7 +174,7 @@ const AudienceCards = () => {
           <div className="bg-gradient-to-r from-quantum-primary/10 to-secondary/10 rounded-2xl p-8 max-w-4xl mx-auto border border-quantum-primary/20">
             <h3 className="text-2xl font-bold mb-4">Universal Quantum Protection</h3>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              QuantZen's modular architecture adapts to any Web3 infrastructure. From individual wallets to entire blockchain ecosystems, 
+              QuantZen™'s modular architecture adapts to any Web3 infrastructure. From individual wallets to entire blockchain ecosystems, 
               we provide quantum security that scales with your needs.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">

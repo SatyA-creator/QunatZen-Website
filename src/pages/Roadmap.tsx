@@ -353,7 +353,7 @@ const Roadmap = () => {
               <Card className="gaming-card p-6 h-full border-quantum-primary">
                 <div className="text-center mb-6">
                   <Zap className="w-12 h-12 text-quantum-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-quantum-primary">QuantZen Bridge</h3>
+                  <h3 className="text-xl font-bold text-quantum-primary">QuantZen™ Bridge</h3>
                   <p className="text-sm text-muted-foreground">Our solution in 2025</p>
                 </div>
                 <div className="space-y-3 text-sm">

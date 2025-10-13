@@ -93,7 +93,7 @@ const DeveloperCTA = () => {
                     Ready to secure your blockchain?
                   </h3>
                   <p className="text-muted-foreground">
-                    Join leading Web3 projects already using QuantZen
+                    Join leading Web3 projects already using QuantZen™
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">

@@ -27,9 +27,9 @@ const features = [
 
 const howItWorksSteps = [
   
-  "You sign as normal (ECDSA/EdDSA).",
-  "QuantZen signs again (e.g., Dilithium), binding the signature to the transaction’s metadata (chain ID, nonce, amount, receiver, timestamp).",
-  "Contracts or services verify both before settlement. Optional proofs are stored off-chain for compliance/audit."
+  "Sign as usual-Your app or wallet continues to use its existing digital signature flow — no change in the user experience.",
+  "QuantZen™  adds next-gen protection-In parallel, QuantZen applies an additional cryptographic layer bound to the transaction’s key parameters securing its integrity and provenance across time and computing eras.",
+  "Verified and auditable-Networks and services can validate both layers instantly, while optional off-chain proofs maintain compliance and forensic traceability  without touching the base chain."
 ];
 
 const QuantZenNutshell = () => {
@@ -45,7 +45,7 @@ const QuantZenNutshell = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            QuantZen <span className="text-gradient">In A Nutshell</span>
+            QuantZen™ <span className="text-gradient">In A Nutshell</span>
           </h2>
           <div className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-muted-foreground px-4 sm:px-0">
             <p>
@@ -56,7 +56,7 @@ const QuantZenNutshell = () => {
               to protect Web3 from quantum threats. Our infrastructure layer sits between blockchain transactions and quantum computers, ensuring your assets remain secure both today and tomorrow.
             </p>
             <p>
-              By combining classical cryptography with post-quantum algorithms, QuantZen provides backward compatibility while future-proofing your blockchain operations against emerging quantum threats.
+              By combining classical cryptography with post-quantum algorithms, QuantZen™ provides backward compatibility while future-proofing your blockchain operations against emerging quantum threats.
             </p>
           </div>
         </motion.div>
@@ -102,6 +102,7 @@ const QuantZenNutshell = () => {
           className="mt-16 text-center"
         >
           <div className="bg-gradient-to-r from-quantum-primary/10 to-secondary/10 rounded-2xl p-8 max-w-4xl mx-auto border border-quantum-primary/20">
+           <h3 className="text-2xl font-bold mb-8">How QuantZen™ Works -  Seamless, Secure, Quantum-Ready</h3>
             <h3 className="text-2xl font-bold mb-8">No consensus changes. No forks. No months of governance debates.</h3>
             <div className="space-y-6 text-left">
               {howItWorksSteps.map((step, idx) => (
