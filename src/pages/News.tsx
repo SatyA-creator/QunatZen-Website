@@ -25,20 +25,20 @@ import {
 const News = () => {
   const pressReleases = [
     {
-      title: "QuantZen Raises $5M Seed Round to Accelerate Quantum‑Resistant Blockchain Security",
+      title: "QuantZen™ Raises $5M Seed Round to Accelerate Quantum‑Resistant Blockchain Security",
       date: "December 15, 2024",
       category: "Funding",
-      excerpt: "Leading venture capital firms back QuantZen's mission to protect blockchain infrastructure against quantum computing threats.",
-      content: "QuantZen, the pioneering quantum‑resistant blockchain security platform, today announced the completion of a $5 million seed funding round led by Blockchain Capital, with participation from Coinbase Ventures, Multicoin Capital, and prominent angel investors including Ethereum co‑founder Vitalik Buterin.",
+      excerpt: "Leading venture capital firms back QuantZen™'s mission to protect blockchain infrastructure against quantum computing threats.",
+      content: "QuantZen™, the pioneering quantum‑resistant blockchain security platform, today announced the completion of a $5 million seed funding round led by Blockchain Capital, with participation from Coinbase Ventures, Multicoin Capital, and prominent angel investors including Ethereum co‑founder Vitalik Buterin.",
       featured: true,
       tags: ["Funding", "Series A", "Blockchain Capital"]
     },
     {
-      title: "QuantZen SDK Alpha Release: First Quantum‑Resistant Signatures on Ethereum Testnet",
+      title: "QuantZen™ SDK Alpha Release: First Quantum‑Resistant Signatures on Ethereum Testnet",
       date: "November 28, 2024",
       category: "Product",
-      excerpt: "Developers can now integrate post‑quantum cryptography into their Ethereum applications with QuantZen's developer SDK.",
-      content: "QuantZen today released the alpha version of its developer SDK, enabling the first quantum‑resistant digital signatures on Ethereum testnets. The SDK supports Dilithium and Falcon algorithms approved by NIST.",
+      excerpt: "Developers can now integrate post‑quantum cryptography into their Ethereum applications with QuantZen™'s developer SDK.",
+      content: "QuantZen™ today released the alpha version of its developer SDK, enabling the first quantum‑resistant digital signatures on Ethereum testnets. The SDK supports Dilithium and Falcon algorithms approved by NIST.",
       featured: true,
       tags: ["SDK", "Ethereum", "Alpha Release"]
     },
@@ -47,16 +47,16 @@ const News = () => {
       date: "November 10, 2024",
       category: "Partnership",
       excerpt: "Collaboration will bring quantum‑resistant security features to millions of MetaMask users worldwide.",
-      content: "QuantZen announces strategic partnership with ConsenSys to explore integration of post‑quantum cryptographic capabilities into MetaMask, the world's leading self‑custodial wallet.",
+      content: "QuantZen™ announces strategic partnership with ConsenSys to explore integration of post‑quantum cryptographic capabilities into MetaMask, the world's leading self‑custodial wallet.",
       featured: false,
       tags: ["ConsenSys", "MetaMask", "Partnership"]
     },
     {
-      title: "QuantZen Co‑Founder Dr. Sarah Chen Keynotes Quantum Security Summit 2024",
+      title: "QuantZen™ Co‑Founder Dr. Sarah Chen Keynotes Quantum Security Summit 2024",
       date: "October 22, 2024",
       category: "Speaking",
       excerpt: "Industry leaders gather to discuss the urgent need for quantum‑resistant blockchain infrastructure.",
-      content: "Dr. Sarah Chen, CEO and Co‑Founder of QuantZen, delivered the opening keynote at the Quantum Security Summit 2024, addressing over 500 industry leaders about the timeline and implications of quantum threats to blockchain security.",
+      content: "Dr. Sarah Chen, CEO and Co‑Founder of QuantZen™, delivered the opening keynote at the Quantum Security Summit 2024, addressing over 500 industry leaders about the timeline and implications of quantum threats to blockchain security.",
       featured: false,
       tags: ["Conference", "Keynote", "Quantum Security"]
     },
@@ -64,17 +64,17 @@ const News = () => {
       title: "Research Paper: 'Hybrid Signature Schemes for Blockchain Transition to Post‑Quantum Era'",
       date: "October 8, 2024",
       category: "Research",
-      excerpt: "QuantZen research team publishes breakthrough findings on practical PQC implementation in blockchain systems.",
-      content: "QuantZen's research team published a peer‑reviewed paper in the Journal of Cryptographic Engineering, presenting novel approaches to hybrid signature schemes that maintain backward compatibility.",
+      excerpt: "QuantZen™ research team publishes breakthrough findings on practical PQC implementation in blockchain systems.",
+      content: "QuantZen™'s research team published a peer‑reviewed paper in the Journal of Cryptographic Engineering, presenting novel approaches to hybrid signature schemes that maintain backward compatibility.",
       featured: false,
       tags: ["Research", "Academic", "Cryptography"]
     },
     {
-      title: "QuantZen Joins Linux Foundation's Post‑Quantum Cryptography Consortium",
+      title: "QuantZen™ Joins Linux Foundation's Post‑Quantum Cryptography Consortium",
       date: "September 15, 2024",
       category: "Community",
       excerpt: "Collaboration with leading technology companies to advance open‑source post‑quantum cryptography standards.",
-      content: "QuantZen becomes a founding member of the Linux Foundation's newly formed Post‑Quantum Cryptography Consortium, joining IBM, Google, and Microsoft in developing open standards.",
+      content: "QuantZen™ becomes a founding member of the Linux Foundation's newly formed Post‑Quantum Cryptography Consortium, joining IBM, Google, and Microsoft in developing open standards.",
       featured: false,
       tags: ["Linux Foundation", "Open Source", "Standards"]
     }

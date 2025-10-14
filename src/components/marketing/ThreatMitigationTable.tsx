@@ -43,7 +43,7 @@ const threats = [
     description: "Quantum algorithms reverse-engineering private keys from public addresses",
     impact: "Single points of failure can drain billions in assets.",
     quantzenSolution:
-      "Wrap QuantZen into custody signing flows to create a provable, tamper-evident audit trail for cross-chain movements.",
+      "Wrap QuantZen™ into custody signing flows to create a provable, tamper-evident audit trail for cross-chain movements.",
   },
   {
     threat: "Insider risks",
@@ -57,7 +57,7 @@ const threats = [
     description: "Quantum algorithms reverse-engineering private keys from public addresses",
     impact: "Future quantum attacks can expose today’s encrypted data.",
     quantzenSolution:
-      "Every new txn carries a PQC signature, so your history remains safe even if ECDSA breaks in the 2030s.",
+      "Every new txn carries a PQC signature, so your Assets remain safe even if ECDSA breaks in the 2030s.",
   },
 ];
 
@@ -76,7 +76,7 @@ const ThreatMitigationTable = () => {
           <div className="flex items-center justify-center mb-6">
             <AlertTriangle className="w-12 h-12 text-destructive mr-4" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-              What QuantZen Stops -{" "}
+              What QuantZen™ Stops -{" "}
               <span className="text-destructive">Today & Tomorrow</span>
             </h2>
           </div>
@@ -176,7 +176,7 @@ const ThreatMitigationTable = () => {
             <p className="text-muted-foreground text-lg leading-relaxed">
               QuantZen™'s multi-layered security approach addresses every known
               quantum attack vector against Web3 infrastructure. Our protection
-              is proactive, not reactive — securing your assets before quantum
+              is proactive, not reactive securing your assets before quantum
               computers pose an existential threat.
             </p>
           </div>

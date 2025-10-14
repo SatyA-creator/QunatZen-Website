@@ -148,7 +148,7 @@ const AudienceCards = () => {
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium text-quantum-primary">
-                        Ready to integrate?
+                        Schedule a Demo.
                       </span>
                       <motion.div
                         whileHover={{ x: 5 }}

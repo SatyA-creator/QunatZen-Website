@@ -28,7 +28,7 @@ const features = [
 const howItWorksSteps = [
   
   "Sign as usual-Your app or wallet continues to use its existing digital signature flow — no change in the user experience.",
-  "QuantZen™  adds next-gen protection-In parallel, QuantZen applies an additional cryptographic layer bound to the transaction’s key parameters securing its integrity and provenance across time and computing eras.",
+  "QuantZen™  adds next-gen protection-In parallel, QuantZen™ applies an additional cryptographic layer bound to the transaction’s key parameters securing its integrity and provenance across time and computing eras.",
   "Verified and auditable-Networks and services can validate both layers instantly, while optional off-chain proofs maintain compliance and forensic traceability  without touching the base chain."
 ];
 
@@ -49,7 +49,7 @@ const QuantZenNutshell = () => {
           </h2>
           <div className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-muted-foreground px-4 sm:px-0">
             <p>
-              QuantZen leverages a{" "}
+              QuantZen™ leverages a{" "}
               <span className="text-quantum-primary font-semibold">
                 dual-signature approach
               </span>{" "}

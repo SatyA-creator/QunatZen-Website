@@ -17,7 +17,7 @@ const standards = [
   {
     icon: Shield,
     title: "Open Standards & Flexibility", 
-    description: "Built on liboqs and open cryptographic standards, ensuring algorithms remain modular and pluggable as the ecosystem evolves.",
+    description: "Ensuring algorithms remain modular and pluggable as the ecosystem evolves.",
     status: "Implemented"
   },
   {
@@ -106,7 +106,7 @@ const StandardsSection = () => {
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Uses NIST-standardized post-quantum algorithms (e.g., CRYSTALS-Dilithium, Kyber for KEM).
-Built on liboqs and open standards.
+
           </p>
         </motion.div>
 
@@ -195,7 +195,7 @@ Built on liboqs and open standards.
             </div>
             <p className="text-muted-foreground mb-8 text-lg">
               Your Friday 5-minute read on post-quantum security, Web3 risk, and practical migration insights.
-Stay informed — subscribe to get the latest in your inbox.
+Stay informed  subscribe to get the latest in your inbox.
             </p>
 
             {!isSubscribed ? (

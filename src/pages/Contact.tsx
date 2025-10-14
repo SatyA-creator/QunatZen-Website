@@ -116,7 +116,7 @@
 //               Get in <span className="text-gradient">Touch</span>
 //             </h1>
 //             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-//               Ready to secure your blockchain infrastructure against quantum threats? Our team is here to help you understand how QuantZen can protect your organization's digital assets.
+//               Ready to secure your blockchain infrastructure against quantum threats? Our team is here to help you understand how QuantZen™ can protect your organization's digital assets.
 //             </p>
 //           </motion.div>
 
@@ -370,7 +370,7 @@
 //               Frequently Asked <span className="text-gradient">Questions</span>
 //             </h2>
 //             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-//               Common questions about QuantZen and quantum‑resistant blockchain security.
+//               Common questions about QuantZen™ and quantum‑resistant blockchain security.
 //             </p>
 //           </motion.div>
 
@@ -385,19 +385,19 @@
 //                 answer: "Current estimates suggest that cryptographically relevant quantum computers could emerge within 10‑15 years, making preparation critical today."
 //               },
 //               {
-//                 question: "How does QuantZen integrate with existing blockchain applications?",
-//                 answer: "QuantZen provides middleware that adds quantum‑resistant signatures without requiring changes to the underlying blockchain protocol."
+//                 question: "How does QuantZen™ integrate with existing blockchain applications?",
+//                 answer: "QuantZen™ provides middleware that adds quantum‑resistant signatures without requiring changes to the underlying blockchain protocol."
 //               },
 //               {
-//                 question: "What blockchains does QuantZen support?",
+//                 question: "What blockchains does QuantZen™ support?",
 //                 answer: "We currently support Ethereum/EVM chains, with Cosmos SDK and Solana support in development. Contact us for other blockchain requirements."
 //               },
 //               {
-//                 question: "Is QuantZen suitable for enterprise use?",
-//                 answer: "Yes, QuantZen is designed for enterprise‑grade security with features like audit logging, compliance support, and enterprise key management."
+//                 question: "Is QuantZen™ suitable for enterprise use?",
+//                 answer: "Yes, QuantZen™ is designed for enterprise‑grade security with features like audit logging, compliance support, and enterprise key management."
 //               },
 //               {
-//                 question: "How can I get started with QuantZen?",
+//                 question: "How can I get started with QuantZen™?",
 //                 answer: "Join our early access program to get hands‑on experience with our SDK and work directly with our engineering team."
 //               }
 //             ].map((faq, index) => (

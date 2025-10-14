@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src="src\assets\quant_logo1-bg.png" 
+                src="\quant_logo1-bg.png" 
                 alt="QuantZen Logo" 
                 className="w-8 h-8 rounded-full object-cover"
               />
