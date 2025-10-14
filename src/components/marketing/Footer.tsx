@@ -1,6 +1,7 @@
 import { Zap, Github, Twitter, Linkedin, Mail, Shield, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -73,23 +74,24 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.name}>
-                    {link.action ? (
-                      <button
-                        onClick={link.action}
-                        className="text-sm text-muted-foreground hover:text-foreground transition-smooth text-left"
-                      >
-                        {link.name}
-                      </button>
-                    ) : (
+                    {link.external ? (
                       <a
                         href={link.href}
                         className="text-sm text-muted-foreground hover:text-foreground transition-smooth"
-                        target={link.external ? "_blank" : undefined}
-                        rel={link.external ? "noopener noreferrer" : undefined}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {link.name}
                       </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-smooth"
+                      >
+                        {link.name}
+                      </Link>
                     )}
+
                   </li>
                 ))}
               </ul>
