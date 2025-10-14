@@ -1,6 +1,7 @@
+import React from "react";
 import { motion } from "framer-motion"; 
 import { useState, useEffect } from "react";
-import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
+import { ArrowRight, Shield, Zap, Lock, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Button = ({ children, variant, size, className = "", ...props }) => {
@@ -26,6 +27,49 @@ const Button = ({ children, variant, size, className = "", ...props }) => {
 const Hero = () => {
   const navigate = useNavigate();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    {
+      title: "QuantZen™ - Quantum-Safe SDK",
+      subtitle: "Signing, Encryption, Audit",
+      content: "Securing Web3 Applications Against the Quantum Attacks Without Changing the Base Protocol or Hard Forks.",
+      icon: Shield,
+      color: "from-blue-400 via-cyan-400 to-blue-500"
+    },
+    {
+      title: "Instant Quantum Protection",
+      subtitle: "Minutes to Implementation",
+      content: "With QuantZen™, any Dapp can become quantum‑proof in minutes while staying fully compatible with the L1/L2 irrespective of any EVM or NON-EVM chains. Projects Built on classical cryptography like ECDSA, which Quantum computers will break by 2030.",
+      icon: Zap,
+      color: "from-purple-400 via-pink-400 to-purple-500"
+    },
+    {
+      title: "NIST-Approved Standards",
+      subtitle: "End-to-End Protection",
+      content: "QuantZen™ Built on post-quantum cryptography (PQC), such as CRYSTALS-Dilithium and Kyber are NIST approved standards that protects wallets, dApps, bridges, CEX and custodians from Quantum attacks at the application level. QuantZen™ SDK doesn't just help you sign quantum-safe transactions it ensures the entire flow key generation, storage, backup, audit, transmission is quantum-proof end-to-end.",
+      icon: Lock,
+      color: "from-green-400 via-emerald-400 to-green-500"
+    }
+  ];
+
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 15000); // Changed to 15 seconds
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+
+
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -151,49 +195,141 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Text Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-4xl">
-          <motion.h1
-            className="text-5xl sm:text-6xl lg:text-6xl font-bold mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <span className="text-white">Quantum-Proof Your </span>
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent inline-block">
-              Web3
-            </span>
-            <span className="text-white">, Without Waiting For A Hard Fork.</span>
-          </motion.h1>
+      {/* Text Content - Carousel */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center justify-center min-h-screen">
+        <div className="max-w-6xl mx-auto w-full">
+          {/* Carousel Content with Integrated Navigation */}
+          <div className="relative">
+            {/* Navigation Buttons - Left and Right */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl lg:text-2xl text-blue-100/80 mb-10 max-w-3xl leading-relaxed"
-          >
-            QuantZen™ adds a post-quantum signature to every transaction
-            (alongside today's ECDSA), so wallets, dApps, bridges, and custodians
-            are secure now and future-ready. Join the POC Program.
-          </motion.p>
+            {/* Carousel Content */}
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5 }}
+              className="text-center px-16"
+            >
+              {/* Icon */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex justify-center mb-8"
+              >
+                <div className="p-6 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                  {React.createElement(slides[currentSlide].icon, { className: "w-16 h-16 text-white" })}
+                </div>
+              </motion.div>
 
-          {/* Button */}
+              {/* Title */}
+              <motion.h1
+                className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <span className="text-white">{slides[currentSlide].title.split('QuantZen™')[0]}</span>
+                {slides[currentSlide].title.includes('QuantZen™') && (
+                  <span className={`bg-gradient-to-r ${slides[currentSlide].color} bg-clip-text text-transparent inline-block`}>
+                    QuantZen™
+                  </span>
+                )}
+                <span className="text-white">{slides[currentSlide].title.split('QuantZen™')[1] || ''}</span>
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="text-xl lg:text-2xl xl:text-3xl text-blue-300/90 mb-8 font-semibold"
+              >
+                {slides[currentSlide].subtitle}
+              </motion.p>
+
+              {/* Content */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="text-lg lg:text-xl xl:text-2xl text-blue-100/80 mb-12 max-w-5xl mx-auto leading-relaxed"
+              >
+                {slides[currentSlide].content}
+              </motion.p>
+
+              {/* Dot Indicators */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex justify-center space-x-3 mb-10"
+              >
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                      index === currentSlide ? 'bg-blue-400 scale-125' : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-col sm:flex-row items-start gap-4 mb-12"
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 flex-wrap"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button 
                 variant="quantum" 
                 size="default"
                 className="group relative overflow-hidden cursor-pointer"
-                onClick={() => navigate('/contact')}
+                onClick={() => window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
               >
                 <span className="relative z-10">Book a 30-min Migration Consult</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+              </Button>
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button 
+                variant="hero" 
+                size="default"
+                className="group relative overflow-hidden cursor-pointer"
+                onClick={() =>  window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
+              >
+                <span className="relative z-10">Get the SDK</span>
+              </Button>
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button 
+                variant="hero" 
+                size="default"
+                className="group relative overflow-hidden cursor-pointer"
+                onClick={() =>  window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
+              >
+                <span className="relative z-10">Join the POC Program</span>
               </Button>
             </motion.div>
           </motion.div>
@@ -202,8 +338,8 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex flex-wrap items-center gap-6 text-sm text-blue-200/70"
+            transition={{ duration: 0.6, delay: 1.1 }}
+            className="flex flex-wrap items-center justify-center gap-6 text-sm text-blue-200/70"
           >
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-400" />

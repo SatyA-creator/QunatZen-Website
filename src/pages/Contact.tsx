@@ -462,9 +462,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
-import {
-  Mail,
-} from "lucide-react";
+import { Mail, Send, Calendar } from "lucide-react"; // Updated icons
 
 const Contact = () => {
   const [copied, setCopied] = useState<string | null>(null);
@@ -472,37 +470,27 @@ const Contact = () => {
   const contactMethods = [
     {
       icon: Mail,
-      title: "Partnerships & POCs",
-      description: "Collaborate and explore integration opportunities",
-      contact: "founders@quantzen.org",
+      title: "Mail Us",
+      contact: "info@zenithstudio.live",
       subtext: "We respond within 24 hours",
     },
     {
-      icon: Mail,
-      title: "Security",
-      description: "Report security issues or vulnerabilities",
-      contact: "security@quantzen.org",
+      icon: Send,
+      title: "Telegram",
+      contact: "@zenithstudio009",
       subtext: "24/7 support for critical issues",
     },
     {
-      icon: Mail,
-      title: "Careers",
-      description: "Explore job opportunities with us",
-      contact: "jobs@quantzen.org",
-      subtext: "Join our growing team",
-    },
-    {
-      icon: Mail,
-      title: "Media",
-      description: "Press inquiries and media relations",
-      contact: "press@quantzen.org",
-      subtext: "Official press contact",
+      icon: Calendar,
+      title: "Book directly",
+      contact: "https://calendar.app.google/oHnneZM8DAmQ3hfF6",
+      subtext: "Book Now",
     },
   ];
 
-  const handleCopy = (email: string) => {
-    navigator.clipboard.writeText(email);
-    setCopied(email);
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(text);
     setTimeout(() => setCopied(null), 2000);
   };
 
@@ -536,7 +524,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16"
             >
               {contactMethods.map((method, index) => (
                 <motion.div
@@ -552,19 +540,20 @@ const Contact = () => {
                         ? "border-quantum-primary/60 shadow-[0_0_15px_rgba(80,200,255,0.6)]"
                         : ""
                     }`}
-                    onClick={() => handleCopy(method.contact)}
+                    onClick={() => {
+                      if (method.title === "Book directly") {
+                        window.open(method.contact, "_blank");
+                      } else {
+                        handleCopy(method.contact);
+                      }
+                    }}
                   >
                     <method.icon className="w-8 h-8 text-quantum-primary mx-auto mb-4" />
                     <h3 className="text-lg font-bold mb-2">{method.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      {method.description}
-                    </p>
                     <p className="text-quantum-primary font-medium mb-1">
-                      {method.contact}
+                      {method.title === "Book directly" ? "Click here" : method.contact}
                     </p>
-                    <p className="text-xs text-muted-foreground">
-                      {method.subtext}
-                    </p>
+                    <p className="text-xs text-muted-foreground">{method.subtext}</p>
                   </Card>
                 </motion.div>
               ))}
