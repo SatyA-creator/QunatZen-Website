@@ -65,7 +65,7 @@ const ComparisonSection = () => {
             <div>
               <h3 className="text-2xl font-bold mb-2">QuantZen™ Way</h3>
               <p className="text-muted-foreground text-sm sm:text-base">
-                Adds a secure quantum layer — zero rebuild required.
+                Adds a secure quantum layer  zero rebuild required.
               </p>
             </div>
           </div>

@@ -10,7 +10,7 @@ import WhyUs from "./pages/WhyUs";
 import CallForPOCs from "./pages/CallForPOCs";
 import Roadmap from "./pages/Roadmap";
 import About from "./pages/About";
-import News from "./pages/News";
+// import News from "./pages/News";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -30,7 +30,7 @@ const App = () => (
           <Route path="/call-for-pocs" element={<CallForPOCs />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/about" element={<About />} />
-          <Route path="/news" element={<News />} />
+          {/* <Route path="/news" element={<News />} /> */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

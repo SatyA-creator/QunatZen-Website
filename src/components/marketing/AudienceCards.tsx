@@ -146,17 +146,21 @@ const AudienceCards = () => {
                     transition={{ delay: index * 0.15 + 0.5 }}
                     className="mt-8 pt-6 border-t border-white/20"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-quantum-primary">
-                        Schedule a Demo.
-                      </span>
-                      <motion.div
-                        whileHover={{ x: 5 }}
-                        className="text-quantum-primary"
-                      >
-                        →
-                      </motion.div>
-                    </div>
+                    <div
+  className="flex items-center justify-between cursor-pointer hover:text-quantum-secondary transition-colors duration-300"
+  onClick={() => window.open("https://calendar.app.google/oHnneZM8DAmQ3hfF6", "_blank")}
+>
+  <span className="text-sm font-medium text-quantum-primary">
+    Schedule a Demo.
+  </span>
+  <motion.div
+    whileHover={{ x: 5 }}
+    className="text-quantum-primary"
+  >
+    →
+  </motion.div>
+</div>
+
                   </motion.div>
                 </div>
               </Card>

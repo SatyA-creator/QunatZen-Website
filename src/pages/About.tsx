@@ -145,7 +145,7 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6">Our Story</h2>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                We saw two broken paths: either wait for each chain to do multi‑year protocol surgery, or ask users to trade UX for security. We chose a third way — a pragmatic, chain‑agnostic layer developers can drop in today. It’s the shortest route from “at risk” to quantum‑ready.
+                We saw two broken paths: either wait for each chain to do multi‑year protocol surgery, or ask users to trade UX for security. We chose a third way a pragmatic, chain‑agnostic layer developers can drop in today. It’s the shortest route from “at risk” to quantum‑ready.
               </p>
               {/* Claire: Add info on Zenith Studio partnership, origins, and milestones here if desired. Keep sentence length and tone consistent with the paragraph above. */}
             </div>
@@ -353,7 +353,7 @@ const About = () => {
                   In Q1 2025, losses reached about $2B in just three months, a 96% increase over Q1 2024, driven largely by operational failures and access control exploits. {/*  */}[2]
                 </p>
                 <p>
-                  Month by month, single periods still see heavy damage — July 2025 alone was estimated at ~$147M in losses spanning hacks, contract flaws, supply‑chain abuses, and phishing. {/*  */}[3]
+                  Month by month, single periods still see heavy damage  July 2025 alone was estimated at ~$147M in losses spanning hacks, contract flaws, supply‑chain abuses, and phishing. {/*  */}[3]
                 </p>
                 <p>
                   Attackers increasingly blend social engineering, compromised tooling, and stealthy vault flaws to bypass defenses, eroding real assets, trust, and reputations. {/* Synthesis of reports  */}[1][2]
@@ -375,10 +375,10 @@ const About = () => {
                   The quantum threat is a ticking time bomb: algorithms like Shor’s can break today’s public‑key systems (ECC, RSA) on sufficiently powerful quantum hardware. {/* Industry explainer context */}
                 </p>
                 <p>
-                  Adversaries already harvest‑now, decrypt‑later — collecting data and signatures today to break them once quantum capabilities arrive — a growing concern in critical infrastructure discourse. {/* Industry/WEF context */}
+                  Adversaries already harvest‑now, decrypt‑later  collecting data and signatures today to break them once quantum capabilities arrive  a growing concern in critical infrastructure discourse. {/* Industry/WEF context */}
                 </p>
                 <p>
-                  For Web3, protocol‑level migration demands hard forks, consensus changes, governance cycles, multi‑year audits, and coordination across stakeholders — a path many networks will delay or resist. {/* Synthesis from sector realities */}
+                  For Web3, protocol‑level migration demands hard forks, consensus changes, governance cycles, multi‑year audits, and coordination across stakeholders  a path many networks will delay or resist. {/* Synthesis from sector realities */}
                 </p>
                 <p>
                   Quantum‑resistant cryptography is no longer optional; without timely adoption, sensitive transactions and smart contracts remain exposed to future decryption. 

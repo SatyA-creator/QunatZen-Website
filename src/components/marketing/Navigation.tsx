@@ -45,7 +45,7 @@ const Navigation = () => {
     { name: "Product", href: "/product" },
     { name: "Partners", href: "/call-for-pocs" },
     { name: "Roadmap", href: "/roadmap" },
-    { name: "News", href: "/news" },
+    // { name: "News", href: "/news" },
     { name: "About Us", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];

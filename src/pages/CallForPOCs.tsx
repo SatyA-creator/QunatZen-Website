@@ -35,7 +35,7 @@ const CallForPOCs = () => {
     "Custody providers",
     "Exchanges",
     "Bridges",
-    "High‑valued dApps (governance, withdrawals, oracles)"
+    " DApps "
   ];
 
   // ====== What you get (start with ORIGINAL items, then optional extras) ======
@@ -142,19 +142,31 @@ const CallForPOCs = () => {
             </motion.div>
 
             {/* ====== Quick "Who should apply" inline summary (from ORIGINAL) ====== */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="grid grid-cols-1 md:grid-cols-5 gap-3 text-sm text-muted-foreground mt-6"
-            >
-              {whoShouldApply.map((w) => (
-                <div key={w} className="p-2">
-                  • {w}
-                </div>
-              ))}
-            </motion.div>
+            {/* ====== Updated "Who should apply" section with icons ====== */}
+<motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 text-sm text-muted-foreground mt-6"
+>
+  {[
+    { name: "Wallets", icon: Shield },
+    { name: "Custody Providers", icon: Users },
+    { name: "Exchanges", icon: Globe },
+    { name: "Bridges", icon: Zap },
+    { name: "DApps", icon: Rocket },
+  ].map((item) => (
+    <div
+      key={item.name}
+      className="flex flex-col items-center justify-center p-3 rounded-xl  hover:bg-quantum-primary/10 transition-all duration-300"
+    >
+      <item.icon className="w-6 h-6 text-quantum-primary mb-2" />
+      <span className="font-medium text-center">{item.name}</span>
+    </div>
+  ))}
+</motion.div>
+
 
             {/* ====== Stats (aligned) ====== */}
             <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">

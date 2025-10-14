@@ -23,14 +23,14 @@ const letters: LetterCard[] = [
     letter: "Q",
     title: "Quantum-Proofing Made Simple",
     description:
-      "Add post-quantum signatures to every transaction without waiting for a chain-wide hard fork.",
+      " Add post-quantum signatures to every transaction without waiting for a chain to go for a hard fork.",
     icon: Shield,
   },
   {
     letter: "R",
     title: "Ready Today",
     description:
-      "Works instantly with wallets, dApps, bridges, and custodians — no years of L1/L2 re-engineering.",
+      " Works instantly with wallets, dApps, bridges, and custodians saving years of re-engineering and saving millions of dollars for  L1/L2 by going hard fork.",
     icon: Layers,
   },
   {
@@ -58,14 +58,14 @@ const letters: LetterCard[] = [
     letter: "V",
     title: "Verified By Standards",
     description:
-      "Built on NIST-approved post-quantum cryptography (Dilithium, Falcon, SPHINCS+, Kyber).",
+      " Built on NIST-approved post-quantum cryptography (Dilithium 5, Kyber).",
     icon: Sparkles,
   },
   {
     letter: "W",
     title: "Without UX Friction",
     description:
-      "Users keep the same signing flow; QuantZen™ just adds a second, invisible signature lock.",
+      "Users keep the same signing flow; QuantZen™  just adds a second, invisible signature lock.",
     icon: Sparkles,
   },
   {
@@ -79,7 +79,7 @@ const letters: LetterCard[] = [
     letter: "Y",
     title: "Your Safety Net",
     description:
-      "Even if ECDSA is broken in the 2030s, your history stays secure with PQ signatures bound to every txn.",
+      " Even if ECDSA is broken in the 2030s, your history stays secure with PQ signatures bound to every transaction.",
     icon: Sparkles,
   },
   {

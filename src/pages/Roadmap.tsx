@@ -22,42 +22,49 @@ import {
 const Roadmap = () => {
   const roadmapData = [
     {
-      quarter: "0–6 months",
+      quarter: "Q1 - Q 4   2025",
       // title: "Foundation & Core SDK",
       status: "current",
       icon: Code2,
       color: "from-quantum-primary to-quantum-secondary",
       milestones: [
-        "MVP SDK (Javascript + Node JS) + verification service (beta).",
-        "Independent cryptography review; first production pilots.",
-        "EVM adapters; Cosmos module; Solana client adapter."
+        "WASM build and C-core integration (Dilithium2/3/5 + Kyber KEM).",
+        "Secure key storage utilities (WebCrypto, Enclave, Keystore).",
+        "Integrate IPFS encrypted audit trail (Kyber-encrypted proofs).",
+        "Deliver JS/TS SDK v1.0 with hybrid ECDSA + PQ signatures.",
+        "CI/CD: reproducible build + full test coverage (KATs, fuzz, tamper tests).",
+        "Internal audit + performance benchmarks (latency, gas cost).",
+        "Launch Developer Portal + documentation hub."
       ]
     },
     {
-      quarter: "6–12 months", 
+      quarter: "Q1 - Q4 2026", 
       // title: "Multi‑Chain Expansion",
       status: "upcoming",
       icon: Globe,
       color: "from-blue-500 to-cyan-500",
       milestones: [
-        "Managed verification GA; SOC2 readiness; 10+ production integrations.",
-        "Kyber KEM flows for custody; Rust/Go SDKs.",
+        "Partnership pilots with 2–3 L1/L2 chains (Polygon, Solana, Avalanche, BNB Chain).",
+        "SDK adapters for Cosmos/Tendermint and Solana clients.",
         // "SPHINCS+ algorithm integration",
-        "Grants for ecosystem plugins."
+        "QuantZen Dashboard launch address verification, PQ badge (NFT proof of quantum safety).",
+        "Regulatory-ready audit reports for compliance (FIPS/NIST alignment).",
+        "QuantZen Enterprise SDK + SLA-based licensing model.",
+        "QuantZen Verifier Network (decentralized CID verification for compliance)."
       ]
-    },
-    {
-      quarter: "12–18 months",
-      // title: "Enterprise & Compliance",
-      status: "planned",
-      icon: Building,
-      color: "from-purple-500 to-pink-500",
-      milestones: [
-        "Non‑EVM chain adapters; enterprise on‑prem verifier.",
-        "Governance tooling for mass migration and emergency fallback.",
-        "Expanded audit/compliance reporting."
-      ]
-    }    // },
+    }
+    // {
+    //   quarter: "12–18 months",
+    //   // title: "Enterprise & Compliance",
+    //   status: "planned",
+    //   icon: Building,
+    //   color: "from-purple-500 to-pink-500",
+    //   milestones: [
+    //     "Non‑EVM chain adapters; enterprise on‑prem verifier.",
+    //     "Governance tooling for mass migration and emergency fallback.",
+    //     "Expanded audit/compliance reporting."
+    //   ]
+    // }    // },
     // {
     //   quarter: "Q4 2025",
     //   title: "Ecosystem & Scale",
@@ -156,7 +163,7 @@ const Roadmap = () => {
               </Badge>
               <Badge variant="outline" className="px-4 py-2 text-sm">
                 <TrendingUp className="w-4 h-4 mr-2" />
-                4 Major Phases
+                2 Major Phases
               </Badge>
             </motion.div>
           </motion.div>
@@ -401,30 +408,27 @@ const Roadmap = () => {
             className="text-center"
           >
             <Card className="gaming-card p-12 max-w-4xl mx-auto">
-              <Users className="w-16 h-16 text-quantum-primary mx-auto mb-6" />
-              <h2 className="text-3xl font-bold mb-6">
-                Be Part of the <span className="text-gradient">Journey</span>
-              </h2>
-              {/* <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Join our early access program and help shape the future of quantum‑resistant blockchain security. Your feedback drives our roadmap.
-              </p> */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                {/* <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-gradient-to-r from-quantum-primary to-quantum-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
-                >
-                  Join Early Access
-                </motion.button> */}
-                {/* <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border border-quantum-primary text-quantum-primary rounded-lg font-semibold hover:bg-quantum-primary/10 transition-all duration-300"
-                >
-                  View Technical Docs
-                </motion.button> */}
-              </div>
-            </Card>
+  <Users className="w-16 h-16 text-quantum-primary mx-auto mb-6" />
+  <h2 className="text-3xl font-bold mb-6">
+    Be Part of the <span className="text-gradient">Journey</span>
+  </h2>
+  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="px-8 py-3 bg-gradient-to-r from-quantum-primary to-quantum-secondary text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+      onClick={() => {
+        window.open(
+          "https://calendar.app.google/oHnneZM8DAmQ3hfF6",
+          "_blank"
+        );
+      }}
+    >
+      Schedule a Demo
+    </motion.button>
+  </div>
+</Card>
+
           </motion.div>
         </div>
       </section>

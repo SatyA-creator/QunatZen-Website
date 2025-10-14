@@ -38,23 +38,23 @@ const Product = () => {
   ];
 
   const developerSteps = [
-    "Import the SDK",
+    "Import SDK",
     "Register a PQ key", 
-    "Hybrid-sign",
+    " Dual-Sign ",
     "Verify"
   ];
 
   const apis = [
-    "generatePQKeypair(algo)",
-    "registerKey(account, pqKeyCommitment)",
-    "signPQC(message, algo, metadata)",
-    "verifyPQC(signature, account, metadata)"
+    "generatePQKeypair(algorithm) - Generates high-entropy post-quantum keys using Dilithium & KYBER.",
+    "registerPQKey(account, keyCommitment) - Registers PQ key commitments on-chain.",
+    "signHybrid(txData, algorithm, metadata)  - Produces signatures (ECDSA + PQC) seamlessly.",
+    "verifyHybrid(signature, account, metadata) - Validates both signatures and returns verification result."
   ];
 
   const supportedChains = [
     "Ethereum / BNB / Polygon",
     "Cosmos SDK / Tendermint",
-    "Solana (adapter)",
+    "Solana ( via adapter)",
     "Others on request"
   ];
 
@@ -243,9 +243,8 @@ const handleDownload = () => {
               </div>
 
               <p className="text-center text-foreground/70 mb-8">
-                Auto-detects chain hashing (Keccak vs SHA-256) and applies the right scheme under the hood. 
-                Works with Ethers.js / CosmWasm / Solana clients; pluggable call-data formatting. 
-                Minimal gas/latency overhead; choose Dilithium/Falcon per use case.
+                QuantZen™ makes post-quantum security integration effortless no protocol changes, no hard forks. Works out-of-the-box with existing EVM and non-EVM wallets, dApps, and smart contract clients.
+
               </p>
             </div>
 
@@ -262,11 +261,15 @@ const handleDownload = () => {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold mb-6">Security Notes</h3>
+                <h3 className="text-xl font-bold mb-6">Security Highlights
+</h3>
                 <ul className="space-y-2 text-foreground/70">
-                  <li>• High-entropy RNG, secure enclaves/keystores, key zeroization.</li>
-                  <li>• WASM modules audited to reduce JS side-channel risk.</li>
-                  <li>• Optional IPFS proof anchoring for compliance.</li>
+                  <li>• Hardware-grade RNG and secure key storage (WebCrypto, Keystore, or Enclave).
+</li>
+                  <li>•Audited WASM modules to prevent side-channel leaks.
+</li>
+                  <li>• Optional encrypted IPFS audit logs — linked to on-chain metadata for compliance and traceability.
+</li>
                 </ul>
 
                 <h3 className="text-xl font-bold mb-4 mt-8">Supported Chains (initial/roadmap)</h3>
@@ -282,7 +285,7 @@ const handleDownload = () => {
       </section>
 
       {/* FRAME 3: Architecture */}
-      <section className="py-20 bg-card/30">
+      {/* <section className="py-20 bg-card/30">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -316,7 +319,7 @@ const handleDownload = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* FRAME 4: Security Wins Beyond Quantum */}
       <section className="py-20">
@@ -350,24 +353,32 @@ const handleDownload = () => {
             </div>
 
 
-           <div className="text-center bg-gradient-to-r from-quantum-primary/10 to-quantum-secondary/10 rounded-2xl p-8 border border-quantum-primary/20">
-              <p className="text-lg text-foreground/80 mb-8">
-                Even if you believe quantum is “years away,” QuantZen™ pays for itself by reducing today’s 
-                losses and by future-proofing your users’ history against HNDL.
-              </p>
+           <div className="text-center bg-gradient-to-r from-quantum-primary/10 to-quantum-secondary/10 rounded-2xl p-6 sm:p-10 md:p-12 border border-quantum-primary/20 mx-auto max-w-4xl">
+  <p className="text-base sm:text-lg md:text-xl text-foreground/80 mb-6 sm:mb-8 leading-relaxed">
+    Even if you believe quantum is years away, QuantZen™ pays for itself by reducing today’s losses
+    and by future-proofing users’ assets against "Harvest Now Decrypt later"
+  </p>
 
-              {/* 🟢 Download button with functionality */}
-              <Button 
-                variant="quantum" 
-                size="lg" 
-                className="group"
-                onClick={handleDownload}
-              >
-                <FileText className="w-5 h-5 mr-2" />
-                DOWNLOAD WHITEPAPER / TECHNICAL DOCUMENTS
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-            </div>
+  <div className="flex justify-center mt-6 sm:mt-8">
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="w-full sm:w-auto"
+    >
+      <Button
+        size="lg"
+        onClick={handleDownload}
+        className="flex items-center justify-center text-center bg-gradient-to-r from-quantum-primary to-quantum-secondary text-white font-semibold hover:shadow-lg hover:shadow-quantum-primary/40 transition-all duration-300 rounded-xl px-6 sm:px-10 py-4 sm:py-5 whitespace-normal leading-snug text-sm sm:text-base md:text-lg break-words mx-auto"
+      >
+        <FileText className="w-5 h-5 mr-2 flex-shrink-0" />
+        <span className="block text-center">
+          DOWNLOAD WHITEPAPER / TECHNICAL DOCUMENTS
+        </span>
+        <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
+      </Button>
+    </motion.div>
+  </div>
+</div>
 
           </motion.div>
         </div>
