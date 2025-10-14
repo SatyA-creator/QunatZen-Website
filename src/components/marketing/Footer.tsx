@@ -29,7 +29,7 @@ const Footer = () => {
       { name: "Terms of Use", href: "#", action: () => setIsTermsOpen(true) },
     ],
     Connect: [
-      { name: "Newsletter: Q2Z Newsletter", href: "#" },
+      { name: "Book A Demo Call: Book Now", href: "https://calendar.app.google/oHnneZM8DAmQ3hfF6", external: true },
     ],
   };
 
@@ -42,16 +42,15 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src="\quant_logo1-bg.png" 
+                src="/logo.png" 
                 alt="QuantZen Logo" 
-                className="w-8 h-8 rounded-full object-cover"
+                className="w-16 h-16 object-contain"
               />
-              <span className="text-xl font-bold text-gradient">QuantZen™</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Post-quantum cryptography. Pre-quantum peace of mind.
+              QuantZen™ - Quantum-Safe SDK (signing, encryption, audit trail) , Securing Web3 Applications from Quantum Threats, also a crypto-agility layer for Web3 built to evolve as cryptographic standards evolve, without performing hard-forks or re-engineering consensus mechanisms.
             </p>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
                 <Twitter className="w-5 h-5" />
               </a>
@@ -64,7 +63,7 @@ const Footer = () => {
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
                 <Mail className="w-5 h-5" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Link Columns */}
@@ -85,6 +84,8 @@ const Footer = () => {
                       <a
                         href={link.href}
                         className="text-sm text-muted-foreground hover:text-foreground transition-smooth"
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
                       >
                         {link.name}
                       </a>
@@ -105,7 +106,8 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-sm text-muted-foreground">
-            © 2025 QuantZen™. All rights reserved.
+            © 2025 Zenith Studio LLC. All Rights Reserved.
+QuantZen™ developed by  Zenith Studio LLC are registered trademarks licensed under the Government of Ras Al Khaimah, United Arab Emirates. All content, including but not limited to text, code, software, graphics, trademarks, visual identity, SDK , Logo documentation, and digital assets, is the exclusive intellectual property of Zenith Studio LLC. Unauthorised reproduction, distribution, modification, reverse engineering, or republication, in whole or in part, without prior written permission, is strictly prohibited and may result in legal action under applicable UAE Federal Copyright Law No. 7 of 2002 (as amended) and relevant international treaties.
           </p>
           <div className="flex gap-4">
             <motion.a 

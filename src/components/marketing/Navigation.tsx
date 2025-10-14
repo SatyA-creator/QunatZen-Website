@@ -94,13 +94,10 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center gap-3 z-10">
             <img
-              src="/quant_logo1-bg.png"
+              src="/logo.png"
               alt="QuantZen Logo"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+              className="w-32 h-32 sm:w-48 sm:h-48 object-contain"
             />
-            <span className="text-xl sm:text-2xl font-bold text-gradient">
-              QuantZen™
-            </span>
           </div>
 
           {/* Countdown Boxes and Message */}
