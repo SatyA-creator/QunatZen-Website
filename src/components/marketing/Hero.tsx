@@ -9,7 +9,9 @@ const Button = ({ children, variant, size, className = "", ...props }) => {
     "px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center";
   const variants = {
     quantum:
-      "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:shadow-lg hover:shadow-purple-500/50",
+      "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:shadow-lg hover:shadow-purple-500/50 hover:from-purple-500 hover:to-blue-500",
+    secondary:
+      "bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-sm text-white border border-white/30 hover:from-white/25 hover:to-white/15 hover:border-white/40 hover:shadow-lg",
     hero:
       "bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20",
   };
@@ -32,28 +34,28 @@ const Hero = () => {
   const tabs = [
     {
       id: 'sdk',
-      label: 'QuantZen™ SDK',
+      label: 'Signing, Encryption, Audit',
       icon: Shield,
       title: "QuantZen™ - Quantum-Safe SDK",
-      subtitle: "Signing, Encryption, Audit",
+      // subtitle: "Signing, Encryption, Audit",
       content: "Securing Web3 Applications Against the Quantum Attacks Without Changing the Base Protocol or Hard Forks.",
       color: "from-blue-400 via-cyan-400 to-blue-500"
     },
     {
       id: 'protection',
-      label: 'Instant Protection',
+      label: 'Minutes to Implementation',
       icon: Zap,
       title: "Instant Quantum Protection",
-      subtitle: "Minutes to Implementation",
+      // subtitle: "Minutes to Implementation",
       content: "With QuantZen™, any Dapp can become quantum‑proof in minutes while staying fully compatible with the L1/L2 irrespective of any EVM or NON-EVM chains. Projects Built on classical cryptography like ECDSA, which Quantum computers will break by 2030.",
       color: "from-purple-400 via-pink-400 to-purple-500"
     },
     {
       id: 'standards',
-      label: 'NIST Standards',
+      label: 'End-to-End Protection',
       icon: Lock,
       title: "NIST-Approved Standards",
-      subtitle: "End-to-End Protection",
+      // subtitle: "End-to-End Protection",
       content: "QuantZen™ Built on post-quantum cryptography (PQC), such as CRYSTALS-Dilithium and Kyber are NIST approved standards that protects wallets, dApps, bridges, CEX and custodians from Quantum attacks at the application level. QuantZen™ SDK doesn't just help you sign quantum-safe transactions it ensures the entire flow key generation, storage, backup, audit, transmission is quantum-proof end-to-end.",
       color: "from-green-400 via-emerald-400 to-green-500"
     }
@@ -186,24 +188,6 @@ const Hero = () => {
       {/* Text Content - Tabbed Interface */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center justify-center min-h-screen">
         <div className="max-w-6xl mx-auto w-full">
-          {/* Tab Navigation */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? 'bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg border border-white/30'
-                    : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
-                }`}
-              >
-                <tab.icon className="w-5 h-5" />
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
           {/* Tab Content */}
           <div className="text-center">
             {tabs.map((tab) => (
@@ -244,6 +228,29 @@ const Hero = () => {
                     <span className="text-white">{tab.title.split('QuantZen™')[1] || ''}</span>
                   </motion.h1>
 
+                  {/* Tab Navigation - After Title */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="flex flex-wrap justify-center gap-3 mb-8"
+                  >
+                    {tabs.map((tabItem) => (
+                      <button
+                        key={tabItem.id}
+                        onClick={() => setActiveTab(tabItem.id)}
+                        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                          activeTab === tabItem.id
+                            ? 'bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg border border-white/30'
+                            : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
+                        }`}
+                      >
+                        <tabItem.icon className="w-5 h-5" />
+                        {tabItem.label}
+                      </button>
+                    ))}
+                  </motion.div>
+
                   {/* Subtitle */}
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -259,76 +266,76 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
-                    className="text-base lg:text-lg xl:text-xl text-blue-100/80 mb-12 max-w-4xl mx-auto leading-relaxed"
+                    className="text-base lg:text-lg xl:text-xl text-blue-100/80 mb-20 max-w-4xl mx-auto leading-relaxed"
                   >
                     {tab.content}
                   </motion.p>
+
+                  {/* Buttons */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-40 max-w-4xl mx-auto"
+                  >
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button 
+                        variant="quantum" 
+                        size="default"
+                        className="group relative overflow-hidden cursor-pointer w-full sm:w-auto min-w-[250px]"
+                        onClick={() => window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
+                      >
+                        <span className="relative z-10">Book a 30-min Migration Consult</span>
+                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+                      </Button>
+                    </motion.div>
+
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button 
+                        variant="hero" 
+                        size="default"
+                        className="group relative overflow-hidden cursor-pointer w-full sm:w-auto min-w-[180px]"
+                        onClick={() =>  window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
+                      >
+                        <span className="relative z-10">Get the SDK</span>
+                      </Button>
+                    </motion.div>
+
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button 
+                        variant="hero" 
+                        size="default"
+                        className="group relative overflow-hidden cursor-pointer w-full sm:w-auto min-w-[200px]"
+                        onClick={() =>  window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
+                      >
+                        <span className="relative z-10">Join the POC Program</span>
+                      </Button>
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
               )
             ))}
           </div>
 
-          {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 flex-wrap"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="quantum" 
-                size="default"
-                className="group relative overflow-hidden cursor-pointer"
-                onClick={() => window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
-              >
-                <span className="relative z-10">Book a 30-min Migration Consult</span>
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-              </Button>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="hero" 
-                size="default"
-                className="group relative overflow-hidden cursor-pointer"
-                onClick={() =>  window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
-              >
-                <span className="relative z-10">Get the SDK</span>
-              </Button>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="hero" 
-                size="default"
-                className="group relative overflow-hidden cursor-pointer"
-                onClick={() =>  window.open('https://calendar.app.google/oHnneZM8DAmQ3hfF6', '_blank')}
-              >
-                <span className="relative z-10">Join the POC Program</span>
-              </Button>
-            </motion.div>
-          </motion.div>
-
           {/* Trust Indicators */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
             className="flex flex-wrap items-center justify-center gap-6 text-sm text-blue-200/70"
           >
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-400" />
               <span>NIST PQC Certified</span>
-            </div>
-            <div className="flex items-center gap-2">
+            </div> */}
+            {/* <div className="flex items-center gap-2">
               <Lock className="w-5 h-5 text-blue-400" />
               <span>Enterprise Ready</span>
-            </div>
-            <div className="flex items-center gap-2">
+            </div> */}
+            {/* <div className="flex items-center gap-2">
               <Zap className="w-5 h-5 text-cyan-400" />
               <span>Zero Downtime</span>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
