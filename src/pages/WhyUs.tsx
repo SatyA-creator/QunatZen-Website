@@ -253,7 +253,7 @@ const WhyUs = () => {
                   One Last <span className="text-gradient">Question</span>?
                 </h2>
                 <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-4 sm:p-8 rounded-lg mb-6 sm:mb-8 border border-blue-200">
-                  <p className="text-lg sm:text-2xl font-bold text-blue-800">
+                  <p className="text-lg sm:text-1xl font-bold text-blue-800">
                     “Do you want to wait 5+ years for quantum safety, or do you want protection
                     starting this quarter 2025?”
                   </p>

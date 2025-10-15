@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; 
 import { useState, useEffect } from "react";
-import { ArrowRight, Shield, Zap, Lock, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Button = ({ children, variant, size, className = "", ...props }) => {
@@ -27,49 +27,37 @@ const Button = ({ children, variant, size, className = "", ...props }) => {
 const Hero = () => {
   const navigate = useNavigate();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeTab, setActiveTab] = useState('sdk');
   
-  const slides = [
+  const tabs = [
     {
+      id: 'sdk',
+      label: 'QuantZen™ SDK',
+      icon: Shield,
       title: "QuantZen™ - Quantum-Safe SDK",
       subtitle: "Signing, Encryption, Audit",
       content: "Securing Web3 Applications Against the Quantum Attacks Without Changing the Base Protocol or Hard Forks.",
-      icon: Shield,
       color: "from-blue-400 via-cyan-400 to-blue-500"
     },
     {
+      id: 'protection',
+      label: 'Instant Protection',
+      icon: Zap,
       title: "Instant Quantum Protection",
       subtitle: "Minutes to Implementation",
       content: "With QuantZen™, any Dapp can become quantum‑proof in minutes while staying fully compatible with the L1/L2 irrespective of any EVM or NON-EVM chains. Projects Built on classical cryptography like ECDSA, which Quantum computers will break by 2030.",
-      icon: Zap,
       color: "from-purple-400 via-pink-400 to-purple-500"
     },
     {
+      id: 'standards',
+      label: 'NIST Standards',
+      icon: Lock,
       title: "NIST-Approved Standards",
       subtitle: "End-to-End Protection",
       content: "QuantZen™ Built on post-quantum cryptography (PQC), such as CRYSTALS-Dilithium and Kyber are NIST approved standards that protects wallets, dApps, bridges, CEX and custodians from Quantum attacks at the application level. QuantZen™ SDK doesn't just help you sign quantum-safe transactions it ensures the entire flow key generation, storage, backup, audit, transmission is quantum-proof end-to-end.",
-      icon: Lock,
       color: "from-green-400 via-emerald-400 to-green-500"
     }
   ];
-
-  // Auto-advance carousel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Changed to 15 seconds
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-
-
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -195,101 +183,89 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Text Content - Carousel */}
+      {/* Text Content - Tabbed Interface */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center justify-center min-h-screen">
         <div className="max-w-6xl mx-auto w-full">
-          {/* Carousel Content with Integrated Navigation */}
-          <div className="relative">
-            {/* Navigation Buttons - Left and Right */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-
-            {/* Carousel Content */}
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="text-center px-16"
-            >
-              {/* Icon */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex justify-center mb-8"
+          {/* Tab Navigation */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? 'bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg border border-white/30'
+                    : 'bg-white/5 text-white/70 hover:bg-white/10 border border-white/10'
+                }`}
               >
-                <div className="p-6 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-                  {React.createElement(slides[currentSlide].icon, { className: "w-16 h-16 text-white" })}
-                </div>
-              </motion.div>
+                <tab.icon className="w-5 h-5" />
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-              {/* Title */}
-              <motion.h1
-                className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <span className="text-white">{slides[currentSlide].title.split('QuantZen™')[0]}</span>
-                {slides[currentSlide].title.includes('QuantZen™') && (
-                  <span className={`bg-gradient-to-r ${slides[currentSlide].color} bg-clip-text text-transparent inline-block`}>
-                    QuantZen™
-                  </span>
-                )}
-                <span className="text-white">{slides[currentSlide].title.split('QuantZen™')[1] || ''}</span>
-              </motion.h1>
+          {/* Tab Content */}
+          <div className="text-center">
+            {tabs.map((tab) => (
+              activeTab === tab.id && (
+                <motion.div
+                  key={tab.id}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5 }}
+                  className="space-y-8"
+                >
+                  {/* Icon */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="flex justify-center mb-8"
+                  >
+                    <div className="p-6 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                      <tab.icon className="w-16 h-16 text-white" />
+                    </div>
+                  </motion.div>
 
-              {/* Subtitle */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-xl lg:text-2xl xl:text-3xl text-blue-300/90 mb-8 font-semibold"
-              >
-                {slides[currentSlide].subtitle}
-              </motion.p>
+                  {/* Title */}
+                  <motion.h1
+                    className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    <span className="text-white">{tab.title.split('QuantZen™')[0]}</span>
+                    {tab.title.includes('QuantZen™') && (
+                      <span className={`bg-gradient-to-r ${tab.color} bg-clip-text text-transparent inline-block`}>
+                        QuantZen™
+                      </span>
+                    )}
+                    <span className="text-white">{tab.title.split('QuantZen™')[1] || ''}</span>
+                  </motion.h1>
 
-              {/* Content */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-lg lg:text-xl xl:text-2xl text-blue-100/80 mb-12 max-w-5xl mx-auto leading-relaxed"
-              >
-                {slides[currentSlide].content}
-              </motion.p>
+                  {/* Subtitle */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    className="text-xl lg:text-2xl xl:text-3xl text-blue-300/90 mb-8 font-semibold"
+                  >
+                    {tab.subtitle}
+                  </motion.p>
 
-              {/* Dot Indicators */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex justify-center space-x-3 mb-10"
-              >
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                      index === currentSlide ? 'bg-blue-400 scale-125' : 'bg-white/30 hover:bg-white/50'
-                    }`}
-                  />
-                ))}
-              </motion.div>
-            </motion.div>
+                  {/* Content */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    className="text-base lg:text-lg xl:text-xl text-blue-100/80 mb-12 max-w-4xl mx-auto leading-relaxed"
+                  >
+                    {tab.content}
+                  </motion.p>
+                </motion.div>
+              )
+            ))}
           </div>
 
           {/* Buttons */}
