@@ -98,7 +98,7 @@ const WhyUs = () => {
                 That’s Why <span className="text-gradient">Zenith Studio</span> Built QuantZen™
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-slate-700 max-w-3xl mx-auto">
-                QuantZen™ doesn’t compete with ETH and SOL , it complements them.
+                QuantZen™ doesn’t compete with ETH and SOL,it complements them.
               </p>
             </motion.div>
 
@@ -147,7 +147,7 @@ const WhyUs = () => {
               <Card className="p-6 sm:p-8 text-center bg-white shadow-xl border border-gray-200">
                 <Globe className="w-14 h-14 sm:w-16 sm:h-16 text-blue-600 mx-auto mb-4 sm:mb-6" />
                 <h3 className="text-xl sm:text-2xl font-bold text-gradient">
-                  We are the first on the planet to provide this solution.
+                  we are the first to provide this solution.
                 </h3>
               </Card>
             </motion.div>
@@ -259,8 +259,8 @@ const WhyUs = () => {
                   </p>
                 </div>
                 <p className="text-base sm:text-lg text-slate-700 mb-6 sm:mb-8">
-                  We’re not waiting for Ethereum 3.0 {" "}
-                  <strong className="text-slate-900">we’re securing Web3 today.</strong>
+                  We’re not waiting for Ethereum 3.0. {" "}
+                  <strong className="text-slate-900">We’re securing Web3 today.</strong>
                 </p>
 
                 {/* ✅ Updated Button Section */}

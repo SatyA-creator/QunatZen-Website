@@ -412,42 +412,21 @@ const About = () => {
 
           {/* Team Grid - Responsive 3/2/1 Column Layout */}
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
+            {/* Row 1: First 3 members */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {teamMembers.slice(0, 3).map((member, index) => (
                 <div
                   key={index}
-                  className={`group relative backdrop-blur-xl border rounded-3xl p-8 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl ${
-                    member.isCEO
-                      ? 'bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 hover:border-primary/60 hover:shadow-primary/30'
-                      : 'bg-gradient-to-br from-card/80 to-card/60 border-border/50 hover:border-primary/50 hover:shadow-primary/20'
-                  }`}
+                  className="group relative backdrop-blur-xl border rounded-3xl p-8 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl bg-gradient-to-br from-card/80 to-card/60 border-border/50 hover:border-primary/50 hover:shadow-primary/20"
                 >
-                  {/* CEO Badge */}
-                  {member.isCEO && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                      <div className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
-                        Founder & CEO
-                      </div>
-                    </div>
-                  )}
-
                   {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 rounded-3xl transition-all duration-500 ${
-                    member.isCEO
-                      ? 'bg-gradient-to-br from-primary/5 to-secondary/5'
-                      : 'bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5'
-                  }`}></div>
+                  <div className="absolute inset-0 rounded-3xl transition-all duration-500 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5"></div>
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
 
                   <div className="relative z-10">
                     {/* Avatar */}
-                    <div className={`relative mx-auto mb-6 ${member.isCEO ? 'w-40 h-40 mt-4' : 'w-32 h-32'}`}>
-                      <div className={`w-full h-full rounded-3xl overflow-hidden transition-all duration-500 shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20 ${
-                        member.isCEO
-                          ? 'border-4 border-primary/50 group-hover:border-primary'
-                          : 'border-3 border-border group-hover:border-primary/70'
-                      }`}>
+                    <div className="relative w-32 h-32 mx-auto mb-6">
+                      <div className="w-full h-full rounded-3xl overflow-hidden transition-all duration-500 shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20 border-3 border-border group-hover:border-primary/70">
                         <img
                           src={member.image}
                           alt={member.name}
@@ -457,34 +436,19 @@ const About = () => {
                           }}
                         />
                       </div>
-                      <div className={`absolute -top-3 -right-3 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-100 scale-75 ${
-                        member.isCEO ? 'w-10 h-10' : 'w-8 h-8'
-                      }`}>
-                        {member.isCEO ? (
-                          <Zap className="w-5 h-5 text-white" />
-                        ) : (
-                          <Sparkles className="w-4 h-4 text-white" />
-                        )}
+                      <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-100 scale-75">
+                        <Sparkles className="w-4 h-4 text-white" />
                       </div>
                     </div>
 
-
                     {/* Info */}
                     <div className="text-center mb-6">
-                      <h3 className={`font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 ${
-                        member.isCEO ? 'text-2xl' : 'text-xl'
-                      }`}>{member.name}</h3>
-                      <p className={`text-primary font-semibold mb-3 uppercase tracking-wider ${
-                        member.isCEO ? 'text-base' : 'text-sm'
-                      }`}>{member.role}</p>
+                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{member.name}</h3>
+                      <p className="text-sm text-primary font-semibold mb-3 uppercase tracking-wider">{member.role}</p>
                       
                       {/* Expertise Badge */}
-                      <div className={`inline-block bg-gradient-to-r border rounded-full backdrop-blur-sm mb-4 ${
-                        member.isCEO
-                          ? 'from-primary/30 to-secondary/30 border-primary/40 px-6 py-3'
-                          : 'from-primary/20 to-secondary/20 border-primary/30 px-4 py-2'
-                      }`}>
-                        <p className={`text-primary font-medium ${member.isCEO ? 'text-sm' : 'text-xs'}`}>
+                      <div className="inline-block bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 rounded-full px-4 py-2 backdrop-blur-sm mb-4">
+                        <p className="text-xs text-primary font-medium">
                           {member.expertise.split(',')[0].trim()}
                         </p>
                       </div>
@@ -495,6 +459,68 @@ const About = () => {
                       </p>
                     </div>
 
+                    {/* Social Links */}
+                    <div className="flex justify-center">
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link w-12 h-12 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 flex items-center justify-center hover:from-primary hover:to-secondary hover:border-transparent transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
+                      >
+                        <Linkedin className="w-5 h-5 text-primary group-hover/link:text-white transition-colors duration-300" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2: Next 2 members */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+              {teamMembers.slice(3, 5).map((member, index) => (
+                <div
+                  key={index + 3}
+                  className="group relative backdrop-blur-xl border rounded-3xl p-8 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl bg-gradient-to-br from-card/80 to-card/60 border-border/50 hover:border-primary/50 hover:shadow-primary/20"
+                >
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 rounded-3xl transition-all duration-500 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover:from-primary/5 group-hover:to-secondary/5"></div>
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  <div className="relative z-10">
+                    {/* Avatar */}
+                    <div className="relative w-32 h-32 mx-auto mb-6">
+                      <div className="w-full h-full rounded-3xl overflow-hidden transition-all duration-500 shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20 border-3 border-border group-hover:border-primary/70">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=3b82f6&color=fff&size=320`;
+                          }}
+                        />
+                      </div>
+                      <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-100 scale-75">
+                        <Sparkles className="w-4 h-4 text-white" />
+                      </div>
+                    </div>
+
+                    {/* Info */}
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{member.name}</h3>
+                      <p className="text-sm text-primary font-semibold mb-3 uppercase tracking-wider">{member.role}</p>
+                      
+                      {/* Expertise Badge */}
+                      <div className="inline-block bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 rounded-full px-4 py-2 backdrop-blur-sm mb-4">
+                        <p className="text-xs text-primary font-medium">
+                          {member.expertise.split(',')[0].trim()}
+                        </p>
+                      </div>
+
+                      {/* Full Description */}
+                      <p className="text-sm text-muted-foreground leading-relaxed px-2">
+                        {member.description}
+                      </p>
+                    </div>
 
                     {/* Social Links */}
                     <div className="flex justify-center">
@@ -502,18 +528,78 @@ const About = () => {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`group/link rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 flex items-center justify-center hover:from-primary hover:to-secondary hover:border-transparent transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 ${
-                          member.isCEO ? 'w-14 h-14 hover:shadow-xl hover:shadow-primary/40' : 'w-12 h-12'
-                        }`}
+                        className="group/link w-12 h-12 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 flex items-center justify-center hover:from-primary hover:to-secondary hover:border-transparent transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
                       >
-                        <Linkedin className={`text-primary group-hover/link:text-white transition-colors duration-300 ${
-                          member.isCEO ? 'w-6 h-6' : 'w-5 h-5'
-                        }`} />
+                        <Linkedin className="w-5 h-5 text-primary group-hover/link:text-white transition-colors duration-300" />
                       </a>
                     </div>
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Row 3: CEO/Founder (Ashish) - Highlighted */}
+            <div className="flex justify-center">
+              <div className="relative max-w-md w-full">
+                <div className="group relative bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-xl border-2 border-primary/30 rounded-3xl p-10 hover:border-primary/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-primary/30">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl transition-all duration-500"></div>
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-primary/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* CEO Badge */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                      Founder & CEO
+                    </div>
+                  </div>
+
+                  <div className="relative z-10">
+                    {/* Avatar */}
+                    <div className="relative w-40 h-40 mx-auto mb-6 mt-4">
+                      <div className="w-full h-full rounded-3xl overflow-hidden border-4 border-primary/50 group-hover:border-primary transition-all duration-500 shadow-2xl group-hover:shadow-3xl group-hover:shadow-primary/30">
+                        <img
+                          src={teamMembers[5].image}
+                          alt={teamMembers[5].name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(teamMembers[5].name)}&background=3b82f6&color=fff&size=320`;
+                          }}
+                        />
+                      </div>
+                      <div className="absolute -top-3 -right-3 w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-100 scale-75">
+                        <Zap className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+
+                    {/* Info */}
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{teamMembers[5].name}</h3>
+                      <p className="text-base text-primary font-semibold mb-4 uppercase tracking-wider">{teamMembers[5].role}</p>
+                      
+                      {/* Expertise Badge */}
+                      <div className="inline-block bg-gradient-to-r from-primary/30 to-secondary/30 border border-primary/40 rounded-full px-6 py-3 backdrop-blur-sm mb-4">
+                        <p className="text-sm text-primary font-semibold">{teamMembers[5].expertise.split(',')[0].trim()}</p>
+                      </div>
+
+                      {/* Full Description */}
+                      <p className="text-sm text-muted-foreground leading-relaxed px-2">
+                        {teamMembers[5].description}
+                      </p>
+                    </div>
+
+                    {/* Social Links */}
+                    <div className="flex justify-center">
+                      <a
+                        href={teamMembers[5].linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link w-14 h-14 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 flex items-center justify-center hover:from-primary hover:to-secondary hover:border-transparent transition-all duration-300 hover:shadow-xl hover:shadow-primary/40"
+                      >
+                        <Linkedin className="w-6 h-6 text-primary group-hover/link:text-white transition-colors duration-300" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

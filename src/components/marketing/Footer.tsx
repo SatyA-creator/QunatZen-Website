@@ -1,6 +1,6 @@
 import { Zap, Github, Twitter, Linkedin, Mail, Shield, FileText } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Dialog,
@@ -14,6 +14,71 @@ import {
 const Footer = () => {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isTermsOpen, setIsTermsOpen] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const countdownDate = new Date("2030-01-01T00:00:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          ),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const CountdownBox = ({ label, value, isSeconds }) => {
+    return (
+      <div
+        className="flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3 rounded-lg shadow-lg border border-quantum-primary/50 min-w-[50px] sm:min-w-[70px] text-white backdrop-blur-md"
+        style={{
+          background:
+            "linear-gradient(135deg, rgb(48, 110, 232) 0%, rgb(82, 177, 224) 50%, rgb(78, 206, 218) 100%)",
+        }}
+      >
+        {isSeconds ? (
+          <motion.div
+            key={value}
+            initial={{ rotateX: -90, opacity: 0 }}
+            animate={{ rotateX: 0, opacity: 1 }}
+            exit={{ rotateX: 90, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-lg sm:text-xl font-bold"
+            style={{ textShadow: "0 0 5px rgba(0,0,0,0.5)" }}
+          >
+            {value}
+          </motion.div>
+        ) : (
+          <span
+            className="text-lg sm:text-xl font-bold"
+            style={{ textShadow: "0 0 5px rgba(0,0,0,0.5)" }}
+          >
+            {value}
+          </span>
+        )}
+        <span className="text-xs sm:text-sm uppercase">{label}</span>
+      </div>
+    );
+  };
   const footerLinks = {
     Resources: [
       { name: "Why Us", href: "/why-us" },
@@ -30,12 +95,52 @@ const Footer = () => {
       { name: "Terms of Use", href: "#", action: () => setIsTermsOpen(true) },
     ],
     Connect: [
-      { name: "Book A Demo Call: Book Now", href: "https://calendar.app.google/oHnneZM8DAmQ3hfF6", external: true },
+      { name: "Book A Demo Call", href: "https://calendar.app.google/oHnneZM8DAmQ3hfF6", external: true },
     ],
   };
 
   return (
-    <footer className="relative bg-card border-t border-quantum-primary/20 overflow-hidden w-full">
+    <>
+      {/* Countdown Section */}
+      <section className="py-16 bg-gradient-to-br from-primary/10 to-secondary/10 border-t border-primary/20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
+              style={{
+                backgroundImage: "linear-gradient(90deg, #00bcd4, #3f51b5)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textShadow: "0 0 6px rgba(0, 188, 212, 0.4)",
+              }}
+            >
+              COUNTDOWN TO Q-DAY ✨
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              The quantum era is approaching. Secure your Web3 infrastructure today.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4 justify-center items-center">
+            {/* Hourglass GIF */}
+            <img
+              src="/hourglass1-unscreen.gif"
+              alt="Hourglass Animation"
+              className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg mb-4 sm:mb-0"
+            />
+
+            {/* Countdown boxes */}
+            <div className="flex gap-3 sm:gap-4 flex-wrap justify-center">
+              <CountdownBox label="Days" value={timeLeft.days} />
+              <CountdownBox label="Hours" value={timeLeft.hours} />
+              <CountdownBox label="Minutes" value={timeLeft.minutes} />
+              <CountdownBox label="Seconds" value={timeLeft.seconds} isSeconds />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="relative bg-card border-t border-quantum-primary/20 overflow-hidden w-full">
       <div className="absolute inset-0 bg-gradient-quantum opacity-5" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 max-w-full">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
@@ -45,11 +150,11 @@ const Footer = () => {
               <img 
                 src="/logo.png" 
                 alt="QuantZen Logo" 
-                className="w-16 h-16 object-contain"
+                className="w-24 h-24 object-contain"
               />
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              QuantZen™ - Quantum-Safe SDK (signing, encryption, audit trail) , Securing Web3 Applications from Quantum Threats, also a crypto-agility layer for Web3 built to evolve as cryptographic standards evolve, without performing hard-forks or re-engineering consensus mechanisms.
+              QuantZen™ - Quantum-safe, chain agnostic SDK securing Web3 applications without Hard Forks.
             </p>
             {/* <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
@@ -74,15 +179,33 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.name}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        className="text-sm text-muted-foreground hover:text-foreground transition-smooth"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    {link.action ? (
+                      <button
+                        onClick={link.action}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-smooth text-left"
                       >
                         {link.name}
-                      </a>
+                      </button>
+                    ) : link.external ? (
+                      link.name === "Book A Demo Call" ? (
+                        <a
+                          href={link.href}
+                          className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-lg font-medium hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:transform hover:scale-105"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Book A Demo Call
+                        </a>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-sm text-muted-foreground hover:text-foreground transition-smooth"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.name}
+                        </a>
+                      )
                     ) : (
                       <Link
                         to={link.href}
@@ -111,7 +234,7 @@ const Footer = () => {
             © 2025 Zenith Studio LLC. All Rights Reserved.
 QuantZen™ developed by  Zenith Studio LLC are registered trademarks licensed under the Government of Ras Al Khaimah, United Arab Emirates. All content, including but not limited to text, code, software, graphics, trademarks, visual identity, SDK , Logo documentation, and digital assets, is the exclusive intellectual property of Zenith Studio LLC. Unauthorised reproduction, distribution, modification, reverse engineering, or republication, in whole or in part, without prior written permission, is strictly prohibited and may result in legal action under applicable UAE Federal Copyright Law No. 7 of 2002 (as amended) and relevant international treaties.
           </p>
-          <div className="flex gap-4">
+          {/* <div className="flex gap-4">
             <motion.a 
               href="#" 
               className="text-muted-foreground hover:text-quantum-primary transition-smooth"
@@ -136,7 +259,7 @@ QuantZen™ developed by  Zenith Studio LLC are registered trademarks licensed u
             >
               <Linkedin className="w-5 h-5" />
             </motion.a>
-          </div>
+          </div> */}
         </motion.div>
       </div>
 
@@ -273,6 +396,7 @@ QuantZen™ developed by  Zenith Studio LLC are registered trademarks licensed u
         </DialogContent>
       </Dialog>
     </footer>
+    </>
   );
 };
 
