@@ -38,7 +38,7 @@ const WhyUs = () => {
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-slate-700 max-w-3xl mx-auto px-2">
                 The quantum threat is real, but waiting for protocol-level changes isn’t an option.
-                Here’s why QuantZen™ is the quantum protection your users need today.
+                Here’s why QuantZen™ is the quantum protection your users need today:
               </p>
             </motion.div>
           </div>
