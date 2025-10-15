@@ -117,8 +117,8 @@ const ComparisonSection = () => {
           <div className="bg-gradient-to-r from-quantum-primary/10 to-secondary/10 rounded-2xl p-6 sm:p-10 border border-quantum-primary/20 text-center">
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">The Bottom Line</h3>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-              QuantZen™ provides <span className="text-gradient font-semibold">quantum protection today </span> 
-              no migration, no downtime, no loss of ecosystem integrity.
+              QuantZen™ provides <span className="text-gradient font-semibold">quantum protection today.</span> 
+              No migration, No downtime, No loss of ecosystem integrity.
             </p>
           </div>
         </motion.div>
