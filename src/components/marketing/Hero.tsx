@@ -242,32 +242,18 @@ const Hero = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         animate={{ 
-                          boxShadow: activeTab === tabItem.id 
-                            ? ["0 0 20px rgba(59, 130, 246, 0.5)", "0 0 30px rgba(59, 130, 246, 0.8)", "0 0 20px rgba(59, 130, 246, 0.5)"]
-                            : ["0 0 10px rgba(59, 130, 246, 0.2)", "0 0 15px rgba(59, 130, 246, 0.4)", "0 0 10px rgba(59, 130, 246, 0.2)"]
+                          boxShadow: ["0 0 20px rgba(59, 130, 246, 0.5)", "0 0 30px rgba(59, 130, 246, 0.8)", "0 0 20px rgba(59, 130, 246, 0.5)"]
                         }}
                         transition={{ 
                           duration: 2, 
                           repeat: Infinity, 
                           ease: "easeInOut" 
                         }}
-                        className={`relative flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 overflow-hidden ${
-                          activeTab === tabItem.id
-                            ? 'bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg'
-                            : 'bg-white/5 text-white/70 hover:bg-white/10'
-                        }`}
+                        className="relative flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 overflow-hidden bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg"
                       >
                         {/* Gradient Border */}
-                        <div className={`absolute inset-0 rounded-xl p-[1px] ${
-                          activeTab === tabItem.id
-                            ? 'bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500'
-                            : 'bg-gradient-to-r from-blue-500/30 via-cyan-500/30 to-blue-600/30 hover:from-blue-400/50 hover:via-cyan-400/50 hover:to-blue-500/50'
-                        }`}>
-                          <div className={`w-full h-full rounded-xl ${
-                            activeTab === tabItem.id
-                              ? 'bg-gradient-to-r from-white/20 to-white/10'
-                              : 'bg-white/5 hover:bg-white/10'
-                          }`} />
+                        <div className="absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500">
+                          <div className="w-full h-full rounded-xl bg-gradient-to-r from-white/20 to-white/10" />
                         </div>
                         
                         {/* Content */}
