@@ -304,7 +304,7 @@ const Hero = () => {
                       </Button>
                     </motion.div>
 
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Button 
                         variant="hero" 
                         size="default"
@@ -313,9 +313,9 @@ const Hero = () => {
                       >
                         <span className="relative z-10">Get the SDK</span>
                       </Button>
-                    </motion.div>
+                    </motion.div> */}
 
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Button 
                         variant="hero" 
                         size="default"
@@ -324,7 +324,7 @@ const Hero = () => {
                       >
                         <span className="relative z-10">Join the POC Program</span>
                       </Button>
-                    </motion.div>
+                    </motion.div> */}
                   </motion.div>
                 </motion.div>
               )
