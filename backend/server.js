@@ -17,11 +17,6 @@ dotenv.config({ path: join(__dirname, '.env') });
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Trust proxy for production (required for Render, Railway, Heroku, etc.)
-if (process.env.NODE_ENV === 'production') {
-  app.set('trust proxy', 1);
-}
-
 // Security middleware
 app.use(helmet());
 
@@ -54,7 +49,7 @@ app.use((req, res, next) => {
 
 // Email transporter configuration
 const createEmailTransporter = () => {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
     secure: false, // true for 465, false for other ports
@@ -62,15 +57,6 @@ const createEmailTransporter = () => {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
-    // Add timeout and connection settings for production
-    connectionTimeout: 60000, // 60 seconds
-    greetingTimeout: 30000,   // 30 seconds
-    socketTimeout: 60000,     // 60 seconds
-    // Additional settings for better reliability
-    pool: true,
-    maxConnections: 1,
-    rateDelta: 20000,         // 20 seconds between connections
-    rateLimit: 5,             // max 5 emails per rateDelta
   });
 };
 
@@ -211,15 +197,8 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
     // Create email transporter
     const transporter = createEmailTransporter();
 
-    // Verify connection with timeout
-    console.log('Testing SMTP connection...');
-    await Promise.race([
-      transporter.verify(),
-      new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('SMTP connection timeout after 30 seconds')), 30000)
-      )
-    ]);
-    console.log('SMTP connection verified successfully');
+    // Verify connection
+    await transporter.verify();
 
     // Send welcome email
     const emailOptions = getSubscriptionEmailTemplate(email);
@@ -235,34 +214,18 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
   } catch (error) {
     console.error('Subscription error:', error);
     
-    // Handle specific errors with more detailed logging
+    // Handle specific errors
     if (error.code === 'EAUTH') {
-      console.error('Email authentication failed - check EMAIL_USER and EMAIL_PASS');
       return res.status(500).json({
         error: 'Email authentication failed. Please check email configuration.'
       });
     }
     
-    if (error.code === 'ECONNECTION' || error.code === 'ETIMEDOUT') {
-      console.error('SMTP connection failed - timeout or network issue');
+    if (error.code === 'ECONNECTION') {
       return res.status(500).json({
         error: 'Failed to connect to email server. Please try again later.'
       });
     }
-
-    if (error.message.includes('SMTP connection timeout')) {
-      console.error('SMTP connection timeout - network or firewall issue');
-      return res.status(500).json({
-        error: 'Email server connection timeout. Please try again later.'
-      });
-    }
-
-    // Log the full error for debugging
-    console.error('Full error details:', {
-      message: error.message,
-      code: error.code,
-      stack: error.stack
-    });
 
     res.status(500).json({
       error: 'Failed to send confirmation email. Please try again later.'
@@ -291,16 +254,5 @@ app.listen(PORT, () => {
   console.log(`📧 Email service: ${process.env.EMAIL_HOST || 'Not configured'}`);
   console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
   console.log(`🔧 Health check: http://localhost:${PORT}/health`);
-  console.log(`🔒 Trust proxy: ${app.get('trust proxy') ? 'Enabled' : 'Disabled'}`);
-  console.log(`📊 Rate limiting: ${process.env.MAX_REQUESTS_PER_MINUTE || 5} requests/minute`);
-  
-  // Debug email configuration (without showing sensitive data)
-  console.log('📋 Email Configuration Check:');
-  console.log(`   HOST: ${process.env.EMAIL_HOST ? '✅ Set' : '❌ Missing'}`);
-  console.log(`   PORT: ${process.env.EMAIL_PORT ? '✅ Set' : '❌ Missing'}`);
-  console.log(`   USER: ${process.env.EMAIL_USER ? '✅ Set' : '❌ Missing'}`);
-  console.log(`   PASS: ${process.env.EMAIL_PASS ? '✅ Set (***' + process.env.EMAIL_PASS.slice(-4) + ')' : '❌ Missing'}`);
-  console.log(`   FROM: ${process.env.EMAIL_FROM ? '✅ Set' : '❌ Missing'}`);
-  
   console.log(`✅ Server ready for connections!`);
 });
