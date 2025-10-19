@@ -114,4 +114,9 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
   }
 });
 
+// Export for Vercel Serverless
 module.exports = app;
+
+// Also export as default for Vercel
+module.exports.default = app;
+
