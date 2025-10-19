@@ -22,6 +22,10 @@ export const sendSubscriptionEmail = async (userEmail: string): Promise<EmailRes
       };
     }
 
+    console.log('🌐 Making API request to:', `${API_BASE_URL}/api/subscribe`);
+    console.log('🔧 API_BASE_URL:', API_BASE_URL);
+    console.log('📧 Email:', userEmail);
+
     const response = await fetch(`${API_BASE_URL}/api/subscribe`, {
       method: 'POST',
       headers: {
@@ -29,8 +33,11 @@ export const sendSubscriptionEmail = async (userEmail: string): Promise<EmailRes
       },
       body: JSON.stringify({ email: userEmail }),
     });
+    
+    console.log('📡 API Response status:', response.status, response.statusText);
 
     const data = await response.json();
+    console.log('📬 API Response data:', data);
 
     if (response.ok) {
       return {
