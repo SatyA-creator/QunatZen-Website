@@ -1,72 +1,97 @@
-# Welcome to your Lovable project
+# QuantZen™ - Quantum-Safe Web3 Security
 
-## Project info
+**The world's first plug-in quantum-resistant security layer for Web3 applications.**
 
-**URL**: https://lovable.dev/projects/50888ef1-2f90-4386-ace3-0c7f2e0ef268
+## 🚀 Overview
 
-## How can I edit this code?
+QuantZen™ provides instant quantum-safe protection for wallets, dApps, and exchanges without requiring blockchain protocol upgrades. Built with NIST-approved post-quantum algorithms.
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend**: React + TypeScript + Vite + Tailwind CSS
+- **Backend**: Node.js + Express + Vercel Serverless Functions
+- **Email**: Gmail SMTP with Nodemailer
+- **Deployment**: Vercel
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/50888ef1-2f90-4386-ace3-0c7f2e0ef268) and start prompting.
+## 📧 Newsletter Subscription
 
-Changes made via Lovable will be committed automatically to this repo.
+The application includes a quantum-safe newsletter subscription system with:
+- Email validation and verification
+- Welcome email templates
+- SMTP integration
+- Toast notifications
 
-**Use your preferred IDE**
+## 🔧 Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Frontend Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Install dependencies
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+### Backend Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Navigate to backend
+cd backend
 
-**Use GitHub Codespaces**
+# Install dependencies  
+npm install
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Start local server (optional)
+node server.js
 
-## What technologies are used for this project?
+# Deploy to Vercel
+vercel --prod
+```
 
-This project is built with:
+## 🌐 Environment Variables
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Frontend (.env.local)
+```bash
+VITE_API_URL=https://backend-f10rk4q07-satya-priyams-projects.vercel.app
+```
 
-## How can I deploy this project?
+### Backend (.env)
+```bash
+EMAIL_PASS=your_gmail_app_password
+```
 
-Simply open [Lovable](https://lovable.dev/projects/50888ef1-2f90-4386-ace3-0c7f2e0ef268) and click on Share -> Publish.
+## 🚀 Deployment
 
-## Can I connect a custom domain to my Lovable project?
+- **Frontend**: Vercel (auto-deployment from Git)
+- **Backend**: Vercel Serverless Functions
+- **Live URLs**: 
+  - Frontend: [https://quantzen.vercel.app](https://quantzen.vercel.app)
+  - Backend API: [https://backend-f10rk4q07-satya-priyams-projects.vercel.app](https://backend-f10rk4q07-satya-priyams-projects.vercel.app)
 
-Yes, you can!
+## 📱 Features
+
+- ✅ Quantum-safe security information
+- ✅ Team member profiles
+- ✅ Newsletter subscription with email verification
+- ✅ Responsive design
+- ✅ Modern UI with animations
+- ✅ NIST-compliant algorithm information
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📄 License
+
+This project is proprietary to QuantZen™.
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
