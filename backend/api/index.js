@@ -12,6 +12,8 @@ app.use(helmet());
 // CORS configuration - FIXED to explicitly allow your frontend
 app.use(cors({
   origin: [
+    'https://www.quantzen.live',           // ✅ ADD THIS
+    'https://quantzen.live',  
     'https://qunat-zen-website-smoky.vercel.app',
     'http://localhost:5173',
     'http://localhost:3000',
