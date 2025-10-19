@@ -26,7 +26,19 @@ app.use(express.json({ limit: '10mb' }));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    env: {
+      hasEmailHost: !!process.env.EMAIL_HOST,
+      hasEmailUser: !!process.env.EMAIL_USER,
+      hasEmailPass: !!process.env.EMAIL_PASS,
+      hasEmailFrom: !!process.env.EMAIL_FROM,
+      hasFrontendUrl: !!process.env.FRONTEND_URL,
+      emailPort: process.env.EMAIL_PORT,
+      nodeEnv: process.env.NODE_ENV
+    }
+  });
 });
 
 // Subscribe endpoint
