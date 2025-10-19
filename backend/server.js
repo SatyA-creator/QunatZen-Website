@@ -1,18 +1,13 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
-import dotenv from 'dotenv';
-import nodemailer from 'nodemailer';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const dotenv = require('dotenv');
+const nodemailer = require('nodemailer');
+const path = require('path');
 
-// Get current directory
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Load environment variables from the correct path
-dotenv.config({ path: join(__dirname, '.env') });
+// Load environment variables
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -51,19 +46,22 @@ app.use((req, res, next) => {
 const createEmailTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
+    port: parseInt(process.env.EMAIL_PORT || '587', 10),
     secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
+    tls: {
+      rejectUnauthorized: false
+    }
   });
 };
 
 // Email template
 const getSubscriptionEmailTemplate = (email) => {
   return {
-    from: process.env.EMAIL_FROM,
+    from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
     to: email,
     subject: 'Welcome to Q2Z Newsletter - Thank You for Subscribing!',
     html: `
@@ -73,57 +71,61 @@ const getSubscriptionEmailTemplate = (email) => {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Welcome to Q2Z Newsletter</title>
-        <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
-          .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
-          .highlight { background: #667eea; color: white; padding: 15px; border-radius: 5px; margin: 20px 0; }
-          .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666; }
-          .button { display: inline-block; background: #667eea; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin: 10px 0; }
-          ul { padding-left: 20px; }
-          li { margin: 10px 0; }
-        </style>
       </head>
-      <body>
-        <div class="header">
-          <h1>🎉 Welcome to Q2Z Newsletter!</h1>
-          <p>Thank you for joining the QuantZen community</p>
-        </div>
-        
-        <div class="content">
-          <p>Dear Valued Subscriber,</p>
+      <body style="margin: 0; padding: 20px; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+        <div style="max-width: 600px; margin: 0 auto; background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+          <h1 style="color: #6366f1; text-align: center; margin-bottom: 30px;">🎉 Welcome to Q2Z Newsletter!</h1>
           
-          <p>Thank you for subscribing to the <strong>Q2Z Newsletter</strong> from <strong>QuantZen</strong>!</p>
+          <p style="font-size: 16px; line-height: 1.6; color: #333;">Dear Valued Subscriber,</p>
           
-          <p>We're excited to have you join our community. You'll now receive:</p>
+          <p style="font-size: 16px; line-height: 1.6; color: #333;">
+            Thank you for subscribing to the <strong>Q2Z Newsletter</strong> from <strong>QuantZen</strong>!
+          </p>
           
-          <ul>
+          <p style="font-size: 16px; line-height: 1.6; color: #333;">
+            We're excited to have you join our community. You'll now receive:
+          </p>
+          
+          <ul style="font-size: 16px; line-height: 1.8; color: #333;">
             <li>📧 <strong>Weekly updates</strong> on post-quantum security</li>
             <li>🔐 <strong>Web3 risk insights</strong> and analysis</li>
             <li>🛠️ <strong>Practical migration guidance</strong></li>
             <li>🚀 <strong>Latest QuantZen news</strong> and developments</li>
           </ul>
           
-          <div class="highlight">
-            <h3>📅 What to expect:</h3>
-            <p><strong>Your Friday 5-minute read</strong> delivered to <em>${email}</em></p>
-            <p>🔒 Quantum-safe security insights<br>
-            🚀 Industry updates and best practices<br>
-            💡 Expert tips and recommendations</p>
+          <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 30px 0;">
+            <h3 style="color: #6366f1; margin-top: 0;">📅 What to expect:</h3>
+            <p style="font-size: 14px; color: #666; margin: 10px 0;">
+              <strong>Your Friday 5-minute read</strong> delivered to <em>${email}</em>
+            </p>
+            <p style="font-size: 14px; color: #666; margin: 5px 0;">🔒 Quantum-safe security insights</p>
+            <p style="font-size: 14px; color: #666; margin: 5px 0;">🚀 Industry updates and best practices</p>
+            <p style="font-size: 14px; color: #666; margin: 5px 0;">💡 Expert tips and recommendations</p>
           </div>
           
-          <p>If you have any questions or feedback, feel free to reply to this email. We'd love to hear from you!</p>
+          <p style="font-size: 16px; line-height: 1.6; color: #333;">
+            If you have any questions or feedback, feel free to reply to this email. We'd love to hear from you!
+          </p>
           
-          <p><strong>Welcome aboard!</strong></p>
+          <p style="font-size: 16px; line-height: 1.6; color: #333; margin-top: 30px;">
+            <strong>Welcome aboard!</strong>
+          </p>
           
-          <p>Best regards,<br>
-          <strong>The QuantZen Team</strong></p>
-        </div>
-        
-        <div class="footer">
-          <p>You received this email because you subscribed to our newsletter at QuantZen.<br>
-          If you wish to unsubscribe, please contact us at support@quantzen.com</p>
-          <p>&copy; 2025 QuantZen. All rights reserved.</p>
+          <p style="font-size: 16px; line-height: 1.6; color: #333;">
+            Best regards,<br>
+            <strong>The QuantZen Team</strong>
+          </p>
+          
+          <hr style="border: none; border-top: 1px solid #ddd; margin: 40px 0;">
+          
+          <p style="font-size: 12px; color: #999; text-align: center;">
+            You received this email because you subscribed to our newsletter at QuantZen.<br>
+            If you wish to unsubscribe, please contact us at support@quantzen.com
+          </p>
+          
+          <p style="font-size: 12px; color: #999; text-align: center; margin-top: 20px;">
+            © 2025 QuantZen. All rights reserved.
+          </p>
         </div>
       </body>
       </html>
@@ -157,6 +159,7 @@ The QuantZen Team
 ---
 You received this email because you subscribed to our newsletter at QuantZen.
 If you wish to unsubscribe, please contact us at support@quantzen.com
+
 © 2025 QuantZen. All rights reserved.
     `
   };
@@ -164,28 +167,40 @@ If you wish to unsubscribe, please contact us at support@quantzen.com
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    env: {
+      hasEmailHost: !!process.env.EMAIL_HOST,
+      hasEmailUser: !!process.env.EMAIL_USER,
+      hasEmailPass: !!process.env.EMAIL_PASS,
+      hasEmailFrom: !!process.env.EMAIL_FROM,
+      hasFrontendUrl: !!process.env.FRONTEND_URL,
+      emailPort: process.env.EMAIL_PORT,
+      nodeEnv: process.env.NODE_ENV
+    }
+  });
 });
 
 // Subscribe endpoint
 app.post('/api/subscribe', emailLimiter, async (req, res) => {
   try {
     const { email } = req.body;
-
+    
     // Validate email
     if (!email) {
       return res.status(400).json({
         error: 'Email is required'
       });
     }
-
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         error: 'Please provide a valid email address'
       });
     }
-
+    
     // Check if email service is configured
     if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       console.error('Email service not configured');
@@ -193,24 +208,24 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
         error: 'Email service is not configured'
       });
     }
-
+    
     // Create email transporter
     const transporter = createEmailTransporter();
-
+    
     // Verify connection
     await transporter.verify();
-
+    console.log('✅ SMTP connection verified');
+    
     // Send welcome email
     const emailOptions = getSubscriptionEmailTemplate(email);
     await transporter.sendMail(emailOptions);
-
-    console.log(`Subscription email sent successfully to: ${email}`);
-
+    
+    console.log(`✅ Subscription email sent successfully to: ${email}`);
+    
     res.json({
       success: true,
       message: 'Thank you for subscribing! Please check your email for confirmation.'
     });
-
   } catch (error) {
     console.error('Subscription error:', error);
     
@@ -226,7 +241,7 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
         error: 'Failed to connect to email server. Please try again later.'
       });
     }
-
+    
     res.status(500).json({
       error: 'Failed to send confirmation email. Please try again later.'
     });
@@ -248,11 +263,16 @@ app.use('*', (req, res) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📧 Email service: ${process.env.EMAIL_HOST || 'Not configured'}`);
-  console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
-  console.log(`🔧 Health check: http://localhost:${PORT}/health`);
-  console.log(`✅ Server ready for connections!`);
-});
+// Start server (only for local development)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📧 Email service: ${process.env.EMAIL_HOST || 'Not configured'}`);
+    console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
+    console.log(`🔧 Health check: http://localhost:${PORT}/health`);
+    console.log(`✅ Server ready for connections!`);
+  });
+}
+
+// Export for Vercel
+module.exports = app;
