@@ -33,7 +33,7 @@ const About = () => {
       role: "Head of Marketing & VP",
       expertise: "Award-winning Web3 PR & Investor Relations Expert",
       description: "Award-winning Web3 PR and investor relations expert with a decade of experience scaling blockchain brands through strategy, storytelling, and global reach.",
-      image: "/pic4.jpg",
+      image: "/clarie.jpg",
       linkedin: "https://www.linkedin.com/in/clairecblockchain/",
     },
     {
@@ -41,7 +41,7 @@ const About = () => {
       role: "CTO",
       expertise: "Blockchain Architect, Smart Contracts & DeFi Expert",
       description: "Experienced Blockchain Architect with 13+ years in DLT, Ethereum, and Web3 security expert in smart contracts, DeFi ecosystems, and scalable decentralised architectures driving innovation and quantum-safe integration.",
-      image: "/pic3.jpg",
+      image: "/ramesh.jpg",
       linkedin: "https://www.linkedin.com/in/ramesh-gopal/",
     },
     {
@@ -49,7 +49,7 @@ const About = () => {
       role: "Head of Business Development & Investor Relations",
       expertise: "Venture Capitalist & Strategic Leader in Growth & Partnerships",
       description: "Experienced venture capitalist and strategic leader driving growth, partnerships, and investor relations spearheading business development and fundraising initiatives.",
-      image: "/pic5.jpg",
+      image: "/pathanjali.jpg",
       linkedin: "https://www.linkedin.com/in/pathanjalisharma21/",
     },
     {
@@ -57,7 +57,7 @@ const About = () => {
       role: "Advisor",
       expertise: "Quantum Cybersecurity Expert, CEO at QuantumPrime",
       description: "Quantum cybersecurity expert and CEO at Quantum Security Defense and QuantumPrime, specialising in quantum-safe encryption, teleportation research, and global education empowering innovation and resilience in the post-quantum security landscape.",
-      image: "/pic2.jpg",
+      image: "/anna.jpg",
       linkedin: "https://www.linkedin.com/in/annabeata/",
     },
     {
@@ -65,7 +65,7 @@ const About = () => {
       role: "Advisor",
       expertise: "Global Leader in Quantum Innovation & Cybersecurity",
       description: "Global leader in cybersecurity and quantum innovation, bridging Quantum, AI, and Web3 to secure critical infrastructure worldwide. As Consulting Director at Quantum Security & Defence, he drives deep-tech transformation and resilience across international markets.",
-      image: "/pic1.jpg",
+      image: "/steve.jpg",
       linkedin: "https://www.linkedin.com/in/stevevaile/",
     },
     {
