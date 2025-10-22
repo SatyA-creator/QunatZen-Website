@@ -31,17 +31,34 @@ export default async function handler(req, res) {
     }
 
     // Create email transporter
-    const transporter = nodemailer.createTransporter({
-      service: 'gmail',
-      auth: {
-        user: 'satyapriyam7@gmail.com',
-        pass: process.env.EMAIL_PASS || 'yzsakkqdpsqhhjoi'
-      }
-    });
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.office365.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: 'info@zenithstudio.live',
+    pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    ciphers: 'SSLv3',
+    rejectUnauthorized: false
+  }
+});
+
+
+    // const transporter = nodemailer.createTransporter({
+    //   service: 'gmail',
+    //   auth: {
+    //     user: 'satyapriyam7@gmail.com',
+    //     pass: process.env.EMAIL_PASS || 'yzsakkqdpsqhhjoi'
+    //   }
+    // });
 
     // Email template
     const mailOptions = {
-      from: '"QuantZen Team" <satyapriyam7@gmail.com>',
+      from: `"QuantZen Team" <${process.env.EMAIL_FROM}>`,
+
       to: email,
       subject: '🚀 Welcome to the QuantZen Newsletter!',
       html: `

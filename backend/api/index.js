@@ -12,7 +12,7 @@ app.use(helmet());
 // CORS configuration - FIXED to explicitly allow your frontend
 app.use(cors({
   origin: [
-    'https://www.quantzen.live',           // ✅ ADD THIS
+    'https://www.quantzen.live',
     'https://quantzen.live',  
     'https://qunat-zen-website-smoky.vercel.app',
     'http://localhost:5173',
@@ -100,16 +100,17 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
     
     console.log('✅ Creating email transporter...');
     
-    // Create email transporter
+    // Create email transporter for Microsoft 365/Outlook
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: parseInt(process.env.EMAIL_PORT || '587', 10),
+      host: 'smtp.office365.com',
+      port: 587,
       secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
       tls: {
+        ciphers: 'SSLv3',
         rejectUnauthorized: false
       }
     });
@@ -120,25 +121,33 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
     
     console.log('✅ Sending email to:', email);
     
-    // Send email
+    // Send email with updated FROM address
     const info = await transporter.sendMail({
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      from: '"QuantZen Team" <info@zenithstudio.live>',  // ✅ UPDATED: Use company email
       to: email,
-      subject: 'Welcome to Q2Z Newsletter',
+      subject: '🚀 Welcome to Q2Z Newsletter!',
       text: 'Thank you for subscribing to QuantZen newsletter!',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h2 style="color: #6366f1;">🎉 Welcome to Q2Z Newsletter!</h2>
           <p>Thank you for subscribing to the <strong>QuantZen newsletter</strong>.</p>
           <p>You'll now receive:</p>
-          <ul>
+          <ul style="line-height: 1.6;">
             <li>📧 Weekly updates on post-quantum security</li>
             <li>🔐 Web3 risk insights and analysis</li>
             <li>🛠️ Practical migration guidance</li>
             <li>🚀 Latest QuantZen news and developments</li>
           </ul>
-          <p><strong>Stay quantum-safe!</strong></p>
-          <p>Best regards,<br><strong>The QuantZen Team</strong></p>
+          <p style="margin-top: 20px;"><strong>Stay quantum-safe!</strong></p>
+          <p style="margin-top: 30px;">
+            Best regards,<br>
+            <strong>The QuantZen Team</strong>
+          </p>
+          <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
+          <p style="font-size: 12px; color: #6b7280; text-align: center;">
+            You received this email because you subscribed to our newsletter at QuantZen.<br>
+            If you wish to unsubscribe, please contact us at info@zenithstudio.live
+          </p>
         </div>
       `
     });
@@ -156,18 +165,18 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
     
     if (error.code === 'EAUTH') {
       return res.status(500).json({ 
-        error: 'Email authentication failed' 
+        error: 'Email authentication failed. Please check your credentials.' 
       });
     }
     
     if (error.code === 'ECONNECTION' || error.code === 'ETIMEDOUT') {
       return res.status(500).json({ 
-        error: 'Failed to connect to email server' 
+        error: 'Failed to connect to email server. Please try again later.' 
       });
     }
     
     res.status(500).json({ 
-      error: 'Failed to send confirmation email',
+      error: 'Failed to send confirmation email. Please try again later.',
       details: process.env.NODE_ENV !== 'production' ? error.message : undefined
     });
   }

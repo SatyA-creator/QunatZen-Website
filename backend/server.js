@@ -42,17 +42,18 @@ app.use((req, res, next) => {
   next();
 });
 
-// Email transporter configuration
+// Email transporter configuration for Microsoft 365/Outlook
 const createEmailTransporter = () => {
   return nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: parseInt(process.env.EMAIL_PORT || '587', 10),
-    secure: false, // true for 465, false for other ports
+    host: 'smtp.office365.com',
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
     tls: {
+      ciphers: 'SSLv3',
       rejectUnauthorized: false
     }
   });
@@ -61,9 +62,9 @@ const createEmailTransporter = () => {
 // Email template
 const getSubscriptionEmailTemplate = (email) => {
   return {
-    from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+    from: '"QuantZen Team" <info@zenithstudio.live>',  // ✅ UPDATED: Company email
     to: email,
-    subject: 'Welcome to Q2Z Newsletter - Thank You for Subscribing!',
+    subject: '🚀 Welcome to Q2Z Newsletter - Thank You for Subscribing!',
     html: `
       <!DOCTYPE html>
       <html>
@@ -120,7 +121,7 @@ const getSubscriptionEmailTemplate = (email) => {
           
           <p style="font-size: 12px; color: #999; text-align: center;">
             You received this email because you subscribed to our newsletter at QuantZen.<br>
-            If you wish to unsubscribe, please contact us at support@quantzen.com
+            If you wish to unsubscribe, please contact us at info@zenithstudio.live
           </p>
           
           <p style="font-size: 12px; color: #999; text-align: center; margin-top: 20px;">
@@ -158,7 +159,7 @@ The QuantZen Team
 
 ---
 You received this email because you subscribed to our newsletter at QuantZen.
-If you wish to unsubscribe, please contact us at support@quantzen.com
+If you wish to unsubscribe, please contact us at info@zenithstudio.live
 
 © 2025 QuantZen. All rights reserved.
     `
@@ -202,19 +203,25 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
     }
     
     // Check if email service is configured
-    if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error('Email service not configured');
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('❌ Email service not configured');
       return res.status(500).json({
         error: 'Email service is not configured'
       });
     }
     
+    console.log('✅ Creating email transporter...');
+    
     // Create email transporter
     const transporter = createEmailTransporter();
+    
+    console.log('✅ Verifying SMTP connection...');
     
     // Verify connection
     await transporter.verify();
     console.log('✅ SMTP connection verified');
+    
+    console.log(`✅ Sending email to: ${email}`);
     
     // Send welcome email
     const emailOptions = getSubscriptionEmailTemplate(email);
@@ -227,7 +234,8 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
       message: 'Thank you for subscribing! Please check your email for confirmation.'
     });
   } catch (error) {
-    console.error('Subscription error:', error);
+    console.error('❌ Subscription error:', error);
+    console.error('Error details:', error.message);
     
     // Handle specific errors
     if (error.code === 'EAUTH') {
@@ -236,21 +244,22 @@ app.post('/api/subscribe', emailLimiter, async (req, res) => {
       });
     }
     
-    if (error.code === 'ECONNECTION') {
+    if (error.code === 'ECONNECTION' || error.code === 'ETIMEDOUT') {
       return res.status(500).json({
         error: 'Failed to connect to email server. Please try again later.'
       });
     }
     
     res.status(500).json({
-      error: 'Failed to send confirmation email. Please try again later.'
+      error: 'Failed to send confirmation email. Please try again later.',
+      details: process.env.NODE_ENV !== 'production' ? error.message : undefined
     });
   }
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error('❌ Unhandled error:', err.stack);
   res.status(500).json({
     error: 'Something went wrong!'
   });
@@ -267,7 +276,8 @@ app.use('*', (req, res) => {
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📧 Email service: ${process.env.EMAIL_HOST || 'Not configured'}`);
+    console.log(`📧 Email service: smtp.office365.com`);
+    console.log(`📧 Email user: ${process.env.EMAIL_USER || 'Not configured'}`);
     console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
     console.log(`🔧 Health check: http://localhost:${PORT}/health`);
     console.log(`✅ Server ready for connections!`);
