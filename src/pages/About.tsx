@@ -34,6 +34,7 @@ const About = () => {
       expertise: "Award-winning Web3 PR & Investor Relations Expert",
       description: "Award-winning Web3 PR and investor relations expert with a decade of experience scaling blockchain brands through strategy, storytelling, and global reach.",
       image: "/clarie.jpg",
+       imagePosition: "center center",
       linkedin: "https://www.linkedin.com/in/clairecblockchain/",
     },
     {
@@ -42,6 +43,7 @@ const About = () => {
       expertise: "Blockchain Architect, Smart Contracts & DeFi Expert",
       description: "Experienced Blockchain Architect with 13+ years in DLT, Ethereum, and Web3 security expert in smart contracts, DeFi ecosystems, and scalable decentralised architectures driving innovation and quantum-safe integration.",
       image: "/ramesh.jpg",
+      imagePosition: "center top", 
       linkedin: "https://www.linkedin.com/in/ramesh-gopal/",
     },
     {
@@ -431,6 +433,7 @@ const About = () => {
                           src={member.image}
                           alt={member.name}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          style={{ objectPosition: member.imagePosition || 'center center' }}
                           onError={(e) => {
                             e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=3b82f6&color=fff&size=320`;
                           }}
@@ -494,6 +497,7 @@ const About = () => {
                           src={member.image}
                           alt={member.name}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          style={{ objectPosition: member.imagePosition || 'center center' }}
                           onError={(e) => {
                             e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=3b82f6&color=fff&size=320`;
                           }}
@@ -560,6 +564,7 @@ const About = () => {
                           src={teamMembers[5].image}
                           alt={teamMembers[5].name}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          style={{ objectPosition: teamMembers[5].imagePosition || 'center center' }}
                           onError={(e) => {
                             e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(teamMembers[5].name)}&background=3b82f6&color=fff&size=320`;
                           }}
