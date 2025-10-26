@@ -78,14 +78,11 @@ const Product = () => {
   ];
 
 const handleDownload = () => {
-    // Replace this with your actual file path (inside public folder)
-     const fileUrl = "/QuantZen™_ WhitePaper .pdf"; // Ensure this file is in the public directory
-    const link = document.createElement("a");
-    link.href = fileUrl;
-    link.download = "QuantZen™_ WhitePaper.pdf"; // Optional: custom filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open PDF in new tab for viewing/downloading
+    const fileUrl = "/QuantZen™_ WhitePaper .pdf"; // Ensure this file is in the public directory
+    // Use current domain instead of localhost
+    const fullUrl = window.location.origin + fileUrl;
+    window.open(fullUrl, '_blank');
   };
 
   return (
