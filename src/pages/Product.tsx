@@ -79,10 +79,10 @@ const Product = () => {
 
 const handleDownload = () => {
     // Replace this with your actual file path (inside public folder)
-     const fileUrl = "/pdf-test.pdf"; 
+     const fileUrl = "/QuantZen™_ WhitePaper .pdf"; // Ensure this file is in the public directory
     const link = document.createElement("a");
     link.href = fileUrl;
-    link.download = "QuantZen_Whitepaper.pdf"; // Optional: custom filename
+    link.download = "QuantZen™_ WhitePaper.pdf"; // Optional: custom filename
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
