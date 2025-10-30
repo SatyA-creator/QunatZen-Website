@@ -290,7 +290,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-40 max-w-4xl mx-auto"
+                    className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 max-w-4xl mx-auto"
                   >
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                       <Button 
@@ -325,6 +325,39 @@ const Hero = () => {
                         <span className="relative z-10">Join the POC Program</span>
                       </Button>
                     </motion.div> */}
+                  </motion.div>
+
+                  {/* Backed by Section */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                    className="flex flex-col items-center justify-center gap-4 mb-40 max-w-4xl mx-auto"
+                  >
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 1.0 }}
+                      className="text-sm sm:text-base text-blue-200/80 font-medium tracking-wide uppercase"
+                    >
+                      Backed by
+                    </motion.p>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 1.1 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => window.open('https://www.quantumsecuritydefence.com/', '_blank')}
+                      className="flex items-center justify-center p-4 sm:p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer"
+                    >
+                      <img
+                        src="/new logo.png"
+                        alt="Backed by Logo"
+                        className="h-8 sm:h-10 md:h-12 w-auto object-contain filter brightness-110 hover:brightness-125 transition-all duration-300"
+                      />
+                    </motion.div>
                   </motion.div>
                 </motion.div>
               )
