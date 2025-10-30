@@ -99,6 +99,19 @@ const Footer = () => {
     ],
   };
 
+  const socialLinks = [
+    {
+      name: "Twitter",
+      href: "https://x.com/quant_zen",
+      icon: <Twitter className="w-5 h-5" />
+    },
+    {
+      name: "LinkedIn", 
+      href: "https://www.linkedin.com/company/quantzen%E2%84%A2/",
+      icon: <Linkedin className="w-5 h-5" />
+    }
+  ];
+
   return (
     <>
       {/* Countdown Section */}
@@ -217,6 +230,27 @@ const Footer = () => {
 
                   </li>
                 ))}
+                
+                {/* Add Social Icons only for Connect section */}
+                {category === "Connect" && (
+                  <li className="pt-4">
+                    <div className="flex gap-3">
+                      {socialLinks.map((social) => (
+                        <motion.a
+                          key={social.name}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.2, rotate: 5 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="p-2 rounded-lg text-muted-foreground hover:text-quantum-primary transition-all duration-300 hover:bg-quantum-primary/10 border border-quantum-primary/30 hover:border-quantum-primary/60"
+                        >
+                          {social.icon}
+                        </motion.a>
+                      ))}
+                    </div>
+                  </li>
+                )}
               </ul>
             </div>
           ))}
