@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import AnimatedBackground from "@/components/ui/animated-background";
 import { Wallet, Smartphone, GitBranch, Network } from "lucide-react";
 
 const audiences = [
@@ -63,19 +64,20 @@ const audiences = [
 
 const AudienceCards = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary/5 to-background overflow-x-hidden w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Who<span className="text-gradient"> QuantZen™ Is </span>For
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
+    <AnimatedBackground variant="particles" className="py-24">
+      <section className="overflow-x-hidden w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+              Who<span className="text-gradient"> QuantZen™ Is </span>For
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Whether you're building wallets, dApps, bridges, or entire blockchain networks, 
             QuantZen™ provides quantum protection tailored to your specific use case.
           </p>
@@ -195,7 +197,8 @@ const AudienceCards = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   );
 };
 

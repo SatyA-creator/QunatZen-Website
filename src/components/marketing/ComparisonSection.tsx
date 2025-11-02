@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import AnimatedBackground from "@/components/ui/animated-background";
 import { CheckCircle, XCircle, ArrowRight } from "lucide-react";
 
 const advantages = [
@@ -13,21 +14,22 @@ const advantages = [
 
 const ComparisonSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-secondary/5 to-primary/5 w-full overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Compared to L1/L2 Migration,{" "}
-            <span className="text-gradient">QuantZen™</span> Is the Clear Saviour
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+    <AnimatedBackground variant="grid" className="py-20">
+      <section className="w-full overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
+              Compared to L1/L2 Migration,{" "}
+              <span className="text-gradient">QuantZen™</span> Is the Clear Saviour
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto">
             Traditional migrations are costly and slow {" "}
             <span className="text-gradient">QuantZen™</span> integrates seamlessly
             with your current blockchain.
@@ -123,7 +125,8 @@ const ComparisonSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   );
 };
 

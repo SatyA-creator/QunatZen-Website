@@ -23,14 +23,14 @@ const letters: LetterCard[] = [
     letter: "Q",
     title: "Quantum-Proofing Made Simple",
     description:
-      " Add post-quantum signatures to every transaction without waiting for a chain to go for a hard fork.",
+      "Add post-quantum signatures to every transaction without waiting for a chain to go for a hard fork.",
     icon: Shield,
   },
   {
     letter: "R",
     title: "Ready Today",
     description:
-      " Works instantly with wallets, dApps, bridges, and custodians saving years of re-engineering and saving millions of dollars for  L1/L2 by going hard fork.",
+      "Works instantly with wallets, dApps, bridges, and custodians saving years of re-engineering and saving millions of dollars for L1/L2 by going hard fork.",
     icon: Layers,
   },
   {
@@ -58,14 +58,14 @@ const letters: LetterCard[] = [
     letter: "V",
     title: "Verified By Standards",
     description:
-      " Built on NIST-approved post-quantum cryptography (Dilithium 5, Kyber).",
+      "Built on NIST-approved post-quantum cryptography (Dilithium 5, Kyber).",
     icon: Sparkles,
   },
   {
     letter: "W",
     title: "Without UX Friction",
     description:
-      "Users keep the same signing flow; QuantZen™  just adds a second, invisible signature lock.",
+      "Users keep the same signing flow; QuantZen™ just adds a second, invisible signature lock.",
     icon: Sparkles,
   },
   {
@@ -79,7 +79,7 @@ const letters: LetterCard[] = [
     letter: "Y",
     title: "Your Safety Net",
     description:
-      " Even if ECDSA is broken in the 2030s, your history stays secure with PQ signatures bound to every transaction.",
+      "Even if ECDSA is broken in the 2030s, your history stays secure with PQ signatures bound to every transaction.",
     icon: Sparkles,
   },
   {
@@ -99,22 +99,56 @@ const ValueProposition = () => {
     setActiveIndex((prev) => (prev + 1) % letters.length);
   };
 
-  // Highlight only the first letter of the title
   const title = letters[activeIndex].title;
   const firstLetter = title.charAt(0);
   const restOfTitle = title.slice(1);
 
   return (
-    <section className="py-24 bg-muted/30 overflow-x-hidden w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-full">
+    <section className="relative py-24 overflow-x-hidden w-full">
+      {/* 🌈 Animated Aurora Gradient Background */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+        }}
+        transition={{
+          duration: 25,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+        style={{
+          backgroundImage:
+            "linear-gradient(120deg, rgba(0,255,255,0.15), rgba(0,128,255,0.1), rgba(255,255,255,0.05))",
+          backgroundSize: "200% 200%",
+          filter: "blur(80px)",
+        }}
+      />
+
+      {/* ✨ Subtle Particle Grid Overlay */}
+      <motion.div
+        className="absolute inset-0 z-0 pointer-events-none"
+        animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      {/* 🌗 Light/Dark Overlay for Contrast */}
+      <div className="absolute inset-0 bg-white/40 dark:bg-gray-900/60 backdrop-blur-[2px] z-0" />
+
+      {/* 🌟 Actual Content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-full">
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
           From{" "}
           <span className="text-gradient font-logo tracking-wide">Q</span> to{" "}
           <span className="text-gradient font-logo tracking-wide">Z</span>
         </h2>
 
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 px-4 sm:px-0">
+        <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto mb-12 px-4 sm:px-0">
           Everything you need for quantum-safe blockchain infrastructure
         </p>
 
@@ -145,24 +179,24 @@ const ValueProposition = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="w-[90%] sm:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto p-6 sm:p-8 rounded-2xl shadow-lg bg-white flex flex-col items-center justify-between relative overflow-hidden"
+          className="w-[90%] sm:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto p-6 sm:p-8 rounded-2xl shadow-lg bg-white/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 flex flex-col items-center justify-between relative overflow-hidden backdrop-blur-md"
         >
           {/* Floating Lines */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 left-0 w-[200%] h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent animate-[floatline_5s_linear_infinite]" />
-            <div className="absolute bottom-0 right-0 w-[200%] h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent animate-[floatline_8s_linear_infinite_reverse]" />
+            <div className="absolute top-0 left-0 w-[200%] h-px bg-gradient-to-r from-transparent via-blue-300 dark:via-blue-400 to-transparent animate-[floatline_5s_linear_infinite]" />
+            <div className="absolute bottom-0 right-0 w-[200%] h-px bg-gradient-to-r from-transparent via-cyan-300 dark:via-cyan-400 to-transparent animate-[floatline_8s_linear_infinite_reverse]" />
           </div>
 
           {/* Content */}
           <div className="flex flex-col items-center text-center z-10">
             <div className="flex items-center justify-center gap-3 mb-3">
               <ActiveIcon className="w-6 h-6 text-primary flex-shrink-0" />
-              <h3 className="font-semibold text-lg sm:text-xl">
+              <h3 className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-white">
                 <span className="text-gradient font-extrabold">{firstLetter}</span>
                 {restOfTitle}
               </h3>
             </div>
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            <p className="text-muted-foreground dark:text-gray-300 text-sm sm:text-base leading-relaxed">
               {letters[activeIndex].description}
             </p>
           </div>

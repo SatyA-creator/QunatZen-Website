@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"; 
 import { Card } from "@/components/ui/card";
+import AnimatedBackground from "@/components/ui/animated-background";
 import { Shield, Lock, Clock, Users } from "lucide-react";
 
 const features = [
@@ -34,20 +35,21 @@ const howItWorksSteps = [
 
 const QuantZenNutshell = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-background to-secondary/10 overflow-x-hidden w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-        {/* Intro */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            QuantZen™ <span className="text-gradient">In A Nutshell</span>
-          </h2>
-          <div className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-muted-foreground px-4 sm:px-0">
+    <AnimatedBackground variant="waves" className="py-24">
+      <section className="overflow-x-hidden w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+          {/* Intro */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white drop-shadow-sm">
+              QuantZen™ <span className="text-gradient">In A Nutshell</span>
+            </h2>
+            <div className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-gray-700 dark:text-gray-200 px-4 sm:px-0">
             {/* <p>
               QuantZen™ leverages a{" "}
               <span className="text-quantum-primary font-semibold">
@@ -55,8 +57,8 @@ const QuantZenNutshell = () => {
               </span>{" "}
               to protect Web3 from quantum threats. Our infrastructure layer sits between blockchain transactions and quantum computers, ensuring your assets remain secure both today and tomorrow.
             </p> */}
-            <p>
-              Think of QuantZen™  as adding a second, future‑proof lock to every transaction. You keep using your wallet and smart contracts exactly as you do now, and we just attach a post‑quantum signature that can’t be forged by tomorrow’s quantum computers (and that also stops a bunch of today’s attacks). 
+            <p className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-white/30 dark:border-gray-700/30">
+              Think of QuantZen™  as adding a second, future‑proof lock to every transaction. You keep using your wallet and smart contracts exactly as you do now, and we just attach a post‑quantum signature that can't be forged by tomorrow's quantum computers (and that also stops a bunch of today's attacks). 
 
             </p>
           </div>
@@ -73,7 +75,7 @@ const QuantZenNutshell = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <Card className="gaming-card p-6 h-full group hover:shadow-xl transition-all duration-300">
+              <Card className="gaming-card bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-white/40 dark:border-gray-700/40 shadow-lg p-6 h-full group hover:shadow-xl transition-all duration-300">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -102,16 +104,16 @@ const QuantZenNutshell = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-quantum-primary/10 to-secondary/10 rounded-2xl p-8 max-w-4xl mx-auto border border-quantum-primary/20">
-           <h3 className="text-2xl font-bold mb-8">How QuantZen™ Works -  Seamless, Secure, Quantum-Ready</h3>
-            <h3 className="text-2xl font-bold mb-8">No consensus changes. No forks. No months of governance debates.</h3>
+          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto border border-white/40 dark:border-gray-700/40 shadow-lg">
+           <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">How QuantZen™ Works -  Seamless, Secure, Quantum-Ready</h3>
+            <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">No consensus changes. No forks. No months of governance debates.</h3>
             <div className="space-y-6 text-left">
               {howItWorksSteps.map((step, idx) => (
                 <div key={idx} className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-quantum-primary/20 text-quantum-primary flex items-center justify-center font-bold">
                     {idx + 1}
                   </div>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
+                  <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed">
                     {step}
                   </p>
                 </div>
@@ -120,7 +122,8 @@ const QuantZenNutshell = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </AnimatedBackground>
   );
 };
 

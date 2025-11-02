@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
+import SectionDivider from "@/components/ui/section-divider";
 import { useNavigate } from "react-router-dom";
 import {
   Shield,
@@ -21,7 +22,7 @@ const WhyUs = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 flex flex-col">
       <Navigation />
 
       <main className="flex-1 pt-16 sm:pt-20">
@@ -33,10 +34,10 @@ const WhyUs = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 leading-snug">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white leading-snug">
                 Why <span className="text-gradient">QuantZen™</span>?
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-slate-700 max-w-3xl mx-auto px-2">
+              <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-gray-300 max-w-3xl mx-auto px-2">
                 The quantum threat is real, but waiting for protocol-level changes isn’t an option.
                 Here’s why QuantZen™ is the quantum protection your users need today:
               </p>
@@ -44,8 +45,10 @@ const WhyUs = () => {
           </div>
         </section>
 
+        <SectionDivider variant="gradient" />
+
         {/* Problem Section */}
-        <section className="py-16 sm:py-20 bg-gradient-to-br from-red-50/80 to-orange-50/80">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-red-50/80 to-orange-50/80 dark:from-red-900/20 dark:to-orange-900/20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -53,27 +56,27 @@ const WhyUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="p-6 sm:p-8 bg-white shadow-xl border border-gray-200">
+              <Card className="p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
                 <div className="flex flex-col sm:flex-row sm:items-center mb-6 gap-4">
                   <AlertTriangle className="w-10 h-10 sm:w-12 sm:h-12 text-yellow-500 mx-auto sm:mx-0" />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center sm:text-left">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center sm:text-left">
                     The Current Challenge
                   </h2>
                 </div>
-                <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed">
+                <div className="space-y-5 text-base sm:text-lg text-slate-700 dark:text-gray-300 leading-relaxed">
                   <p>
                     ETH/SOL are working on PQC but this will take{" "}
-                    <strong className="text-slate-900">years to achieve and cost billions</strong>.
+                    <strong className="text-slate-900 dark:text-white">years to achieve and cost billions</strong>.
                     Apart from that, migration requires new key distribution, validator updates,
                     smart contract re-engineering, and breaks backward compatibility.
                   </p>
                   <p>
                     Even if they do the changes after 5 years  what if new Quantum algorithms
                     emerge by NIST? That would mean another{" "}
-                    <strong className="text-slate-900">$100M+ engineering effort + years of coordination</strong>.
+                    <strong className="text-slate-900 dark:text-white">$100M+ engineering effort + years of coordination</strong>.
                   </p>
-                  <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 p-4 sm:p-6 rounded-lg border border-red-500/20">
-                    <p className="text-red-500 font-semibold text-center sm:text-left">
+                  <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 dark:from-red-500/20 dark:to-orange-500/20 p-4 sm:p-6 rounded-lg border border-red-500/20 dark:border-red-500/30">
+                    <p className="text-red-500 dark:text-red-400 font-semibold text-center sm:text-left">
                       Meanwhile, community assets remain exposed. Security won’t appear overnight  someone
                       must protect users during this transition.
                     </p>
@@ -83,6 +86,8 @@ const WhyUs = () => {
             </motion.div>
           </div>
         </section>
+
+        <SectionDivider variant="dots" />
 
         {/* Solution Section */}
         <section className="py-16 sm:py-20">
@@ -94,10 +99,10 @@ const WhyUs = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-12 sm:mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-slate-900">
-                That’s Why <span className="text-gradient">Zenith Studio</span> Built QuantZen™
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white">
+                That's Why <span className="text-gradient">Zenith Studio</span> Built QuantZen™
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-slate-700 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-gray-300 max-w-3xl mx-auto">
                 QuantZen™ doesn’t compete with ETH and SOL,it complements them.
               </p>
             </motion.div>
@@ -126,13 +131,13 @@ const WhyUs = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.2 }}
                 >
-                  <Card className="p-6 sm:p-8 bg-white shadow-xl border border-gray-200 h-full">
+                  <Card className="p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700 h-full">
                     <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 mb-4 sm:mb-6" />
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-slate-900">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-slate-900 dark:text-white">
                       {title}
                     </h3>
-                    <p className="text-slate-700 mb-3 sm:mb-4 text-sm sm:text-base">{desc1}</p>
-                    <p className="text-slate-700  text-sm sm:text-base">{desc2}</p>
+                    <p className="text-slate-700 dark:text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">{desc1}</p>
+                    <p className="text-slate-700 dark:text-gray-300  text-sm sm:text-base">{desc2}</p>
                   </Card>
                 </motion.div>
               ))}
@@ -144,7 +149,7 @@ const WhyUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="p-6 sm:p-8 text-center bg-white shadow-xl border border-gray-200">
+              <Card className="p-6 sm:p-8 text-center bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
                 <Globe className="w-14 h-14 sm:w-16 sm:h-16 text-blue-600 mx-auto mb-4 sm:mb-6" />
                 <h3 className="text-xl sm:text-2xl font-bold text-gradient">
                   we are the first to provide this solution.
@@ -154,8 +159,10 @@ const WhyUs = () => {
           </div>
         </section>
 
+        <SectionDivider variant="wave" />
+
         {/* Collaboration Section */}
-        <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/80">
+        <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/80 dark:from-blue-900/20 dark:to-purple-900/20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -164,8 +171,8 @@ const WhyUs = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-12 sm:mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-slate-900">
-                Let’s Turn This Into{" "}
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white">
+                Let's Turn This Into{" "}
                 <span className="text-gradient">Collaboration</span> Rather Than Competing
               </h2>
             </motion.div>
@@ -198,12 +205,12 @@ const WhyUs = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.2 }}
                 >
-                  <Card className="p-6 sm:p-8 bg-white shadow-xl border border-gray-200 h-full">
+                  <Card className="p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700 h-full">
                     <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 mb-4 sm:mb-6" />
-                    <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-slate-900">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-slate-900 dark:text-white">
                       {title}
                     </h3>
-                    <ul className="space-y-3 text-sm sm:text-base text-slate-700">
+                    <ul className="space-y-3 text-sm sm:text-base text-slate-700 dark:text-gray-300">
                       {items.map((item, j) => (
                         <li key={j} className="flex items-start">
                           <CheckCircle className={`w-5 h-5 ${color} mr-2 mt-1 flex-shrink-0`} />
@@ -222,13 +229,13 @@ const WhyUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="p-6 sm:p-8 text-center bg-white shadow-xl border border-gray-200">
+              <Card className="p-6 sm:p-8 text-center bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
                 <Users className="w-14 h-14 sm:w-16 sm:h-16 text-blue-600 mx-auto mb-4 sm:mb-6" />
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-slate-900">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white">
                   Together, We Can{" "}
                   <span className="text-gradient">Secure Your Users Now</span>
                 </h3>
-                <p className="text-base sm:text-lg md:text-xl text-slate-700">
+                <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-gray-300">
                   While you prepare the chain-level upgrades for the future  together, we make
                   every public address on Earth quantum-proof by default.
                 </p>
@@ -236,6 +243,8 @@ const WhyUs = () => {
             </motion.div>
           </div>
         </section>
+
+        <SectionDivider variant="line" />
 
         {/* CTA Section */}
         <section className="py-16 sm:py-24">
@@ -247,20 +256,20 @@ const WhyUs = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <Card className="p-6 sm:p-10 md:p-12 bg-white shadow-xl border border-gray-200 rounded-2xl">
+              <Card className="p-6 sm:p-10 md:p-12 bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700 rounded-2xl">
                 <Target className="w-14 h-14 sm:w-20 sm:h-20 text-blue-600 mx-auto mb-6 sm:mb-8" />
-                <h2 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-slate-900">
+                <h2 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-slate-900 dark:text-white">
                   One Last <span className="text-gradient">Question</span>?
                 </h2>
-                <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-4 sm:p-8 rounded-lg mb-6 sm:mb-8 border border-blue-200">
-                  <p className="text-lg sm:text-1xl font-bold text-blue-800">
+                <div className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/40 dark:to-purple-900/40 p-4 sm:p-8 rounded-lg mb-6 sm:mb-8 border border-blue-200 dark:border-blue-700">
+                  <p className="text-lg sm:text-1xl font-bold text-blue-800 dark:text-blue-300">
                     “Do you want to wait 5+ years for quantum safety, or do you want protection
                     starting this quarter 2025?”
                   </p>
                 </div>
-                <p className="text-base sm:text-lg text-slate-700 mb-6 sm:mb-8">
-                  We’re not waiting for Ethereum 3.0. {" "}
-                  <strong className="text-slate-900">We’re securing Web3 today.</strong>
+                <p className="text-base sm:text-lg text-slate-700 dark:text-gray-300 mb-6 sm:mb-8">
+                  We're not waiting for Ethereum 3.0. {" "}
+                  <strong className="text-slate-900 dark:text-white">We're securing Web3 today.</strong>
                 </p>
 
                 {/* ✅ Updated Button Section */}
