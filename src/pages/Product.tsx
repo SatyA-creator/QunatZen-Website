@@ -4,7 +4,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
-import SectionDivider from "@/components/ui/section-divider";
 import { 
   Layers,
   Database,
@@ -164,8 +163,6 @@ const handleDownload = () => {
   ))}
 </section>
 
-      <SectionDivider variant="gradient" />
-
       {/* FRAME 1: What Is QuantZen */}
       <section className="py-20 bg-card/30">
         <div className="container mx-auto px-4 sm:px-6">
@@ -212,8 +209,6 @@ const handleDownload = () => {
           </motion.div>
         </div>
       </section>
-
-      <SectionDivider variant="dots" />
 
       {/* FRAME 2: Developer Experience */}
       <section className="py-20">
@@ -321,8 +316,6 @@ const handleDownload = () => {
           </motion.div>
         </div>
       </section> */}
-
-      <SectionDivider variant="wave" />
 
       {/* FRAME 4: Security Wins Beyond Quantum */}
       <section className="py-20">

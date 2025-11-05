@@ -3,7 +3,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/marketing/Navigation";
 import Footer from "@/components/marketing/Footer";
-import SectionDivider from "@/components/ui/section-divider";
 import { useNavigate } from "react-router-dom";
 import {
   Shield,
@@ -45,8 +44,6 @@ const WhyUs = () => {
           </div>
         </section>
 
-        <SectionDivider variant="gradient" />
-
         {/* Problem Section */}
         <section className="py-16 sm:py-20 bg-gradient-to-br from-red-50/80 to-orange-50/80 dark:from-red-900/20 dark:to-orange-900/20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
@@ -86,8 +83,6 @@ const WhyUs = () => {
             </motion.div>
           </div>
         </section>
-
-        <SectionDivider variant="dots" />
 
         {/* Solution Section */}
         <section className="py-16 sm:py-20">
@@ -158,8 +153,6 @@ const WhyUs = () => {
             </motion.div>
           </div>
         </section>
-
-        <SectionDivider variant="wave" />
 
         {/* Collaboration Section */}
         <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50/80 to-purple-50/80 dark:from-blue-900/20 dark:to-purple-900/20">
@@ -243,8 +236,6 @@ const WhyUs = () => {
             </motion.div>
           </div>
         </section>
-
-        <SectionDivider variant="line" />
 
         {/* CTA Section */}
         <section className="py-16 sm:py-24">

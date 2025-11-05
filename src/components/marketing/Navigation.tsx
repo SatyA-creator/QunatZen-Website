@@ -1,15 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight, Moon, Sun } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-
-  // Dark mode theme toggle functionality
-  // Theme preference is stored in localStorage as 'quantzen-theme' with values: 'dark' | 'light'
-  // Falls back to system preference if no stored value exists
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -42,51 +37,9 @@ const Navigation = () => {
     }
   ];
 
-  // Initialize theme from localStorage or system preference
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem('quantzen-theme');
-      if (stored === 'dark') {
-        document.documentElement.classList.add('dark');
-        setIsDark(true);
-      } else if (stored === 'light') {
-        document.documentElement.classList.remove('dark');
-        setIsDark(false);
-      } else {
-        // fallback to system preference
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDark) {
-          document.documentElement.classList.add('dark');
-          setIsDark(true);
-        } else {
-          document.documentElement.classList.remove('dark');
-          setIsDark(false);
-        }
-      }
-    } catch (e) {
-      // ignore storage errors
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    try {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('quantzen-theme', 'light');
-        setIsDark(false);
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('quantzen-theme', 'dark');
-        setIsDark(true);
-      }
-    } catch (e) {
-      // ignore
-    }
-  };
-
   return (
     <>
-      <div className="w-full border-b border-quantum-primary/30 dark:border-quantum-primary/20 backdrop-blur-md bg-white/80 dark:bg-black/80">
+      <div className="w-full border-b border-quantum-primary/30 backdrop-blur-md bg-white/90">
         <nav className="flex items-center justify-between px-6 sm:px-10 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 z-10">
@@ -116,7 +69,7 @@ const Navigation = () => {
                   >
                     <Link
                       to={link.href}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-gray-900 dark:text-white bg-white/60 dark:bg-white/10 shadow-sm border border-quantum-primary/40 dark:border-quantum-primary/30 backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:border-quantum-primary dark:hover:bg-white/20"
+                      className="flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-gray-900 bg-white/60 shadow-sm border border-quantum-primary/40 backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:border-quantum-primary"
                     >
                       <span className="text-sm sm:text-base">{link.name}</span>
                       <ArrowUpRight className="w-4 h-4 opacity-90 text-quantum-primary" />
@@ -138,7 +91,7 @@ const Navigation = () => {
                     transition={{ delay: (navLinks.length + index) * 0.05 }}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-2 rounded-lg text-quantum-primary hover:text-quantum-secondary transition-all duration-300 hover:bg-quantum-primary/10 border border-quantum-primary/30 hover:border-quantum-primary/60 bg-white/40 dark:bg-white/5"
+                    className="p-2 rounded-lg text-quantum-primary hover:text-quantum-secondary transition-all duration-300 hover:bg-quantum-primary/10 border border-quantum-primary/30 hover:border-quantum-primary/60 bg-white/40"
                   >
                     {social.icon}
                   </motion.a>
@@ -146,26 +99,13 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Theme toggle and Mobile Menu (always on right) */}
+            {/* Mobile Menu (always on right) */}
             <div className="flex items-center gap-2 ml-2">
-              <button
-                onClick={toggleTheme}
-                title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-                aria-label="Toggle color theme"
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-smooth focus:outline-none focus:ring-2 focus:ring-quantum-primary bg-white/60 dark:bg-white/10 border border-gray-200 dark:border-gray-600"
-              >
-                {isDark ? (
-                  <Sun className="w-5 h-5 text-yellow-400" />
-                ) : (
-                  <Moon className="w-5 h-5 text-gray-700" />
-                )}
-              </button>
-
               {/* Mobile Menu Button */}
               <div className="md:hidden flex items-center">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-smooth text-gray-700 dark:text-white bg-white/60 dark:bg-white/10 border border-gray-200 dark:border-gray-600"
+                  className="p-2 rounded-lg hover:bg-gray-100 transition-smooth text-gray-700 bg-white/60 border border-gray-200"
                 >
                   {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
@@ -181,7 +121,7 @@ const Navigation = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-border bg-white dark:bg-gray-900"
+              className="md:hidden border-t border-border bg-white"
             >
               <div className="px-4 py-4 space-y-3 flex flex-col">
                 {/* Navigation Links */}
@@ -190,7 +130,7 @@ const Navigation = () => {
                     key={link.name}
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between px-4 py-2 rounded-lg font-medium text-gray-900 dark:text-white bg-white dark:bg-gray-800 border border-quantum-primary/50 dark:border-quantum-primary/30 transition-all duration-300 hover:shadow-[0_0_12px_rgba(80,200,255,0.6)] hover:bg-gray-50 dark:hover:bg-gray-700"
+                    className="flex items-center justify-between px-4 py-2 rounded-lg font-medium text-gray-900 bg-white border border-quantum-primary/50 transition-all duration-300 hover:shadow-[0_0_12px_rgba(80,200,255,0.6)] hover:bg-gray-50"
                   >
                     {link.name}
                     <ArrowUpRight className="w-4 h-4 opacity-90 text-quantum-primary" />
@@ -198,14 +138,14 @@ const Navigation = () => {
                 ))}
                 
                 {/* Social Icons */}
-                <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-quantum-primary/30 dark:border-quantum-primary/20">
+                <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-quantum-primary/30">
                   {socialLinks.map((social) => (
                     <a
                       key={social.name}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-lg text-quantum-primary hover:text-quantum-secondary transition-all duration-300 hover:bg-quantum-primary/10 border border-quantum-primary/30 hover:border-quantum-primary/60 bg-white dark:bg-gray-800"
+                      className="p-3 rounded-lg text-quantum-primary hover:text-quantum-secondary transition-all duration-300 hover:bg-quantum-primary/10 border border-quantum-primary/30 hover:border-quantum-primary/60 bg-white"
                     >
                       {social.icon}
                     </a>

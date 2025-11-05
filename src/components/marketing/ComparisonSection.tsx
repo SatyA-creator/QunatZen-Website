@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import AnimatedBackground from "@/components/ui/animated-background";
 import { CheckCircle, XCircle, ArrowRight } from "lucide-react";
 
 const advantages = [
@@ -14,9 +13,8 @@ const advantages = [
 
 const ComparisonSection = () => {
   return (
-    <AnimatedBackground variant="grid" className="py-20">
-      <section className="w-full overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 w-full overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -126,8 +124,7 @@ const ComparisonSection = () => {
         </motion.div>
       </div>
       </section>
-    </AnimatedBackground>
-  );
-};
+    );
+  };
 
-export default ComparisonSection;
+  export default ComparisonSection;

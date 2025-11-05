@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import AnimatedBackground from "@/components/ui/animated-background";
 import { Award, CheckCircle, Mail, FileText, Shield, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { sendSubscriptionEmail } from "@/lib/emailService";
@@ -93,9 +92,8 @@ const StandardsSection = () => {
   };
 
   return (
-    <AnimatedBackground variant="gradient" className="py-24">
-      <section className="overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+    <section className="py-24 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -103,10 +101,10 @@ const StandardsSection = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
               <span className="text-gradient">Proof &</span> Standards
             </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Uses NIST-standardized post-quantum algorithms (e.g., CRYSTALS-Dilithium, Kyber for KEM).
 
           </p>
@@ -270,8 +268,7 @@ Stay informed  subscribe to get the latest in your inbox.
         </motion.div>
       </div>
       </section>
-    </AnimatedBackground>
-  );
-};
+    );
+  };
 
-export default StandardsSection;
+  export default StandardsSection;

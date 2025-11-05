@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import AnimatedBackground from "@/components/ui/animated-background";
 import {
   Code2,
   Gauge,
@@ -56,9 +55,8 @@ const features = [
 
 const Features = () => {
   return (
-    <AnimatedBackground variant="tech" className="relative py-24 bg-gradient-to-b from-background via-muted/30 to-background">
-      <section className="overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-gradient-to-b from-background via-muted/30 to-background overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Title Section */}
           <motion.div
@@ -68,7 +66,7 @@ const Features = () => {
             transition={{ duration: 0.7 }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
               The <span className="text-gradient">Situation</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -88,7 +86,7 @@ const Features = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                 >
-                  <Card className="relative bg-card/60 dark:bg-black/40 backdrop-blur-lg border border-border hover:border-primary/40 rounded-2xl p-8 transition-all duration-500 group overflow-hidden shadow-md hover:shadow-primary/20">
+                  <Card className="relative bg-card/60 backdrop-blur-lg border border-border hover:border-primary/40 rounded-2xl p-8 transition-all duration-500 group overflow-hidden shadow-md hover:shadow-primary/20">
                     
                     {/* Subtle Glow on Hover */}
                     <motion.div
@@ -130,8 +128,7 @@ const Features = () => {
           </div>
         </div>
       </section>
-    </AnimatedBackground>
-  );
-};
+    );
+  };
 
-export default Features;
+  export default Features;

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import AnimatedBackground from "@/components/ui/animated-background";
 import { Wallet, Smartphone, GitBranch, Network } from "lucide-react";
 
 const audiences = [
@@ -64,9 +63,8 @@ const audiences = [
 
 const AudienceCards = () => {
   return (
-    <AnimatedBackground variant="particles" className="py-24">
-      <section className="overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
+    <section className="py-24 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -198,8 +196,7 @@ const AudienceCards = () => {
         </motion.div>
       </div>
       </section>
-    </AnimatedBackground>
-  );
-};
+    );
+  };
 
-export default AudienceCards;
+  export default AudienceCards;
