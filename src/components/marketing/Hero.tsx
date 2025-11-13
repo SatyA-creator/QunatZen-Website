@@ -97,7 +97,7 @@ const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-80"
       >
-        <source src="/bg4.mp4" type="video/mp4" />
+        <source src="/bg8.mp4" type="video/mp4" />
       </video>
 
       {/* Subtle Overlay for Readability */}

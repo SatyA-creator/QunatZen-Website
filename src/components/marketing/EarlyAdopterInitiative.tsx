@@ -13,20 +13,28 @@ const EarlyAdopterInitiative = () => {
   const benefits = [
     {
       icon: Shield,
-      title: "Priority integration with the QuantZen Dual-Signature SDK",
+      title: "Priority integration of QuantZen’s post-quantum SDK with direct engineering support.",
+    },
+    {
+      icon: Shield,
+      title: "Lifetime access to hybrid-signing and Dilithium upgrades at no additional cost.",
     },
     {
       icon: Users,
-      title: "Hands-on technical onboarding with our engineering team",
+      title: "Early access to new modules, audits, and security features before public release.",
     },
     {
       icon: Star,
-      title: "Early-user badge and media spotlight",
+      title: "Co-branding as an official “Quantum-Safe Pioneer” across QuantZen channels.",
     },
     
     {
       icon: Zap,
-      title: "Access to QuantZen Verifier API beta",
+      title: "Dedicated migration planning to future-proof wallets, validators, and infrastructure.",
+    },
+    {
+      icon: Shield,
+      title: "Guaranteed seat in roadmap advisory calls influencing core PQ security standards.",
     },
     
     
@@ -73,7 +81,7 @@ const EarlyAdopterInitiative = () => {
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-            QuantZen
+            QuantZen™  
           </span>{" "}
           Early Adopter Initiative
         </motion.h2>
@@ -90,7 +98,7 @@ const EarlyAdopterInitiative = () => {
         <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
           QuantZen™ is inviting 25 pioneering projects  wallets, custodians,
           bridges, dApps, and protocols  to join our Early Adopter Program.
-          These participants will gain exclusive early access to the QuantZen
+          These participants will gain exclusive early access to the QuantZen™  
           SDK, integration support, co-branding as Quantum-Safe Verified, and
           visibility in our upcoming showcase of quantum-resilient Web3
           infrastructure.
