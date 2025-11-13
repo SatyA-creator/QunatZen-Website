@@ -34,19 +34,7 @@ const EarlyAdopterInitiative = () => {
     },
     {
       icon: Shield,
-      title: "Guaranteed seat in roadmap advisory calls influencing core PQ security standards.",
-    },
-    
-    
-    {
-      icon: Trophy,
-      title: (
-        <>
-          Co-marketing and inclusion in the{" "}
-    
-          "First 25 Quantum-Safe Builders" announcement
-        </>
-      ),
+      title: "Guaranteed seat in roadmap advisory calls influencing core PQ security standards.",
     },
   ];
 
