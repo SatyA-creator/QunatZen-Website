@@ -39,7 +39,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="w-full border-b border-quantum-primary/30 backdrop-blur-md bg-white/90">
+      <div className="fixed top-0 left-0 right-0 w-full border-b border-quantum-primary/30 backdrop-blur-md bg-white/90 z-50">
         <nav className="flex items-center justify-between px-6 sm:px-10 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 z-10">
