@@ -13,8 +13,16 @@ const advantages = [
 
 const ComparisonSection = () => {
   return (
-    <section className="py-20 w-full overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 w-full overflow-hidden">
+      {/* Custom Color Background Overlay */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "rgba(57, 96, 134, 0.08)",
+        }}
+      />
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">,
           {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

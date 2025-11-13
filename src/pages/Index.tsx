@@ -1,6 +1,7 @@
 import Navigation from "@/components/marketing/Navigation";
 import Hero from "@/components/marketing/Hero";
 import ValueProposition from "@/components/marketing/ValueProposition";
+import EarlyAdopterInitiative from "@/components/marketing/EarlyAdopterInitiative";
 import Features from "@/components/marketing/Features";
 // import QuantumSafeSDK from "@/components/marketing/QuantumSafeSDK";
 import QuantZenNutshell from "@/components/marketing/QuantZenNutshell";
@@ -18,6 +19,8 @@ const Index = () => {
       
       {/* <QuantumSafeSDK /> */}
       <ValueProposition />
+      
+      <EarlyAdopterInitiative />
       
       <Features />
       

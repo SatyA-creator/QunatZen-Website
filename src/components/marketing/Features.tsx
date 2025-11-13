@@ -56,7 +56,15 @@ const features = [
 const Features = () => {
   return (
     <section className="relative py-24 bg-gradient-to-b from-background via-muted/30 to-background overflow-x-hidden w-full">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Custom Color Background Overlay */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "rgba(57, 96, 134, 0.08)",
+        }}
+      />
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">,
           
           {/* Title Section */}
           <motion.div

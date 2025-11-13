@@ -81,6 +81,14 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+      {/* Custom Color Background Overlay */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "rgba(57, 96, 134, 0.12)",
+        }}
+      />
+
       {/* Background Video */}
       <video
         autoPlay
@@ -265,16 +273,6 @@ const Hero = () => {
                     ))}
                   </motion.div>
 
-                  {/* Subtitle */}
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="text-xl lg:text-2xl xl:text-3xl text-blue-300/90 mb-8 font-semibold"
-                  >
-                    {tab.subtitle}
-                  </motion.p>
-
                   {/* Content */}
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -301,6 +299,20 @@ const Hero = () => {
                       >
                         <span className="relative z-10">Book a 30-min Migration Consult</span>
                         <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+                      </Button>
+                    </motion.div>
+
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button 
+                        variant="hero" 
+                        size="default"
+                        className="group relative overflow-hidden cursor-pointer w-full sm:w-auto min-w-[250px] bg-gradient-to-r from-purple-600/20 to-blue-600/20 border-purple-400/30 hover:border-purple-400/50"
+                        onClick={() => window.open('https://forms.gle/ve1DFKqcjZ4bUHLk6', '_blank')}
+                      >
+                        <span className="relative z-10 flex items-center gap-2">
+                          <span className="text-xl">🟣</span>
+                          Join Early Adopter Program
+                        </span>
                       </Button>
                     </motion.div>
 

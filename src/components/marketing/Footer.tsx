@@ -154,7 +154,15 @@ const Footer = () => {
       </section>
 
       <footer className="relative bg-card border-t border-quantum-primary/20 overflow-hidden w-full">
-      <div className="absolute inset-0 bg-gradient-quantum opacity-5" />
+        {/* Custom Color Background Overlay */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background: "rgba(57, 96, 134, 0.08)",
+          }}
+        />
+        
+        <div className="absolute inset-0 bg-gradient-quantum opacity-5" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 max-w-full">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Logo and Description */}
@@ -167,7 +175,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              QuantZen™ - Quantum-safe, chain agnostic SDK securing Web3 applications without Hard Forks.
+              QuantZen - Quantum-safe, chain agnostic SDK securing Web3 applications without Hard Forks.
             </p>
             {/* <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">

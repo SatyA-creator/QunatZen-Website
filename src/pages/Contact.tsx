@@ -501,7 +501,10 @@ const Contact = () => {
         <div className="h-16"></div>
 
         {/* Hero Section */}
-        <section className="py-24 w-full">
+        <section 
+          className="py-24 w-full"
+          style={{ backgroundColor: "#ffffff" }}
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

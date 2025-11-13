@@ -105,6 +105,14 @@ const ValueProposition = () => {
 
   return (
     <section className="relative py-24 overflow-x-hidden w-full">
+      {/* Custom Color Background Overlay */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "rgba(57, 96, 134, 0.08)",
+        }}
+      />
+
       {/* 🌈 Animated Aurora Gradient Background */}
       <motion.div
         className="absolute inset-0 z-0"
